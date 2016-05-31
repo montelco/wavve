@@ -42,8 +42,6 @@
          
          function initialize() {
          	//set the latitude and longitude variables from the location structure we received
-         	//var latitude = <?php echo $t_location->getLatitude();?>;
-         	//var longitude = <?php echo $t_location->getLongitude();?>;
          	var latitude = 39.696041;
          	var longitude = -75.151347;
              var pyrmont = new google.maps.LatLng(latitude , longitude);

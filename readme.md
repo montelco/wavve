@@ -1,27 +1,21 @@
-# Laravel PHP Framework
+# Wavve: An ATMT Application in Laravel
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+The Wavve application is still in testing and some code may not be structured by best practice simply out of convenience. Please excuse the mess while it's being cleaned up.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Wavve is an online application meant for businesses to create and manage their virtual coupons (passes) that get distributed via Bluetooth beacons broadcasting a web URL. The Wavve console allows the business to create a beautiful looking pass on any device and when they are ready they can publish it to their beacons from anywhere in the world. Wavve works on a standard stack of MySQL for relational pass data, Laravel PHP for a simple, readable, and highly extensible language, and Vue.JS for SPA-ifying much of the application.
+
+
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Documentation for the the project including style guides are available through the company Intranet.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Cory Monteleone at corymont@atmtllc.com.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Wavve application and all of its proprietary technologies are property of ATMT LLC and may not be used or otherwise altered by anyone unless explicitly given permission.

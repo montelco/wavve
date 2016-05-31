@@ -42,8 +42,10 @@
          
          function initialize() {
          	//set the latitude and longitude variables from the location structure we received
-         	var latitude = <?php echo $t_location->getLatitude();?>;
-         	var longitude = <?php echo $t_location->getLongitude();?>;
+         	//var latitude = <?php echo $t_location->getLatitude();?>;
+         	//var longitude = <?php echo $t_location->getLongitude();?>;
+         	var latitude = 39.696041;
+         	var longitude = -75.151347;
              var pyrmont = new google.maps.LatLng(latitude , longitude);
          	//set the map variables
            map2 = new google.maps.Map(document.getElementById('map-canvas2'), {
@@ -209,6 +211,6 @@
          
              
       </script>
-	
+
 	<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12280.739879591261!2d-75.14870065!3d39.6905449!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1462991307145" width="100%" height="730px" frameborder="0" style="border:0" allowfullscreen></iframe>
 @endsection

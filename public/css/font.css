@@ -1,0 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:700italic);
+
+.navbar-brand{
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 1.45em !important;
+    font-weight: 700 !important;
+}

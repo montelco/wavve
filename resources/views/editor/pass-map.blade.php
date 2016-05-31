@@ -14,7 +14,8 @@
 		}
 	</style>
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3HYENbGDpPAJcVRRkJSkc9BYhf8HVVGI&callback=initMap"
+  type="text/javascript"></script>
 
 <script>
          var map;

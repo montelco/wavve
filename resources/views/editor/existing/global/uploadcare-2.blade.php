@@ -28,8 +28,11 @@
                     'design_number' : '1',
                 }
             }).success(function() {
-                $('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Updated ' + this.passTitle + ' in your pass collection.');
-                $('#result').addClass('alert alert-success');
+                $('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Updated ' + this.passTitle + '. Redirecting...');
+                $('#result').addClass('alert alert-success overlayed');
+                window.setTimeout(function() {
+                	window.location.href="/passes/manage";
+                }, 2000);
             }.bind(this));
         }
       }

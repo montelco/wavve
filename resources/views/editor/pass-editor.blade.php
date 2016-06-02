@@ -42,26 +42,26 @@
         }
     </style>
 	<div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-2">
             <a href="{{ URL::to('/passes/editor/1') }}">
                 <button type="button" class="btn btn-default btn-lg pass-theme-select">
-                    Member Pass
+                    Full Page Background Pass
                 </button>
             </a>
         </div>
         <div class="col-md-4">
             <a href="{{ URL::to('/passes/editor/2') }}">
                 <button type="button" class="btn btn-default btn-lg pass-theme-select">
-                    Special Deal Pass
+                    Center Strip Image Pass
                 </button>
             </a>
         </div>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <a href="{{ URL::to('/passes/editor/3') }}">
                 <button type="button" class="btn btn-default btn-lg pass-theme-select">
                     Custom Pass
                 </button>
             </a>
-        </div>
+        </div> -->
     </div>
 @endsection

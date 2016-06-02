@@ -1,3 +1,7 @@
+.overlayed{
+  z-index: 1000;
+}
+
 #passPreviewer{
 	margin-left: auto;
 	margin-right: auto;
@@ -22,6 +26,17 @@
 .time-picker-override, .ui_tpicker_time_input{
   text-shadow: none !important;
   color: black !important;
+}
+.time-picker-override{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+}
+
+.btn-group{
+  margin-top: 2em;
+  margin-bottom: 4em;
+  display: table !important;
 }
 
 @media(max-width: 767px){
@@ -128,7 +143,7 @@ textarea:focus::-webkit-input-placeholder, textarea:valid::-webkit-input-placeho
   visibility: visible !important;
 }
 
-input[type=submit], .uploadcare-widget-button-open{
+input[type=submit], .uploadcare-widget-button-open, label.btn{
   border: none;
   background: #2c3742;
   cursor: pointer;
@@ -141,6 +156,15 @@ input[type=submit], .uploadcare-widget-button-open{
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
+label.btn{
+  width: auto !important;
+}
+
+.theme-picker{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .uploadcare-widget-button-open{
   margin-top: 10px;
   margin-bottom: 10px;
@@ -151,10 +175,18 @@ input[type=submit], .uploadcare-widget-button-open{
   border-color: #503C59;
 }
 
-input[type=submit]:hover, .uploadcare-widget-button-open:hover {
+input[type=submit]:hover, .uploadcare-widget-button-open:hover, label.btn:hover {
   -webkit-transform: translateY(-3px);
           transform: translateY(-3px);
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+  background: #222A33 !important;
+}
+
+.theme-picker label.btn:hover{
+  color: #d0d0d0;
+}
+
+.theme-picker label.active{
   background: #222A33 !important;
 }
 

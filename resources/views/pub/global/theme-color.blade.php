@@ -21,7 +21,7 @@
 		@elseif($pass->theme == 2)
 			#2B2E4A
 		@elseif($pass->theme == 3)
-			#6A74D0
+			#539E8B
 		@else
 			#1a2128
 		@endif
@@ -37,7 +37,7 @@
 		@elseif($pass->theme == 2)
 			#e84545
 		@elseif($pass->theme == 3)
-			#6674b6
+			#ede4ca
 		@else
 			#fff
 		@endif
@@ -53,7 +53,7 @@
 		@elseif($pass->theme == 2)
 			#903749
 		@elseif($pass->theme == 3)
-			#539E8B
+			#6674b6
 		@else
 			#528089
 		@endif

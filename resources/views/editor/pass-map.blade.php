@@ -18,8 +18,6 @@
       }
 	</style>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3HYENbGDpPAJcVRRkJSkc9BYhf8HVVGI&callback=initMap"
-  type="text/javascript"></script>
 <title>Store locator with customisations</title>
     <script
       src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>

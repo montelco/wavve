@@ -22,14 +22,16 @@
 			</form>
 			<div class="back">
 				<input type="text" id="from" name="from" placeholder="Publish Time" class="time-picker-override" v-model="passPublishTime">
-				<div class="radio">
-					<label><input type="radio" value="1" name="theme" v-model="passTheme" checked>Admiral</label>
-				</div>
-				<div class="radio">
-				<label><input type="radio" value="2" name="theme" v-model="passTheme">Bell Buoy</label>
-				</div>
-				<div class="radio">
-				<label><input type="radio" value="3" name="theme" v-model="passTheme">Bowline</label>
+				<div class="btn-group theme-picker" data-toggle="buttons" align="center">
+					<label class="btn active">
+						<input type="radio" value="1" name="theme" v-model="passTheme" checked>Admiral
+					</label>
+					<label class="btn">
+						<input type="radio" value="2" name="theme" v-model="passTheme">Bell Buoy
+					</label>
+					<label class="btn">
+						<input type="radio" value="3" name="theme" v-model="passTheme">Bowline
+					</label>
 				</div>
 				<input type="submit" class="edit-submit" value="Save Changes">
 			</div>

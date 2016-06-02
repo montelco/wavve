@@ -3,7 +3,6 @@
 @section('dashContent')
 	<div class="row" id="passEditor">
         <div class="centred block panel" id="passPreviewer">
-            <a class="action" id="goToSettingsPanel"><i class="fa fa-btn fa-cog"></i></a>
             <form class="front" id="bgImg" action="#" v-on:submit="createPass">
                 <style>
                     #bgImg{
@@ -24,7 +23,7 @@
                 <input value="{{$targetPass->barcode_value}}" class="clearable pd" rows="1" placeholder="Barcode Value*" maxlength="32" required v-model="passBarcode"></input>
                 <input @if(isset($targetPass->cashier_helper)) value="{{$targetPass->cashier_helper}}" @endif class="clearable pd" rows="1" placeholder="Cashier Helper Text (Opt.)" maxlength="60" v-model="passCashierHelper"></input>
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                <input type="submit" value="Update" class="form-control submit-button">
+                <input type="submit" value="Save Changes" class="form-control submit-button">
                 <script>
                     new Vue({
                       el: '#passEditor',
@@ -55,14 +54,11 @@
                                     'design_number' : '1',
                                 }
                             }).success(function() {
-                                $('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Updated ' + this.passTitle + ' in your pass collection.');
+                                $('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Updated ' + this.passTitle + '. Redirecting...');
                                 $('#result').addClass('alert alert-success');
-                                this.passBarcode = '';
-                                this.passPrimary = '';
-                                this.passTitle = '';
-                                this.passCashierHelper = '';
-                                this.passSecondary = '';
-                                this.passExpiry = '';
+                                window.setTimeout(function() {
+                                  window.location.href="/passes/manage";
+                                }, 2000);
                             }.bind(this));
                         }
                       }
@@ -97,7 +93,7 @@
               });
               </script>
                 <input type="text" id="from" name="from" placeholder="Publish Time" class="time-picker-override" v-model="passPublishTime">
-                <input type="submit" class="edit-submit" value="Save Changes">
+                <input type="submit" class="edit-submit" value="Save Preferences">
             </div>
         </div>
     </div>

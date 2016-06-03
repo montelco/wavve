@@ -14,7 +14,7 @@ class CreatePassEditor extends Migration
     {
         Schema::create('passes', function(Blueprint $table){
             $table->bigIncrements('id');
-            $table->integer('owner_user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('header_foreground_image', 254)->nullable();
             $table->string('header_background_image', 254)->nullable();
             $table->string('title', 64);

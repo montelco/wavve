@@ -12,9 +12,9 @@ class FixPassesPublishingDefault1 extends Migration
      */
     public function up()
     {
-        Schema::table('passes', function($table){
-            $table->enum('published', ['0', '1'])->default('0');
-        });
+        //Schema::table('passes', function($table){
+        //    $table->enum('published', ['0', '1'])->default('0');
+        //});
     }
 
     /**

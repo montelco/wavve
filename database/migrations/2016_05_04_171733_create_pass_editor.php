@@ -27,7 +27,7 @@ class CreatePassEditor extends Migration
             $table->string('cashier_helper', 64)->nullable();
             $table->timestamps();
 
-            $table->foreign('owner_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

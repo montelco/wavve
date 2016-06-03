@@ -4,7 +4,6 @@
 	UPLOADCARE_PUBLIC_KEY = "351ed2274c2d55ccfe18";
 	UPLOADCARE_TABS = 'file url facebook instagram';
 </script>
-<script src="https://ucarecdn.com/widget/2.8.2/uploadcare/uploadcare.full.min.js" charset="utf-8"></script>
 <script>
 	var widget = uploadcare.Widget('[role=uploadcare-uploader]');
 	widget.onUploadComplete(function(info) {

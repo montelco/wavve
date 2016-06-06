@@ -14,6 +14,7 @@ class Pass extends Model
     	'FriendlyTime'
     ];
 
+
     public function user(){
     	return $this->belongsTo('Wavvve\User', 'user_id');
     }

@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:700,400);
+
+html, body{
+	height: 100%;
+	min-height: 100%;
+}
+
+header{
+    position: relative;
+    height: 600px;
+    background: url(https://ucarecdn.com/531db280-1382-4b88-a9f6-ce23ed8a726e/-/quality/normal/-/progressive/yes/);
+    background-size: auto 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+/*.logo{
+    height: 180px;
+    width: 100%;
+    background: url(../img/logo.svg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -90px;
+}*/
+
+.logo{
+    font-size: 4.5em;
+    color: #fff;
+    text-align: center;
+    margin-top: 230px;
+    font-family: 'Ubuntu', sans-serif !important;
+    font-weight: 700;
+}
+
+.admiral-header, .page-header h1{
+    color: #1a2128;
+}
+
+.admiral-slug. .page-header em{
+    color: #528089;
+}
+
+
+.admiral-focus{
+    color: #528089;
+    font-size: 1.45em;
+}
+
+.pagelet, #intro{
+    padding-top: 50px;
+    padding-bottom: 100px;
+    border-bottom: 2px solid rgba(200,200,200,0.5);
+    background-color: #f1f1f1;
+}
+
+section.module.parallax {
+  padding: 240px 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+section.module.parallax h1 {
+  color: #539e8b;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgba(20,20,20,0.15);
+}
+
+section.module.parallax.para-1 {
+  background-image: url(https://ucarecdn.com/dcbf570f-83cc-42d6-9e9d-42be05fb45f1/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
+  background-position: bottom center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+section.module.parallax.para-2 {
+  background-image: url(https://ucarecdn.com/73444182-339e-455f-8652-c9aed5b910f4/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+section.module.parallax.para-3 {
+  background-image: url(https://ucarecdn.com/b053a724-2677-4e48-9f34-b52d15933188/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
+}

@@ -53,7 +53,6 @@
 	            </div>
 	        </div>
 	    </div>
-	    @include('account.extras.updateInfo')
 	    <div class="col-md-6">
 	        <div class="panel panel-default">
 	            <div class="panel-heading">
@@ -72,4 +71,5 @@
 	        </div>
 	    </div>
     </div>
+    @include('account.updateInfo')
 @endsection

@@ -18,4 +18,5 @@ class User extends Authenticatable
     public function passes(){
         return $this->hasMany('Wavvve\Pass');
     }
+    
 }

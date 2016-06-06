@@ -109,33 +109,25 @@
 			</div>
 			<section class="row-fluid">
 			<!-- {{-- @yield('contactus') --}} -->
-				<div class="span6">
+				<div class="col-md-6">
 					<h3>Hit us up on social media:</h3>
 					<div class="row-fluid">
-			  		<div class="span4">
-			  			<a href="https://foursquare.com/franksshoesrvc">Foursquare</a>
+			  		<div class="col-md-6">
+			  			<a href="#">Facebook</a>
 			  		</div>
-			  		<div class="span4">
-			  			<a href="https://www.facebook.com/franksshoeservice/">Facebook</a>
-			  		</div>
-			  		<div class="span4">
-			  			<a href="https://www.instagram.com/franksshoeservice/">Instagram</a>
+			  		<div class="col-md-6">
+			  			<a href="#">Instagram</a>
 			  		</div>
 					</div>
 				</div>
-				<div class="span6">
+				<div class="col-md-6">
 				 	<h3>Or stay in touch the more traditional ways:</h3>
 				  	<div class="row-fluid">
-				  		<div class="span4">
-				  			<address>12 S. 8th Street<br>
-				  			Vineland, NJ, USA 08361
-				  			</address>
+				  		<div class="col-md-6">
+				  			<a href="mailto:sales@wavvemarketing.com">Email Us</a>
 				  		</div>
-				  		<div class="span4">
-				  			<a href="mailto:contact@franksshoeservice.com">Email Us</a>
-				  		</div>
-				  		<div class="span4">
-				  			<a href="tel:18566911834">Call Us (+1 856.691.1834)</a>
+				  		<div class="col-md-6">
+				  			<a href="#">Call Us</a>
 				  		</div>
 				  	</div>
 				</div>

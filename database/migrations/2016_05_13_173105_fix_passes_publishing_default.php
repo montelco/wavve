@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FixPassesPublishingDefault1 extends Migration
+class FixPassesPublishingDefault extends Migration
 {
     /**
      * Run the migrations.

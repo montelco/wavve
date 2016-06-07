@@ -24,8 +24,8 @@ class FixPassesPublishingDefault1 extends Migration
      */
     public function down()
     {
-        Schema::table('passes', function($table){
-            $table->dropColumn('published');
-        });
+        //Schema::table('passes', function($table){
+        //    $table->dropColumn('published');
+        //});
     }
 }

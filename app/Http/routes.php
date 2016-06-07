@@ -11,6 +11,15 @@ Route::get('/why-us', function(){
 Route::get('/dashboard', 'PassesController@dash');
 Route::auth();
 
+Route::get('1/1/39.696003,-75.151483/payload.json', function(){
+	return '{
+  "private": false,
+  "current": {
+    "uuid": "74 68 69 72 64 77 61 76 65 2e 6d 65 64 69 61 00 00",
+  },
+}';
+});
+
 /*
  *	Passes Router
  */

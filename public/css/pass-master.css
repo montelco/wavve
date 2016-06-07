@@ -136,7 +136,7 @@ input:focus::-webkit-input-placeholder{
 }
 
 textarea:focus::-webkit-input-placeholder, textarea:valid::-webkit-input-placeholder {
-  color: #F5ECE3;
+  color: #888581;
   font-size: 11px;
   -webkit-transform: translateY(-40px);
           transform: translateY(-40px);

@@ -12,9 +12,10 @@ class AddStatsForeignKeyForPasses extends Migration
      */
     public function up()
     {
-        Schema::table('stats', function($table){
-            $table->foreign('passes_id')->references('id')->on('passes')->onDelete('cascade');
-        });
+        // Schema::table('stats', function($table){
+        //     $table->bigInteger('passes_id')->unsigned();
+        //     $table->foreign('passes_id')->references('id')->on('passes')->onDelete('cascade');
+        // });
     }
 
     /**

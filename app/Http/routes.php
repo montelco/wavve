@@ -5,7 +5,7 @@ Route::get('/', function () {
 });
 
 Route::get('/why-us', function(){
-			return view('why');
+	return view('why');
 });
 
 Route::get('/dashboard', 'PassesController@dash');

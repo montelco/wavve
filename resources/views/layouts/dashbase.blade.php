@@ -51,7 +51,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="{{ url('/') }}"><i class="fa fa-fw fa-home"></i> Site Home</a>
+                        <a href="{{ url('/') }}"><i class="fa fa-fw fa-home"></i> Wavvve</a>
                     </li>                    
                     <li id="usr_controls_boundary">
                         <a href="javascript:;" data-toggle="collapse" data-target="#integrated_usr_controls"> {{ Auth::user()->name }} <i class="fa fa-fw fa-caret-down"></i></a>
@@ -78,12 +78,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ url('/passes/schedule') }}"><i class="fa fa-fw fa-calendar-o"></i> Pass Schedule</a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a href="{{ url('/passes/map') }}"><i class="fa fa-fw fa-map-marker"></i> Manage Beacons</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ url('/passes/analytics') }}"><i class="fa fa-fw fa-line-chart"></i> Pass Analytics</a>
                     </li>

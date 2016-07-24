@@ -9,7 +9,7 @@
             <h1 class="page-header">
                 Account Settings
             </h1>
-            <!-- <ol class="breadcrumb">
+            <ol class="breadcrumb">
                 <li>
                 	<a href="{{ url('dashboard') }}">
                 		<i class="fa fa-dashboard"></i> Dashboard
@@ -20,7 +20,7 @@
                 		<i class="fa fa-cog"></i> Settings
                 	</a>
                 </li>
-            </ol> -->
+            </ol>
         </div>
     </div>
     <div class="row">

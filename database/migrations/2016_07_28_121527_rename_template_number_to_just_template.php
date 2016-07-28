@@ -13,7 +13,7 @@ class RenameTemplateNumberToJustTemplate extends Migration
     public function up()
     {
         Schema::table('passes', function($table){
-            DB::statement("ALTER TABLE `passes` CHANGE COLUMN `template` `template_number`");
+            $table->renameColumn('template', 'template_number');
         });
     }
 

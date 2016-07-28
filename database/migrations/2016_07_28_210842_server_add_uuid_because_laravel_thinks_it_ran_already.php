@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUuidPassColumn extends Migration
+class ServerAddUuidBecauseLaravelThinksItRanAlready extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateUuidPassColumn extends Migration
      */
     public function up()
     {
-        // Schema::table('passes', function($table){
-        //     $table->string('uuid', 16)->unique();
-        // });
+        Schema::table('passes', function($table){
+            $table->string('uuid', 16)->unique();
+        });
     }
 
     /**

@@ -12,9 +12,9 @@ class CreateUuidPassColumn extends Migration
      */
     public function up()
     {
-        //Schema::table('passes', function($table){
-        //    $table->string('uuid', 16)->unique();
-        //});
+        Schema::table('passes', function($table){
+            $table->string('uuid', 16)->unique();
+        });
     }
 
     /**

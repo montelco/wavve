@@ -13,7 +13,10 @@ class RenameTemplateNumberToJustTemplate extends Migration
     public function up()
     {
         Schema::table('passes', function($table){
-            DB::statement("ALTER TABLE `passes` CHANGE `template` `template_number` enum");
+            $table->dropColumn('template');
+        });
+        Schema::table('passes', function($table){
+            $table->enum('template', ['1','2','3']);
         });
     }
 

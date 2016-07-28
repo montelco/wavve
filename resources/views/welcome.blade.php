@@ -5,8 +5,8 @@
 <div class="container">
     <div class="row">
         <div class="content centering">
-            <h1 class="ch">The Future of Marketing is Here</h1>
-            <p class="ct">Whether you have two employees or two hundred, have the insight and analytics that can help make your business grow and adapt with the ever changing landscape of technology. You'll look like you have a team of marketing experts on staff thanks to Wavvve's powerful analytics engine that helps you turn passersby into customers.</p>
+            <h1 class="ch">A Better Way of Marketing</h1>
+            <p class="ct">Wavvve is an easy-to-use platform designed to make businesses of any size better at marketing. With simple tools and a useable interface, engage potential customers with online content that inspires real-world, offline interactions. Create campaigns to reach passersby and alert them to what your business has to offer. Think of it like a personal billboard delivered right to a person's phone.</p>
             @if (Auth::guest())
                 <!-- <a href="{{ url('/register') }}" class="cta">Sign Up</a> -->
                 <a href="{{ url('/login') }}" class="cta">Login</a>

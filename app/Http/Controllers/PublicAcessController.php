@@ -31,6 +31,10 @@ class PublicAcessController extends Controller
     	}
     }
 
+    public function setFlowCookie(){
+    	
+    }
+
     public function caching(){
     	//Caching JSON output to run for service workers.
     }

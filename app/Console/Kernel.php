@@ -4,6 +4,7 @@ namespace Wavvve\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Wavvve\Pass;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,7 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            DB::table('passes')->where('user_id', '1')->delete();
+            Wavvve\Pass::('user_id', 1)->delete();
         })->everyFiveMinutes();
     }
 }

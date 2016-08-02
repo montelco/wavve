@@ -24,7 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function () {
+            DB::table('passes')->where('user_id', '1')->delete();
+        })->everyFiveMinutes();
     }
 }

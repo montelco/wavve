@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            Wavvve\Pass::('user_id', 1)->delete();
+            Wavvve\Pass::where('user_id', 1)->delete();
         })->everyFiveMinutes();
     }
 }

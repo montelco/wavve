@@ -11,8 +11,6 @@ enabled:
   - single_blank_line_at_eof
 
 disabled:
-  - align_double_arrow
-  - short_array_syntax
   - no_tab_indentation
 
 finder:

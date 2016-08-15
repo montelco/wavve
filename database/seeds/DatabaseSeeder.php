@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Wavvve\Role;
-use Wavvve\Permission;
 
-class DatabaseSeeder extends Seeder{
+class DatabaseSeeder extends Seeder
+{
     public function run()
     {
         DB::table('roles')->insert([

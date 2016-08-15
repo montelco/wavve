@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AddPassDraftSupport extends Migration
@@ -12,7 +11,7 @@ class AddPassDraftSupport extends Migration
      */
     public function up()
     {
-        Schema::table('passes', function($table){
+        Schema::table('passes', function ($table) {
             $table->enum('published', ['0', '1']);
         });
     }
@@ -24,7 +23,7 @@ class AddPassDraftSupport extends Migration
      */
     public function down()
     {
-        Schema::table('passes', function($table){
+        Schema::table('passes', function ($table) {
             $table->dropColumn('published');
         });
     }

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateUuidPassColumn extends Migration
@@ -24,7 +23,7 @@ class CreateUuidPassColumn extends Migration
      */
     public function down()
     {
-        Schema::table('passes', function($table){
+        Schema::table('passes', function ($table) {
             $table->dropColumn('uuid');
         });
     }

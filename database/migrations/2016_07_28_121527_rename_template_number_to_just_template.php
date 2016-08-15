@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class RenameTemplateNumberToJustTemplate extends Migration
@@ -12,7 +11,7 @@ class RenameTemplateNumberToJustTemplate extends Migration
      */
     public function up()
     {
-        Schema::table('passes', function($table){
+        Schema::table('passes', function ($table) {
             DB::statement("ALTER TABLE `passes` CHANGE `template` `template_number` enum('1','2','3')");
         });
     }

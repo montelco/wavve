@@ -16,11 +16,11 @@ class CreateAnalyticsTable extends Migration
          *  Raw update query to unsign the passes id column. Schema builder, as of Laravel 5.2, cannot make these changes to the DB.
          *  Therefore, the column must be changed using a standard query.
          */
-        Schema::table('passes', function($table){
-            DB::statement("ALTER TABLE `passes` CHANGE COLUMN `id` `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT FIRST");
+        Schema::table('passes', function ($table) {
+            DB::statement('ALTER TABLE `passes` CHANGE COLUMN `id` `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT FIRST');
         });
 
-        Schema::create('stats', function(Blueprint $table){
+        Schema::create('stats', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->bigInteger('passes_id')->unsigned();
             $table->time('active_time');
@@ -36,8 +36,8 @@ class CreateAnalyticsTable extends Migration
      */
     public function down()
     {
-        Schema::table('passes', function($table) {
-            DB::statement("ALTER TABLE `passes` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT FIRST");
+        Schema::table('passes', function ($table) {
+            DB::statement('ALTER TABLE `passes` CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT FIRST');
         });
 
         Schema::drop('stats');

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class PassTemplateRelationshipTable extends Migration
@@ -12,8 +11,8 @@ class PassTemplateRelationshipTable extends Migration
      */
     public function up()
     {
-        Schema::table('passes', function($table){
-            $table->enum('template', ['1','2','3']);
+        Schema::table('passes', function ($table) {
+            $table->enum('template', ['1', '2', '3']);
         });
     }
 
@@ -24,7 +23,7 @@ class PassTemplateRelationshipTable extends Migration
      */
     public function down()
     {
-        Schema::table('passes', function($table){
+        Schema::table('passes', function ($table) {
             $table->dropColumn('template');
         });
     }

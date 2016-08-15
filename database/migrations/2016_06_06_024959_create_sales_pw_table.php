@@ -12,7 +12,7 @@ class CreateSalesPwTable extends Migration
      */
     public function up()
     {
-        Schema::create('sales_managers', function(Blueprint $table) {
+        Schema::create('sales_managers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('first');
             $table->string('last');

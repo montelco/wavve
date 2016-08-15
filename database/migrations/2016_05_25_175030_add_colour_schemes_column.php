@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AddColourSchemesColumn extends Migration
@@ -12,7 +11,7 @@ class AddColourSchemesColumn extends Migration
      */
     public function up()
     {
-        Schema::table('passes', function($table){
+        Schema::table('passes', function ($table) {
             $table->string('theme', 1);
         });
     }
@@ -24,7 +23,7 @@ class AddColourSchemesColumn extends Migration
      */
     public function down()
     {
-        Schema::table('passes', function($table){
+        Schema::table('passes', function ($table) {
             $table->dropColumn('theme');
         });
     }

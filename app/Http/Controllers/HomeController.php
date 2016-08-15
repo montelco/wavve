@@ -2,9 +2,6 @@
 
 namespace Wavvve\Http\Controllers;
 
-use Wavvve\Http\Requests;
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**

@@ -12,7 +12,7 @@ class CreatePassEditor extends Migration
      */
     public function up()
     {
-        Schema::create('passes', function(Blueprint $table){
+        Schema::create('passes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->string('header_foreground_image', 254)->nullable();

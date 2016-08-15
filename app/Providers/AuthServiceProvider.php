@@ -1,6 +1,7 @@
 <?php
 
 namespace Wavvve\Providers;
+
 use Wavvve\Permission;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -33,7 +34,9 @@ class AuthServiceProvider extends ServiceProvider
             });
         }
     }
-    protected function getPermissions(){
+
+    protected function getPermissions()
+    {
         return Permission::with('roles')->get();
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace Wavvve\Providers;
+
 use Illuminate\Contracts\Logging\Log;
 use Psr\Log\LoggerInterface;
 use Illuminate\Support\ServiceProvider;

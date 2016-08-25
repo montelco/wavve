@@ -6,7 +6,7 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/random', function() {
+Route::get('/random', function () {
     return str_random(7);
 });
 
@@ -20,15 +20,15 @@ Route::get('/bugsnag-test', function () {
 
 Route::get('/dashboard', 'PassesController@dash');
 
-Route::get('/testing', function(){
+Route::get('/testing', function () {
     $data = [
         'title' => 'Testing 1,2,3',
-        'content' => 'This is a test email to ensure that mail can be sent through the Laravel application.'
+        'content' => 'This is a test email to ensure that mail can be sent through the Laravel application.',
     ];
-    Mail::send('emails.sample', $data, function($message)
-    {
+    Mail::send('emails.sample', $data, function ($message) {
         $message->to('cmonteleoneh@gmail.com', 'Cory')->subject('Testing 1,2,3');
     });
+
     return dd();
 });
 

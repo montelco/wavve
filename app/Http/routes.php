@@ -23,7 +23,7 @@ Route::get('/dashboard', 'PassesController@dash');
 Route::get('/testing', function(){
     $data = [
         'title' => 'Testing 1,2,3',
-        'content' = > 'This is a test email to ensure that mail can be sent through the Laravel application.'
+        'content' => 'This is a test email to ensure that mail can be sent through the Laravel application.'
     ];
     Mail::send('emails.sample', $data, function($message)
     {

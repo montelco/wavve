@@ -6,6 +6,12 @@ use Wavvve\Pass;
 
 class PublicAcessController extends Controller
 {
+
+    public function fetchBeaconPayload($user_id, $hardware_id, $lat, $lon)
+    {
+        return $user_id . " owns " . $hardware_id . " at location: " . $lat . ", " . $lon ;
+    }
+    
     public function pubAccess($uuid, Pass $pass)
     {
         $currentTime = date('Y-m-d H:i:s');

@@ -40,14 +40,6 @@ class PassesController extends Controller
 
     public function create(Request $request, Pass $pass)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-+';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        $length = 8;
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-
         $this->validate($request, [
             'title' => 'required|max:64',
             'primary_field' => 'required|max:255',
@@ -68,7 +60,7 @@ class PassesController extends Controller
             'cashier_helper' => $request->cashier_helper,
             'strip_background_image' => $request->strip_background_image,
             'coupon_full_background_image' => $request->coupon_full_background_image,
-            'uuid' => $randomString,
+            'uuid' => str_random(7),
         ]);
 
         return response()->json($pass->with('user')->find($newlyMintedPass->id));

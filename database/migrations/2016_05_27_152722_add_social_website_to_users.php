@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AddSocialWebsiteToUsers extends Migration
@@ -12,7 +11,7 @@ class AddSocialWebsiteToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function($table){
+        Schema::table('users', function ($table) {
             $table->string('website', 254)->nullable();
             $table->string('facebook', 254)->nullable();
             $table->string('twitter', 254)->nullable();
@@ -29,7 +28,7 @@ class AddSocialWebsiteToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function($table){
+        Schema::table('users', function ($table) {
             $table->dropColumn('website');
             $table->dropColumn('facebook');
             $table->dropColumn('twitter');

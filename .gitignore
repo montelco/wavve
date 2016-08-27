@@ -1,6 +1,8 @@
 /vendor
 /node_modules
 /public/storage
+/tests/features
+/tests/unit
 Homestead.yaml
 Homestead.json
 .env

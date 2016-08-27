@@ -11,9 +11,7 @@ Route::get('/why-us', function () {
 Route::get('/dashboard', 'PassesController@dash');
 Route::auth();
 
-Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', function () {
-    return '74 68 69 72 64 77 61 76 65 2e 6d 65 64 69 61 00 00';
-});
+Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
 
 /*
  *	Passes Router

@@ -12,17 +12,9 @@ Route::get('/why-us', function () {
 
 Route::get('/dashboard', 'PassesController@dash');
 
-// Route::get('/testing', function(){
-//     $data = [
-//         'title' => 'Testing 1,2,3',
-//         'content' => 'This is a test email to ensure that mail can be sent through the Laravel application.'
-//     ];
-//     Mail::send('emails.sample', $data, function($message)
-//     {
-//         $message->to('cmonteleoneh@gmail.com', 'Cory')->subject('Testing 1,2,3');
-//     });
-//     return dd();
-// });
+Route::get('/testing', function(){
+    return Uuid::generate(4);
+});
 
 
 Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');

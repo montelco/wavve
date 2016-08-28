@@ -19,7 +19,7 @@ class PassesController extends Controller
 
     public function index(Pass $pass)
     {
-        $allPassesForUser = $pass->all()->where('user_id', Auth::user()->id);
+        $allPassesForUser = $pass->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get();
 
         return view('editor.pass-manager')->with('passes', $allPassesForUser);
     }

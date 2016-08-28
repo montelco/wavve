@@ -4,14 +4,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::auth();
+
 Route::get('/why-us', function () {
     return view('why');
 });
 
 Route::get('/dashboard', 'PassesController@dash');
-Route::auth();
 
 Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
+
+Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
+
 
 /*
  *	Passes Router
@@ -51,6 +55,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::post('/post', 'PassesController@create');
         Route::post('/post/update', 'PassesController@edit');
         Route::get('/post/delete/{id}', 'PassesController@delete');
+
 
         Route::get('/activity-feed', 'PassesController@feed');
 

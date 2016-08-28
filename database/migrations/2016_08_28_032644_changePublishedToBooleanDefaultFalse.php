@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangePublishEnumToTimestamp extends Migration
+class ChangePublishedToBooleanDefaultFalse extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +15,9 @@ class ChangePublishEnumToTimestamp extends Migration
         Schema::table('passes', function ($table) {
             $table->dropColumn('published');
         });
-
+        
         Schema::table('passes', function ($table) {
-            $table->timestamp('published')->default(DB::raw('CURRENT_TIMESTAMP'))->after('template');
+            $table->boolean('published')->default(false);
         });
     }
 
@@ -28,8 +29,11 @@ class ChangePublishEnumToTimestamp extends Migration
     public function down()
     {
         Schema::table('passes', function ($table) {
-            $table->dropColumn('published')->default(DB::raw('CURRENT_TIMESTAMP'))->after('template');
-            $table->enum('published', ['0', '1'])->default('0');
+            $table->dropColumn('published');
+        });
+
+        Schema::table('passes', function ($table) {
+            $table->timestamp('published')->default(DB::raw('CURRENT_TIMESTAMP'))->after('template');
         });
     }
 }

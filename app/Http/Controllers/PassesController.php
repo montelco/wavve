@@ -72,8 +72,6 @@ class PassesController extends Controller
             'title' => 'required|max:64',
             'primary_field' => 'required|max:255',
             'barcode_value' => 'required|max:16',
-            'coupon_full_background_image' => 'max:254',
-            'strip_background_image' => 'max:254',
             'secondary_field' => 'max:255',
             'cashier_helper' => 'max:64',
         ]);
@@ -86,7 +84,6 @@ class PassesController extends Controller
                 'secondary_field' => $request->secondary_field,
                 'barcode_value' => $request->barcode_value,
                 'cashier_helper' => $request->cashier_helper,
-                'coupon_full_background_image' => $request->coupon_full_background_image,
         ]);
 
         return response()->json(Pass::where('id', $request->passID));
@@ -103,5 +100,15 @@ class PassesController extends Controller
         } else {
             return redirect()->route('dashboard');
         }
+    }
+
+    public function getPublish($id)
+    {
+        return view('publish')->with('pass', Pass::where('id', $id)->firstOrFail());
+    }
+
+    public function setPublish($id, $publishSetting)
+    {
+        return Pass::where('id', $id)->update('published', $publishSettings);
     }
 }

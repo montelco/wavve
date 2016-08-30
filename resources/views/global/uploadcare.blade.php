@@ -34,6 +34,9 @@
 						"_token": @yield('token'),
 						'title' : this.passTitle,
 						'primary_field' : this.passPrimary,
+						'secondary_field': this.passSecondary,
+						'cashier_helper': this.passCashierHelper,
+						'published': this.passPublishTime,
 						'barcode_value' : this.passBarcode,
 						'coupon_full_background_image': $.uploadedURL,
 						'design_number' : '1',
@@ -44,10 +47,10 @@
 						console.log(this.passPublishTime);
 						this.passBarcode = '';
 						this.passPrimary = '';
-						this.passTitle = '';
 						this.passFullBG = '';
 						$('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Successfully added ' + this.passTitle + ' to your pass collection.');
 						$('#result').addClass('alert alert-success');
+						this.passTitle = '';
 					}.bind(this));
 			}
 		}

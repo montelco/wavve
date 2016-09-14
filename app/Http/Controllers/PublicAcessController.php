@@ -10,10 +10,9 @@ class PublicAcessController extends Controller
 
     public function fetchBeaconPayload($user_id, $hardware_id, $lat, $lon)
     {
-        return response()->json(["payload" => self::WAVVVE_BASE_URL . rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->orderBy('created_at', 'desc')->first()['uuid']), 2, ' '), ' ')], 200);
-
+        return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->orderBy('created_at', 'desc')->first()['uuid']), 2, ' '), ' ')], 200);
     }
-    
+
     public function pubAccess($uuid, Pass $pass)
     {
         $currentTime = date('Y-m-d H:i:s');

@@ -15,7 +15,7 @@ return [
     */
 
     'mailgun' => [
-        'domain' => 'https://api.mailgun.net/v3/wavvve.io',
+        'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
     ],
 

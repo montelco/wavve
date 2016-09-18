@@ -8,7 +8,7 @@ body{
     -ms-transition: all 0.5s ease;
     height: 100%;
     width: 100%;
-    background: url(https://c2.staticflickr.com/4/3850/15332730975_7d412decc5_k.jpg) center center fixed no-repeat;
+    background: url(https://ucarecdn.com/695235bf-bd21-4c1d-be6d-751ccd0c2ed4/-/progressive/yes/-/quality/lightest/) center center fixed no-repeat;
     background-size: 100%;
     background-size: cover;
     font-weight: 400;
@@ -19,6 +19,7 @@ body{
     background-color: rgba(255,255,255,0) !important;
     border: none !important;
     color: #fff !important;
+    text-shadow: 0 0 6px rgba(20,20,20,0.45);
 }
 
 @media(max-width: 767px){

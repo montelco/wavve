@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain' => 'wavvve.io',
+        'secret' => 'key-5a7ddcfeb7795cff813b6e7c03194deb',
     ],
 
     'ses' => [
@@ -31,7 +31,6 @@ return [
 
     'stripe' => [
         'model' => Wavvve\User::class,
-        'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
 

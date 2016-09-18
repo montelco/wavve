@@ -10,7 +10,9 @@
         "doctrine/dbal": "^2.5",
         "laravel/cashier": "~6.0",
         "zizaco/entrust": "5.2.x-dev",
-        "guzzlehttp/guzzle": "~5.3"
+        "bugsnag/bugsnag-laravel": "^2.0",
+        "guzzlehttp/guzzle": "~5.3",
+        "webpatser/laravel-uuid": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

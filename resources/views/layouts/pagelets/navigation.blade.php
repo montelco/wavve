@@ -21,6 +21,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ url('/why-us') }}">Why Choose Us?</a></li>
+                    {{-- <li><a href="{{ url('contact') }}">Contact Us</a></li> --}}
                 </ul>
 
                 <!-- Right Side Of Navbar -->

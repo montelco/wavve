@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="cache.manifest">
 
 <head>
 
@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#101010">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <title>Wavvve Dashboard</title>
+    <title>{{ Auth::user()->name }}'s Dashboard | Wavvve</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet">

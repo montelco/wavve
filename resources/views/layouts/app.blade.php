@@ -19,9 +19,8 @@
     <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/favicons/manifest.json">
     <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#518089">
-    <meta name="msapplication-TileColor" content="#518089">
+    <meta name="msapplication-TileColor" content="#577580">
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 

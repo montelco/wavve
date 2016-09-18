@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "72bf5f2721a4e4383353fa904fe7f169",
-    "content-hash": "999032154b68190a5897dff2656c7943",
+    "hash": "8c799f7a1e6f2d275945aff2e51df57a",
+    "content-hash": "f4a62877f4f9f24f06e42c416c9d801f",
     "packages": [
         {
             "name": "bugsnag/bugsnag",
@@ -1153,16 +1153,16 @@
         },
         {
             "name": "laravel/cashier",
-            "version": "v6.0.17",
+            "version": "v6.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/cashier.git",
-                "reference": "904769288c7ca79c3c6051799c258a22cf6000dc"
+                "reference": "1e5c092a14150af194e3ec2d774f07c5b1c4da01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/cashier/zipball/904769288c7ca79c3c6051799c258a22cf6000dc",
-                "reference": "904769288c7ca79c3c6051799c258a22cf6000dc",
+                "url": "https://api.github.com/repos/laravel/cashier/zipball/1e5c092a14150af194e3ec2d774f07c5b1c4da01",
+                "reference": "1e5c092a14150af194e3ec2d774f07c5b1c4da01",
                 "shasum": ""
             },
             "require": {
@@ -1209,7 +1209,7 @@
                 "laravel",
                 "stripe"
             ],
-            "time": "2016-06-01 13:39:58"
+            "time": "2016-06-17 18:59:32"
         },
         {
             "name": "laravel/framework",

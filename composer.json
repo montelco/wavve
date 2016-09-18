@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "doctrine/dbal": "^2.5",
-        "laravel/cashier": "~6.0",
+        "laravel/cashier": "6.*",
         "zizaco/entrust": "5.2.x-dev",
         "bugsnag/bugsnag-laravel": "^2.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",

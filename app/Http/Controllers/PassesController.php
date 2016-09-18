@@ -104,11 +104,11 @@ class PassesController extends Controller
 
     public function getPublish($id)
     {
-        return view('publish')->with('pass', Pass::where('id', $id)->firstOrFail());
+        return view('editor.pass-publish')->with('pass', Pass::where('id', $id)->firstOrFail());
     }
 
-    public function setPublish($id, $publishSetting)
+    public function setPublish(Request $request, $id)
     {
-        return Pass::where('id', $id)->update('published', $publishSettings);
+        return Pass::where('id', $id)->update(['published' => $request->published]);
     }
 }

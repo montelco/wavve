@@ -28,7 +28,7 @@
 		@if(isset($pass->expiry))
 			<div class="row">
 				<div class="col-md-2 col-md-offset-10 col-lg-2 col-lg-offset-10 col-sm-5 col-sm-offset-7 col-xs-5 col-xs-offset-7">
-					<p class="expiry">Exp: {{ $pass->expiry }}</p>
+					<p class="expiry">Exp: {{ Carbon\Carbon::createFromFormat('Y-m-d', $pass->expiry)->format('D, j M Y') }}</p>
 				</div>
 			</div>
 		@endif

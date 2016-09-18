@@ -56,7 +56,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::post('/post/update', 'PassesController@edit');
         Route::get('/post/delete/{id}', 'PassesController@delete');
 
-        Route::get('publish', 'PassesController@getPublish')
+        Route::get('/publish/{id}', 'PassesController@getPublish');
+        Route::post('/publish/{id}', 'PassesController@setPublish');
 
         Route::get('/activity-feed', 'PassesController@feed');
 

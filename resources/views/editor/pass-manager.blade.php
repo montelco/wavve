@@ -24,7 +24,7 @@
 			                    <tr>
 			                        <td><a href="/{{$pass->uuid}}">{{ $pass->title }}</a></td>
 			                        {{-- <td>{{ $pass->id }}</td> --}}
-			                        <td>@if($pass->published === 0)False @else True @endif</td>
+			                        <td><a href="{{ url('/passes/publish/' . $pass->id) }}">@if($pass->published === 0)False @else True @endif</a></td>
 			                        <td>{{ $pass->FriendlyTime }}</td>
 			                        <td>
 			                        	<a href="{{ url('/passes/edit-existing/' . $pass->id) }}">

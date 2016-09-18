@@ -158,7 +158,6 @@ return [
         Laravel\Cashier\CashierServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
-
     ],
 
     /*

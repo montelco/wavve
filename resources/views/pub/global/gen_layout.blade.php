@@ -49,11 +49,17 @@
       });
 	</script>
 	<style>
-		body{
+		#mainLayout{
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 4vh;
 			text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-			
 			background: @yield('bg-defaults');
 			overflow-x: hidden;
+			height: 80vh;
+			min-height: 470px;
+			width: 35vw;
+			box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
 		}
 
 		h1{
@@ -145,9 +151,10 @@
 			}
 		}
 	</style>
-	<div class="container">
-		@yield('pass_contents')
-	</div>
+	<div id="mainLayout">
+		{{-- @yield('pass_contents') --}}
 		@yield('strip_pass_contents')
+	</div>
+		
 </body>
 </html>

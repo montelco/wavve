@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <p>Dashboard modules will be viewable here.</p>
+                    <p>Get started below...</p>
                     <hr>
                     <a href="{{ url('/passes/editor') }}" class="cta">Make a new Pass</a>
                     <hr>

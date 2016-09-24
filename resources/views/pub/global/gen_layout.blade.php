@@ -35,7 +35,7 @@
           color: "#000000",
           barWidth: "1",
           barHeight: "50",
-          moduleSize: "15",
+          moduleSize: "10",
           posX: "0",
           posY: "0",
           addQuietZone: true
@@ -49,17 +49,48 @@
       });
 	</script>
 	<style>
-		#mainLayout{
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 4vh;
-			text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-			background: @yield('bg-defaults');
-			overflow-x: hidden;
-			height: 80vh;
-			min-height: 470px;
-			width: 35vw;
-			box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+		@media(min-width: 768px){
+			#mainLayout{
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 4vh;
+				text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				background: @yield('bg-defaults');
+				overflow-x: hidden;
+				height: 80vh;
+				min-height: 470px;
+				min-width: 360px;
+				width: 35vw;
+				-webkit-box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
+				-moz-box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
+				box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
+			}
+			p.field{
+				color: white;
+				font-size: 0.8em;
+			}
+		}
+		@media(max-width: 767px){
+			body{
+				overflow-y: hidden;
+			}
+			#mainLayout{
+				margin-left: auto;
+				margin-right: auto;
+				text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+				background: @yield('bg-defaults');
+				overflow-x: hidden;
+				height: 100vh;
+				min-height: 470px;
+				width: 100vw;
+			}
+			p.field{
+				color: white;
+				font-size: 1.1em;
+			}
 		}
 
 		h1{
@@ -69,9 +100,6 @@
 		p{
 			padding-top: 1.5em;
 			font-size: 1.1em;
-		}
-		p.field{
-			color: white;
 		}
 		.expiry{
 			color: @yield('accent-colour');
@@ -89,12 +117,16 @@
 		}
 		.strip_bg{
 			@if(isset($pass->strip_background_image))
-			    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/2000x2000/center/-/blur/45/) center center fixed no-repeat;
+			    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/2000x2000/center/-/blur/45/) center center no-repeat;
 			    background-size: cover;
 		    @endif
 		}
 		.secondary, .expiry{
 			text-align: right;
+		}
+
+		.expiry{
+			padding-right: 1em;
 		}
 		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){ 
 		   body{

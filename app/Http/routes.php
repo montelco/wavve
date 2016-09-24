@@ -27,16 +27,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 
     Route::group(['prefix' => 'passes'], function () {
-        Route::get('editor', function () {
-            return view('editor.pass-editor');
-        });
+        
+        Route::get('/activity-feed', 'PassesController@feed');
 
-        /*
-         *  Create a new pass using a given template.
-         */
-
-        Route::get('editor/{template}', function ($template) {
-            return view('editor.templates.design-'.$template);
+        Route::get('analytics', function () {
+            return view('editor.pass-analytics');
         });
 
         /*
@@ -51,6 +46,24 @@ Route::group(['middleware' => ['web', 'auth']], function () {
             }
         });
 
+        Route::get('editor', function () {
+            return view('editor.pass-editor');
+        });
+
+        /*
+         *  Create a new pass using a given template.
+         */
+
+        Route::get('editor/{template}', function ($template) {
+            return view('editor.templates.design-'.$template);
+        });
+
+
+        Route::get('manage', 'PassesController@index');
+
+        Route::get('map', function () {
+            return view('editor.pass-map');
+        });
 
         Route::post('/post', 'PassesController@create');
         Route::post('/post/update', 'PassesController@edit');
@@ -59,18 +72,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('/publish/{id}', 'PassesController@getPublish');
         Route::post('/publish/{id}', 'PassesController@setPublish');
 
-        Route::get('/activity-feed', 'PassesController@feed');
-
-        Route::get('analytics', function () {
-            return view('editor.pass-analytics');
-        });
-        Route::get('manage', [
-            'as' => 'manage',
-            'uses' => 'PassesController@index',
-        ]);
-        Route::get('map', function () {
-            return view('editor.pass-map');
-        });
+        Route::get('scheduler', 'PassesController@index');
     });
 });
 

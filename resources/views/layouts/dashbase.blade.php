@@ -84,9 +84,9 @@
                     {{-- <li>
                         <a href="{{ url('/passes/map') }}"><i class="fa fa-fw fa-map-marker"></i> Manage Beacons</a>
                     </li> --}}
-                    <li>
+                    {{-- <li>
                         <a href="{{ url('/passes/analytics') }}"><i class="fa fa-fw fa-line-chart"></i> Pass Analytics</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ url('/settings') }}"><i class="fa fa-fw fa-wrench"></i> Settings</a>
                     </li>

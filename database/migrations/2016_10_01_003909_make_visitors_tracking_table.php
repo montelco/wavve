@@ -12,22 +12,22 @@ class MakeVisitorsTrackingTable extends Migration
      */
     public function up()
     {
-        Schema::create('visitors', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('passes_uuid')->index();
-            $table->foreign('passes_uuid')->references('uuid')->on('passes');
-            $table->string('visitor_cookie')->index();
-            $table->timestamps();
-        });
+        // Schema::create('visitors', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('passes_uuid')->index();
+        //     $table->foreign('passes_uuid')->references('uuid')->on('passes');
+        //     $table->string('visitor_cookie')->index();
+        //     $table->timestamps();
+        // });
     }
 
     /**
      * Reverse the migrations.
      *
      * @return void
-     */
+     */xk
     public function down()
     {
-        Schema::drop('visitors');
+        // Schema::drop('visitors');
     }
 }

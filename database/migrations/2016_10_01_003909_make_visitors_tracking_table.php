@@ -25,7 +25,7 @@ class MakeVisitorsTrackingTable extends Migration
      * Reverse the migrations.
      *
      * @return void
-     */xk
+     */
     public function down()
     {
         // Schema::drop('visitors');

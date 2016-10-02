@@ -92,7 +92,7 @@
 				<div class="span6 offset3">
 					<!-- {{-- @yield('aboutus') --}} -->
 					<p class="admiral-focus">The magic of the Wavvve platform is its easy to use interface combined with its unrivaled customer service. You'll always have a real person on the other end making sure that you've got exactly the right solution. No more robo-directories, awful hold music...and no more foreign call centers. Just real people there to help you succeed.</p>
-					<p class="admiral-focus">Our platform is constantly evolving and getting better by the day, but as a pledge to our customers we want your input. If you think that something should be easier or we should add features, rest assured that you'll always have someone to which you can speak. We're believe that the best change comes from the bottom up, so we're always listening to feedback in the pursuit of making the absolute best.</p>
+					<p class="admiral-focus">Our platform is constantly evolving and getting better by the day, but as a pledge to our customers we want your input. If you think that something should be easier or we should add features, rest assured that you'll always have someone to which you can speak. We believe that the best change comes from the bottom up, so we're always listening to feedback in the pursuit of making the absolute best.</p>
 				</div>
 			</section>
 		</div>

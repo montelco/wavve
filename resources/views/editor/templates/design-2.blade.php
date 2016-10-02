@@ -13,8 +13,8 @@
                 </h1>
                 <div id="strip-bg-image">
                 	<input class="clearable pd" id="file-uploader" name="passStripBG" type="hidden" data-clearable role="uploadcare-uploader" required v-model="passStripBG">
-	                <textarea class="clearable pd" rows="2" placeholder="Description*" maxlength="255" required v-model="passPrimary"></textarea>
-					<input class="clearable pd" rows="1" placeholder="Expiry (Opt.)" maxlength="16" v-model="passExpiry"></input>
+	                <textarea class="clearable pd white-override" rows="2" placeholder="Description*" maxlength="255" required v-model="passPrimary"></textarea>
+                    <input type="text" id="from" name="from" placeholder="Expiry (Opt.)" class="time-picker-override white-override" v-model="passExpiry">
                 </div>
 				<div id="lower-content">
 					<input class="clearable pd" rows="1" placeholder="Extra Info (Opt.)" maxlength="512" v-model="passSecondary"></textarea>
@@ -24,10 +24,9 @@
 				</div>
 				@include('global.uploadcare-2')
             </form>
-            <div class="back">
-                <input type="text" id="from" name="from" placeholder="Publish Time" class="time-picker-override" v-model="passPublishTime">
+            {{-- <div class="back">
                 <input type="submit" class="edit-submit" value="Save Changes">
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="col-md-4 col-md-offset-4" id="result"></div>

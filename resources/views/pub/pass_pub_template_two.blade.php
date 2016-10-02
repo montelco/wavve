@@ -16,9 +16,8 @@
 @section('strip_pass_contents')
 		<h1> {{$pass->title}} </h1>
 		@if(isset($pass->expiry))
-			<p class="expiry">Exp: {{ Carbon\Carbon::createFromFormat('Y-m-d', $pass->expiry)->format('D, j M Y') }}</p
+			<p class="expiry">Exp: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pass->expiry)->format('D, j M Y') }}</p>
 		@endif
-	</div>
 		@if(isset($pass->strip_background_image))
 			<div class="jumbotron strip_bg">
 				<div class="container">
@@ -58,6 +57,9 @@
 					<p id="helper-text">{{  $pass->cashier_helper }}</p>
 				@endif
 			</div>
+		</div>
+		<div class="row">
+			<p class="watermark">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="19" height="22"></p>
 		</div>
 	</div>
 @endsection

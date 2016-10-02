@@ -6,6 +6,9 @@
 	}
 
 	#strip-bg-image{
+		-webkit-box-shadow: inset 0px 0px 10px 0px rgba(65, 65, 65, 0.5);
+		-moz-box-shadow:    inset 0px 0px 10px 0px rgba(65, 65, 65, 0.5);
+		box-shadow:         inset 0px 0px 10px 0px rgba(65, 65, 65, 0.5);
 		background: #A4A09C;
 		padding: 1em;
 		min-height: 10vh;

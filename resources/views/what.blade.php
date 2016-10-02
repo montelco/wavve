@@ -25,7 +25,7 @@
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <title>Wavvve</title>
+    <title>What is Wavvve?</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -47,6 +47,11 @@
     <link rel="stylesheet" href="{{ URL::to('/css/font.css') }}">
     <link rel="stylesheet" href="{{ URL::to('/css/master.css') }}">
     <link rel="stylesheet" href="{{ URL::to('/css/why-us.css') }}">
+    <style type="text/css">
+        .logo {
+            font-size: 3.5em;
+        }
+    </style>
 </head>
 <body id="app-layout">
     
@@ -56,7 +61,7 @@
 		<div class="container">
 			<div class="row-fluid">
 				<div class="col-md-4 col-md-offset-4 logo">
-					So Why Us?
+					What Is Wavvve Exactly?
 				</div>
 			</div>
 		</div>
@@ -65,70 +70,19 @@
 	<section id="intro">
 		<div class="container">
 			<div class="page-header">
-				<h1 class="admiral-header">We get it...</h1>
-				<em class="admiral-slug">...because we've been there.</em>	
+				<h1 class="admiral-header">Game Changing: That's What Wavvve Is.</h1>
+				<em class="admiral-slug"></em>	
 			</div>
 			<section class="row-fluid">
 				<div class="span6 offset3">
 					<!-- {{-- @yield('intro') --}} -->
-					<p class="admiral-focus">You've got a business to run and having to spend valuable time and money on social media and internet marketing is pretty frustrating. You shouldn't need to be stuck on your computer or phone 24/7 to bring in new customers or bring back old ones. We know the frustration because we've had to deal with it as well.</p>
-					<p class="admiral-focus">We were stuck with either expensive print ads that (let's face it) aren't part of a growing market or social media ads that cost far too much for far too little results. In the spirit of never accepting the status quo we set out to make something that was fun, simple, and could consistently deliver results.</p>
+					<p class="admiral-focus">Wavvve is an all-in-one platform to reach new customers. While other companies may offer services or apps for iBeacon or Bluetooth Marketing, what they don't tell you is they sell a half-baked solution- often requiring you to already have an application or invest hundreds of thousands into developing one from scratch. And that's how we're different: We built the tools to reach as many people as possible: No. App. Required. Without needing an app, that means you can reach far more people than you ever could on any other service.</p>
+					<p class="admiral-focus">With our patent pending technology we made marketing content creation a simple process. If you can make a post on social media, you have all the skills you need to make content on Wavvve. There's no coding involved, no expensive developers, no app updates, and no email chains back and forth to get changes approved. We made simple tools to make your business life free of any added stress. Schedule your posts ahead of time, create admin accounts for other staff members, and keep your customers engaged from wherever you are.</p>
 				</div>
+                <a href="#" class="cta">Order Now</a>
 			</section>
 		</div>
 	</section>
-	<section id="about" class="module parallax para-1">
-		<div class="container">
-		<h1 class="paratit">Our Promise to Customer Service</h1>
-		</div>
-	</section>
-	<section class="pagelet">
-		<div class="container">
-			<div class="page-header">
-				<h1>Our Commitment...</h1>
-				<em>...always there for you.</em>	
-			</div>
-			<section class="row-fluid">
-				<div class="span6 offset3">
-					<!-- {{-- @yield('aboutus') --}} -->
-					<p class="admiral-focus">The magic of the Wavve platform is its easy to use interface combined with its unrivaled customer service. Downtime is never a good thing and whether it's Wavve hardware or issues with accessing our console, help is one phone call or text away. You'll always have a real person on the other end making sure that you've got exactly the right solution. No more robo-directories, awful hold music...and no more hair-pulling, script-reading "technicians."</p>
-					<p class="admiral-focus">Our platform is constantly evolving and getting better by the day, but as a pledge to our customers we want your input. If you think that something should be easier or we should add features, rest assured that you'll always have someone to which you can speak. We believe that the best change comes from the bottom up, so we're always listening to feedback in the pursuit of making the absolute best.</p>
-				</div>
-			</section>
-		</div>
-	</section>
-	<section id="contact" class="module parallax para-3">
-		<div class="container">
-		<h1 class="paratit">Contact Us</h1>
-		</div>
-	</section>
-	<section class="pagelet">
-		<div class="container">
-			<div class="page-header">
-				<h1>Keep in Touch</h1>	
-			</div>
-			<section class="row-fluid">
-			<!-- {{-- @yield('contactus') --}} -->
-				<div class="col-md-6">
-					<h3>Hit us up on social media:</h3>
-					<div class="row-fluid">
-				  		<div class="col-md-6">
-				  			<a href="https://www.facebook.com/ATMTLLC/">Facebook</a>
-				  		</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-				 	<h3>Or stay in touch the more traditional ways:</h3>
-				  	<div class="row-fluid">
-				  		<div class="col-md-6">
-				  			<a href="mailto:michael.j.innaurato@atmtllc.com">Email Us</a>
-				  		</div>
-				  	</div>
-				</div>
-			</section>
-		</div>
-	</section>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.22/vue.min.js"></script>

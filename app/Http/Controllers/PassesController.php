@@ -5,6 +5,7 @@ namespace Wavvve\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Wavvve\Pass;
+use Wavvve\Visitor;
 
 class PassesController extends Controller
 {

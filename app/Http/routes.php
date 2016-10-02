@@ -10,6 +10,10 @@ Route::get('/why-us', function () {
     return view('why');
 });
 
+Route::get('/what', function () {
+    return view('what');
+});
+
 Route::get('/dashboard', 'PassesController@dash');
 
 Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');

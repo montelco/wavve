@@ -5,6 +5,7 @@ namespace Wavvve\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Wavvve\Pass;
+use Wavvve\Visitor;
 
 class PassesController extends Controller
 {
@@ -19,9 +20,7 @@ class PassesController extends Controller
 
     public function index(Pass $pass)
     {
-        $allPassesForUser = $pass->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get();
-
-        return view('editor.pass-manager')->with('passes', $allPassesForUser);
+        return view('editor.pass-manager')->with('passes', Pass::where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(10));
     }
 
     public function dash(Pass $pass)
@@ -36,6 +35,11 @@ class PassesController extends Controller
         $newsFeed = Pass::where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->take(4)->get();
 
         return $newsFeed;
+    }
+
+    public function scheduler(Pass $pass)
+    {
+        return view('editor.pass-manager')->with('passes', $pass->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get());
     }
 
     public function create(Request $request, Pass $pass)

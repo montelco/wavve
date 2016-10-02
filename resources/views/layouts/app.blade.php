@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#91a9a9">
+    <meta name="theme-color" content="#415d6c">
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
     <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#518089">
-    <meta name="msapplication-TileColor" content="#577580">
+    <meta name="msapplication-TileColor" content="#416477">
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 

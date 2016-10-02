@@ -40,6 +40,9 @@
 		                    @endforeach
 	                </tbody>
 	            </table>
+	            <div class="text-center">
+	            	{{ $passes->links() }}
+	            </div>
 	        </div>
 	        @else
 	        <h3>Nothing here yet. Make a pass to get started.</h3>

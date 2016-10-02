@@ -20,6 +20,11 @@ class Pass extends Model
         return $this->belongsTo('Wavvve\User', 'user_id');
     }
 
+    public function visitors()
+    {
+        return $this->hasMany('Wavvve\Visitor');
+    }
+
     public function getFriendlyTimeAttribute()
     {
         return $this->updated_at->diffForHumans();

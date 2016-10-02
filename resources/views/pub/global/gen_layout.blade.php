@@ -35,7 +35,7 @@
           color: "#000000",
           barWidth: "1",
           barHeight: "50",
-          moduleSize: "15",
+          moduleSize: "10",
           posX: "0",
           posY: "0",
           addQuietZone: true
@@ -49,11 +49,58 @@
       });
 	</script>
 	<style>
-		body{
-			text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-			
-			background: @yield('bg-defaults');
-			overflow-x: hidden;
+		@media(min-width: 768px){
+			#mainLayout{
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 4vh;
+				text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				background: @yield('bg-defaults');
+				overflow-x: hidden;
+				height: 80vh;
+				min-height: 575px;
+				min-width: 440px;
+				width: 35vw;
+				-webkit-box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
+				-moz-box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
+				box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
+			}
+			p.field{
+				color: white;
+				font-size: 0.8em;
+			}
+		}
+		@media(max-width: 767px){
+			body{
+				overflow-y: hidden;
+			}
+			#mainLayout{
+				margin-left: auto;
+				margin-right: auto;
+				text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+				background: @yield('bg-defaults');
+				overflow-x: hidden;
+				height: 100vh;
+				min-height: 470px;
+				width: 100vw;
+			}
+			p.field{
+				color: white;
+				font-size: 1.1em;
+			}
+
+			.watermark{
+				font-size: 0.6em;
+				color: white;
+				text-align: right;
+				right: 2em;
+				position: absolute;
+				bottom: 2em;
+				padding-right: 2em;
+			}
 		}
 
 		h1{
@@ -61,11 +108,8 @@
 			text-align: center;
 		}
 		p{
-			padding-top: 1.5em;
+			padding-top: 0.5em;
 			font-size: 1.1em;
-		}
-		p.field{
-			color: white;
 		}
 		.expiry{
 			color: @yield('accent-colour');
@@ -81,14 +125,26 @@
 			color: white !important;
 			font-size: 0.8em !important;
 		}
+
+		.watermark{
+			text-align: right;
+			color: white;
+			font-size: 0.7em;
+			padding-right: 3em;
+		}
+
 		.strip_bg{
 			@if(isset($pass->strip_background_image))
-			    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/2000x2000/center/-/blur/45/) center center fixed no-repeat;
+			    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/2000x2000/center/-/blur/45/) center center no-repeat;
 			    background-size: cover;
 		    @endif
 		}
 		.secondary, .expiry{
 			text-align: right;
+		}
+
+		.expiry{
+			padding-right: 1em;
 		}
 		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){ 
 		   body{
@@ -145,9 +201,14 @@
 			}
 		}
 	</style>
-	<div class="container">
-		@yield('pass_contents')
-	</div>
+	<div id="mainLayout">
 		@yield('strip_pass_contents')
+	</div>
+	<?php
+		use Wavvve\Visitor;
+
+		return Cookie::forever('wid', str_random(36));
+		Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
+	?>
 </body>
 </html>

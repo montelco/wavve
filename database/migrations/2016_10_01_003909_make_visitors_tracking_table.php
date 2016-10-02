@@ -15,7 +15,7 @@ class MakeVisitorsTrackingTable extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('passes_uuid')->index();
-            $table->foreign('passes_uuid')->references('uuid')->on('passes')->onDelete('cascade');
+            $table->foreign('passes_uuid')->references('uuid')->on('passes');
             $table->string('visitor_cookie')->index();
             $table->timestamps();
         });

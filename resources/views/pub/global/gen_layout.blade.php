@@ -206,9 +206,15 @@
 	</div>
 	<?php
 		use Wavvve\Visitor;
-
-		return Cookie::forever('wid', str_random(36));
-		Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
+		if(isset($_COOKIE['wid'])) {
+			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
+		} 
+		else {
+			setcookie('wid', str_random(36), time() + (60 * 60 * 24 * 365 * 5));
+			print_r($_COOKIE['wid']);
+			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
+		}
+		
 	?>
 </body>
 </html>

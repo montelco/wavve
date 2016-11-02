@@ -64,6 +64,7 @@ class PassesController extends Controller
             'cashier_helper' => $request->cashier_helper,
             'strip_background_image' => $request->strip_background_image,
             'coupon_full_background_image' => $request->coupon_full_background_image,
+            'expiry' => $request->expiry,
             'uuid' => str_random(7),
         ]);
 
@@ -100,7 +101,7 @@ class PassesController extends Controller
             $deletePass = Pass::findOrFail($id);
             $deletePass->delete();
 
-            return redirect()->route('manage');
+            return redirect('/passes/manage');
         } else {
             return redirect()->route('dashboard');
         }

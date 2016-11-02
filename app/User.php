@@ -22,4 +22,5 @@ class User extends Authenticatable
     {
         return $this->hasMany('Wavvve\Pass');
     }
+
 }

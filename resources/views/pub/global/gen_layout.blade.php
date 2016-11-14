@@ -102,8 +102,7 @@
 				padding-right: 2em;
 			}
 		}
-
-		h1{
+		h1,h2,h3{
 			color: @yield('header-colour') !important;
 			text-align: center;
 		}
@@ -147,7 +146,7 @@
 			padding-right: 1em;
 		}
 		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){ 
-		   body{
+		   #mainLayout{
 			    height: 100%;
 			    transition: all 0.5s ease;
 			    -webkit-transition: all 0.5s ease;
@@ -165,7 +164,7 @@
 			}
 		}
 		@media(max-width: 767px){
-			body{
+			#mainLayout{
 			    height: 100%;
 			    transition: all 0.5s ease;
 			    -webkit-transition: all 0.5s ease;
@@ -183,15 +182,13 @@
 			}
 		}
 		@media(min-width: 768px){
-			body{
+			#mainLayout{
 			    height: 100%;
 			    transition: all 0.5s ease;
 			    -webkit-transition: all 0.5s ease;
 			    -moz-transition: all 0.5s ease;
 			    -o-transition: all 0.5s ease;
 			    -ms-transition: all 0.5s ease;
-			    height: 100%;
-			    width: 100%;
 			    @if(isset($pass->coupon_full_background_image))
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/2000x2000/center/-/blur/45/) center center fixed no-repeat !important;
 			    background-size: 100%;

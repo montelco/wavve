@@ -6,6 +6,7 @@
 	<div class="row">
 		<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
 	        <h2>Your Passes</h2>
+	        <p>See below to view, edit and obtain data for each pass created.</p>
 	        <hr>
 	        @if($passes->count())
 	        <div class="table-responsive">
@@ -14,8 +15,14 @@
 	                    <tr>
 	                        <th>Pass Title</th>
 	                        {{-- <th>Impressions</th> --}}
-	                        <th>Active</th>
+	                        <th>Active/Scheduled</th>
 	                        <th>Last Changed</th>
+	                        <th>Edit</th>
+ 	                        <th>Delete</th>
+ 	                        {{-- <th>iOS Count</th>
+ 	                        <th>iOS Opened</th>
+ 	                        <th>Android Count</th
+	                        <th>Andoid Opened</th> --}}
 	                    </tr>
 	                </thead>
 	                <tbody>
@@ -28,7 +35,7 @@
 			                        <td>{{ $pass->FriendlyTime }}</td>
 			                        <td>
 			                        	<a href="{{ url('/passes/edit-existing/' . $pass->id) }}">
-			                        		Edit
+			                        		<i class="fa fa-pencil fa-fw"></i>
 										</a>
 									</td>
 									<td>

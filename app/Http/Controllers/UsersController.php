@@ -18,4 +18,8 @@ class UsersController extends Controller
     {
     	// Put that logic here!
     }
+    public function getWebsite(User $user)
+    {
+    	echo '<a href="' . User::where('id', Auth::user()->id)->pluck('website')['0']  . '">Poop Face</a>';
+    }
 }

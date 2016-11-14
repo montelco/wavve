@@ -23,6 +23,11 @@ class PublicAcessController extends Controller
         return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->orderBy('updated_at', 'desc')->firstOrFail()['uuid']), 2, ' '), ' ')], 200);
     }
 
+    public function iBeaconUUID($user_id, $hardware_id, $lat, $lon)
+    {
+        return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex('2b 4f cf 51 4e aa 44 6d b2 4e 4d 1b 43 7f 38 40'), 2, ' '), ' ')], 200);
+    } 
+
     public function getWalletCompiledPass($username)
     {
         $results = User::with(['passes' => function($query)
@@ -35,7 +40,7 @@ class PublicAcessController extends Controller
         define('WWDR_FILE', 'C:\keys\wwdr.pem');
         define('PASS_TYPE_IDENTIFIER', 'pass.com.atmt.wavvvetest2');
         define('TEAM_IDENTIFIER', '527AHA4RH7');
-        define('ORGANIZATION_NAME', 'Churchill Coffee');
+        define('ORGANIZATION_NAME', 'California Shakes');
         define('OUTPUT_PATH', 'C:\passbook');
         define('ICON_FILE', 'C:\tpw.png');
 

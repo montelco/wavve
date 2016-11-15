@@ -47,6 +47,7 @@ class PublicAcessController extends Controller
         // Create an event ticket
         $pass = new StoreCard($results->username, $results->username);
         $pass->setBackgroundColor('rgb(26, 33, 40)');
+        $pass->setLogoText('rgb(0,0,0)');
         $pass->setAuthenticationToken('1234567890123456');
         $pass->setWebServiceURL('http://example.com');
         $pass->setLogoText($results->name);

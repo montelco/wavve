@@ -14,7 +14,7 @@
 }
 
 #goToSettingsPanel{
-  color: white !important;
+  color: black !important;
   text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
   float: right;
   margin-top: 10px;
@@ -60,7 +60,7 @@
 
 form{
   /*padding-top: 20px !important;*/
-  background: #f7f7f7;
+  background: white;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -79,7 +79,7 @@ h1 input.hd{
 	margin-right: auto;
 	vertical-align: middle;
 	font-size: 1.2em !important;
-	color: white;
+	color: black;
 	margin-bottom: 10px;
 }
 
@@ -119,7 +119,7 @@ input, textarea {
   background-repeat: no-repeat;
   background-position: -81vw 0;
   background-size: 100%;
-  color: white !important;
+  color: black !important;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
   resize: none;
 }
@@ -131,23 +131,23 @@ input:focus, textarea:focus{
 }
 
 ::-webkit-input-placeholder {
-   color: white;
+   color: black;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: white;  
+   color: black;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: white;  
+   color: black;  
 }
 
 :-ms-input-placeholder {  
-   color: white;  
+   color: black;  
 }
 
 input:focus::-webkit-input-placeholder{
-  color: white !important;
+  color: black !important;
   font-size: 11px;
   -webkit-transform: translateY(-20px);
           transform: translateY(-20px);
@@ -169,7 +169,7 @@ input[type=submit], .uploadcare-widget-button-open, label.btn{
   border-radius: 3px;
   padding: 6px;
   width: 200px;
-  color: white;
+  color: white !important;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);

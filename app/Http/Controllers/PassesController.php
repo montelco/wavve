@@ -112,6 +112,12 @@ class PassesController extends Controller
         return view('editor.pass-publish')->with('pass', Pass::where('id', $id)->firstOrFail());
     }
 
+    public function displayStats(Auth $auth)
+    {
+       return dd(Pass::where('user_id', Auth::user()->id)->with('visitors')->get());
+        
+    }
+
     public function setPublish(Request $request, $id)
     {
         return Pass::where('id', $id)->update(['published' => $request->published]);

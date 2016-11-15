@@ -7,7 +7,7 @@
 	<div class="row" id="passEditor">
         <div class="centred block panel" id="passPreviewer">
             <form class="front" id="bg" action="#" v-on:submit="createPass">
-            	<a class="action" id="goToSettingsPanel"><i class="fa fa-btn fa-cog"></i></a>
+            	<a class="action" id="goToSettingsPanel"><i class="fa fa-btn fa-paint-brush"></i></a>
                 <h1>
                     <input class="clearable hd" rows="1" placeholder="Title*" maxlength="32" required v-model="passTitle"></input>
                 </h1>
@@ -20,13 +20,13 @@
 					<input class="clearable pd" rows="1" placeholder="Extra Info (Opt.)" maxlength="512" v-model="passSecondary"></textarea>
 	            	<input class="clearable pd" rows="1" placeholder="Barcode Value*" maxlength="32" required v-model="passBarcode"></input>
 	            	<input type="hidden" name="_token" value="{{csrf_token()}}"/>
-	            	<input type="submit" value="Post" class="form-control submit-button">
+	            	<input type="submit" value="Save Pass" class="form-control submit-button">
 				</div>
 				@include('global.uploadcare-2')
             </form>
-            {{-- <div class="back">
+            <div class="back">
                 <input type="submit" class="edit-submit" value="Save Changes">
-            </div> --}}
+            </div>
         </div>
     </div>
     <div class="col-md-4 col-md-offset-4" id="result"></div>

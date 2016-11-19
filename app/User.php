@@ -30,5 +30,4 @@ class User extends Authenticatable
             'uuid', 'passes_uuid', 'id'
         );
     }
-
 }

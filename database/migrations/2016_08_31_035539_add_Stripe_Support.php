@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AddStripeSupport extends Migration
@@ -39,7 +38,7 @@ class AddStripeSupport extends Migration
      */
     public function down()
     {
-        Schema::table('users', function ($table){
+        Schema::table('users', function ($table) {
             $table->dropColumn(['stripe_id', 'card_brand', 'card_last_four', 'trial_ends_at']);
         });
         Schema::drop('subscriptions');

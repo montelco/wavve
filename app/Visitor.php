@@ -22,6 +22,6 @@ class Visitor extends Model
 
     public function passes()
     {
-    	return $this->belongsTo('Wavvve\Pass', 'passes_uuid', 'uuid');
+        return $this->belongsTo('Wavvve\Pass', 'passes_uuid', 'uuid');
     }
 }

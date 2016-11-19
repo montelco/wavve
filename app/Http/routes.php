@@ -33,7 +33,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 
     Route::group(['prefix' => 'passes'], function () {
-        
         Route::get('/activity-feed', 'PassesController@feed');
 
         Route::get('analytics', 'PassesController@analytics');

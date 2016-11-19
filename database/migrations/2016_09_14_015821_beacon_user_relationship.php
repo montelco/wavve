@@ -12,7 +12,7 @@ class BeaconUserRelationship extends Migration
      */
     public function up()
     {
-        Schema::create('user_beacon', function(Blueprint $table) {
+        Schema::create('user_beacon', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('beacon_uuid', 36)->index();

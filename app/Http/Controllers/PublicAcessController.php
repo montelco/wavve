@@ -4,7 +4,6 @@ namespace Wavvve\Http\Controllers;
 
 use Wavvve\Pass;
 use Wavvve\User;
-use Wavvve\Visitor;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
 use Passbook\PassFactory;
@@ -12,7 +11,6 @@ use Passbook\Pass\Barcode;
 use Passbook\Pass\Beacon;
 use Passbook\Pass\Structure;
 use Passbook\Type\StoreCard;
-
 
 class PublicAcessController extends Controller
 {
@@ -26,14 +24,13 @@ class PublicAcessController extends Controller
     public function iBeaconUUID($user_id, $hardware_id, $lat, $lon)
     {
         return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex('2b 4f cf 51 4e aa 44 6d b2 4e 4d 1b 43 7f 38 40'), 2, ' '), ' ')], 200);
-    } 
+    }
 
     public function getWalletCompiledPass($username)
     {
-        $results = User::with(['passes' => function($query)
-            {
-                $query->orderBy('updated_at', 'desc')->first();
-            }])->where('username', $username)->firstOrFail();
+        $results = User::with(['passes' => function ($query) {
+            $query->orderBy('updated_at', 'desc')->first();
+        }, ])->where('username', $username)->firstOrFail();
 
         define('P12_FILE', 'C:\keys\ATMT.p12');
         define('P12_PASSWORD', '1234');
@@ -89,6 +86,7 @@ class PublicAcessController extends Controller
         $factory = new PassFactory(PASS_TYPE_IDENTIFIER, TEAM_IDENTIFIER, ORGANIZATION_NAME, P12_FILE, P12_PASSWORD, WWDR_FILE);
         $factory->setOutputPath(OUTPUT_PATH);
         $factory->package($pass);
+
         return PassFactory::serialize($pass);
     }
 

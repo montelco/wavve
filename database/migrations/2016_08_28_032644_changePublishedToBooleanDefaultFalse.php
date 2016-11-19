@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class ChangePublishedToBooleanDefaultFalse extends Migration
@@ -15,7 +14,7 @@ class ChangePublishedToBooleanDefaultFalse extends Migration
         Schema::table('passes', function ($table) {
             $table->dropColumn('published');
         });
-        
+
         Schema::table('passes', function ($table) {
             $table->boolean('published')->default(false);
         });

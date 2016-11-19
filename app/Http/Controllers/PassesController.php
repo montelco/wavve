@@ -24,9 +24,9 @@ class PassesController extends Controller
     {
         return view('editor.pass-analytics')
             ->with(['visitors' => $this->displayTwentyFourHourActivity(),
-                    'morrisData' => $this->displayAreaChart(), 
+                    'morrisData' => $this->displayAreaChart(),
                     'recent' => $this->displayRecentActivity(),
-                    'totals' => $this->displayTotalsforPasses()]);
+                    'totals' => $this->displayTotalsforPasses(), ]);
     }
 
     public function index(Pass $pass)
@@ -38,13 +38,11 @@ class PassesController extends Controller
     {
         return view('dashboard')
             ->with([
-                'newsFeed' => 
-                    Pass::where('user_id', Auth::user()->id)
+                'newsFeed' => Pass::where('user_id', Auth::user()->id)
                     ->orderBy('updated_at', 'desc')
                     ->take(5)
-                    ->get(), 
-                'visitors' => 
-                $this->displayTwentyFourHourActivity()
+                    ->get(),
+                'visitors' => $this->displayTwentyFourHourActivity(),
             ]);
     }
 
@@ -143,19 +141,16 @@ class PassesController extends Controller
 
     public function displayTwentyFourHourActivity()
     {
-        return Pass::where('user_id', Auth::user()->id)->withCount(['visitors' => function($query)
-        {
+        return Pass::where('user_id', Auth::user()->id)->withCount(['visitors' => function ($query) {
             $query->where('created_at', '<=', Carbon\Carbon::now())->where('created_at', '>=', Carbon\Carbon::now()->subHours(24));
-        }])->get()->sum('visitors_count');
+        }, ])->get()->sum('visitors_count');
     }
 
     public function displayAreaChart()
     {
-        return Visitor::all()->where('passes.user_id', Auth::user()->id)->sortByDesc('created_at')->groupBy(function($query)
-        {
+        return Visitor::all()->where('passes.user_id', Auth::user()->id)->sortByDesc('created_at')->groupBy(function ($query) {
             return Carbon\Carbon::parse($query->created_at)->format('Y-m-d');
-        })->take(7)->map(function($total)
-        {
+        })->take(7)->map(function ($total) {
             return ['views' => $total->count(), 'period' => Carbon\Carbon::parse($total['0']->created_at)->format('Y-m-d')];
         });
     }

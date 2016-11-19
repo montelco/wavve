@@ -23,4 +23,12 @@ class User extends Authenticatable
         return $this->hasMany('Wavvve\Pass');
     }
 
+    public function visitors()
+    {
+        return $this->hasManyThrough(
+            'Wavvve\Visitor', 'Wavvve\Pass',
+            'uuid', 'passes_uuid', 'id'
+        );
+    }
+
 }

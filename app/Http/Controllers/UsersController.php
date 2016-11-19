@@ -22,4 +22,9 @@ class UsersController extends Controller
     {
     	echo '<a href="' . User::where('id', Auth::user()->id)->pluck('website')['0']  . '">Poop Face</a>';
     }
+
+    public function setWebsite(User $user)
+    {
+        // Put that shiiiiit here.
+    }
 }

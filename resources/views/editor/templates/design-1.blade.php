@@ -10,7 +10,7 @@
 				<h1>
 					<input class="clearable hd" rows="1" placeholder="Title*" maxlength="32" required v-model="passTitle"></input>
 				</h1>
-				<input class="clearable pd" id="file-uploader" name="passFullBG" type="hidden" data-clearable role="uploadcare-uploader" v-model="passFullBG">
+				<input class="clearable pd" id="file-uploader" name="passFullBG" type="hidden" data-clearable role="uploadcare-uploader" data-crop v-model="passFullBG">
 				<input class="clearable pd" rows="1" id="from" name="from" placeholder="Expiry Date (Opt.)" maxlength="16" v-model="passExpiry"></input>
 				<textarea class="clearable pd" rows="2" placeholder="Description*" maxlength="255" required v-model="passPrimary"></textarea>
 				<input class="clearable pd" rows="1" placeholder="Extra Info (Opt.)" maxlength="255" v-model="passSecondary"></input>

@@ -5,7 +5,9 @@ namespace Wavvve\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Wavvve\Pass;
+use Wavvve\User;
 use Wavvve\Visitor;
+use Carbon;
 
 class PassesController extends Controller
 {
@@ -18,6 +20,15 @@ class PassesController extends Controller
         $this->middleware('auth');
     }
 
+    public function analytics(Pass $pass)
+    {
+        return view('editor.pass-analytics')
+            ->with(['visitors' => $this->displayTwentyFourHourActivity(),
+                    'morrisData' => $this->displayAreaChart(), 
+                    'recent' => $this->displayRecentActivity(),
+                    'totals' => $this->displayTotalsforPasses()]);
+    }
+
     public function index(Pass $pass)
     {
         return view('editor.pass-manager')->with('passes', Pass::where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(10));
@@ -25,9 +36,16 @@ class PassesController extends Controller
 
     public function dash(Pass $pass)
     {
-        $newsFeed = Pass::where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->take(3)->get();
-
-        return view('dashboard')->with('newsFeed', $newsFeed);
+        return view('dashboard')
+            ->with([
+                'newsFeed' => 
+                    Pass::where('user_id', Auth::user()->id)
+                    ->orderBy('updated_at', 'desc')
+                    ->take(5)
+                    ->get(), 
+                'visitors' => 
+                $this->displayTwentyFourHourActivity()
+            ]);
     }
 
     public function feed()
@@ -53,6 +71,7 @@ class PassesController extends Controller
             'secondary_field' => 'max:255',
             'cashier_helper' => 'max:64',
             'design_number' => 'required|max:1',
+            'expiry' => 'date_format:"Y-m-d H:i:s"',
         ]);
 
         $newlyMintedPass = $request->user()->passes()->create([
@@ -112,10 +131,33 @@ class PassesController extends Controller
         return view('editor.pass-publish')->with('pass', Pass::where('id', $id)->firstOrFail());
     }
 
-    public function displayStats(Auth $auth)
+    public function displayRecentActivity()
     {
-       return dd(Pass::where('user_id', Auth::user()->id)->with('visitors')->get());
-        
+        return Visitor::all()->where('passes.user_id', Auth::user()->id)->sortByDesc('created_at')->take(7);
+    }
+
+    public function displayTotalsforPasses()
+    {
+        return Pass::where('user_id', Auth::user()->id)->withCount('visitors')->get()->sortByDesc('visitors_count')->take(5);
+    }
+
+    public function displayTwentyFourHourActivity()
+    {
+        return Pass::where('user_id', Auth::user()->id)->withCount(['visitors' => function($query)
+        {
+            $query->where('created_at', '<=', Carbon\Carbon::now())->where('created_at', '>=', Carbon\Carbon::now()->subHours(24));
+        }])->get()->sum('visitors_count');
+    }
+
+    public function displayAreaChart()
+    {
+        return Visitor::all()->where('passes.user_id', Auth::user()->id)->sortByDesc('created_at')->groupBy(function($query)
+        {
+            return Carbon\Carbon::parse($query->created_at)->format('Y-m-d');
+        })->take(7)->map(function($total)
+        {
+            return ['views' => $total->count(), 'period' => Carbon\Carbon::parse($total['0']->created_at)->format('Y-m-d')];
+        });
     }
 
     public function setPublish(Request $request, $id)

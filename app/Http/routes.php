@@ -36,7 +36,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         
         Route::get('/activity-feed', 'PassesController@feed');
 
-        Route::get('analytics', 'PassesController@displayStats');
+        Route::get('analytics', 'PassesController@analytics');
+
+        Route::get('graphic', 'PassesController@displayAreaChart');
+
+        Route::get('all', 'PassesController@displayTotalsforPasses');
 
         /*
          *  Edit an existing pass in its given template editor.

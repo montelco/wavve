@@ -28,26 +28,40 @@
             </div>
         </div>
         <div class="col-md-4 col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bell fa-fw"></i> Recent Activity</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    @if($newsFeed->count())
-                                    @foreach ($newsFeed as $item)
-                                        <a href="/{{$item->uuid}}" class="list-group-item">
-                                            <span class="badge">{{ $item->FriendlyTime }}</span>
-                                            <i class="fa fa-fw fa-tags"></i> <strong>Pass:</strong>{{ $item->title }}
-                                        </a>
-                                    @endforeach
-                                    @else
-                                        Nothing to show yet. Make a pass to get started.
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-bell fa-fw"></i> Recent Activity</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        @if($newsFeed->count())
+                        @foreach ($newsFeed as $item)
+                            <a href="/{{$item->uuid}}" class="list-group-item">
+                                <span class="badge">{{ $item->FriendlyTime }}</span>
+                                <i class="fa fa-fw fa-tags"></i> <strong>Pass:</strong>{{ $item->title }}
+                            </a>
+                        @endforeach
+                        @else
+                            Nothing to show yet. Make a pass to get started.
+                        @endif
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-users fa-fw"></i> 24 Hr. Visitor Preview</h3>
+                </div>
+                <div class="panel-body">
+                    @if(isset($visitors))
+                        <p class="huge-centered">{{ $visitors }}</p>
+                    @else
+                        <p class="huge-centered">0</p>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

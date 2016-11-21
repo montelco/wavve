@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class ExpiryDateToDatetime extends Migration
@@ -12,11 +11,11 @@ class ExpiryDateToDatetime extends Migration
      */
     public function up()
     {
-        Schema::table('passes', function($table) {
+        Schema::table('passes', function ($table) {
             $table->dropColumn('expiry');
         });
 
-        Schema::table('passes', function($table) {
+        Schema::table('passes', function ($table) {
             $table->timestamp('expiry')->nullable();
         });
     }
@@ -28,7 +27,7 @@ class ExpiryDateToDatetime extends Migration
      */
     public function down()
     {
-        Schema::table('passes', function($table) {
+        Schema::table('passes', function ($table) {
             $table->date('expiry')->nullable();
         });
     }

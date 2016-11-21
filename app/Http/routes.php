@@ -16,6 +16,8 @@ Route::get('/what', function () {
 
 Route::get('/dashboard', 'PassesController@dash');
 
+Route::get('/public/{username}/', 'PublicAcessController@getWalletCompiledPass');
+
 Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
 
 Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
@@ -31,12 +33,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 
     Route::group(['prefix' => 'passes'], function () {
-        
         Route::get('/activity-feed', 'PassesController@feed');
 
-        Route::get('analytics', function () {
-            return view('editor.pass-analytics');
-        });
+        Route::get('analytics', 'PassesController@analytics');
+
+        Route::get('graphic', 'PassesController@displayAreaChart');
+
+        Route::get('all', 'PassesController@displayTotalsforPasses');
 
         /*
          *  Edit an existing pass in its given template editor.
@@ -77,6 +80,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::post('/publish/{id}', 'PassesController@setPublish');
 
         Route::get('scheduler', 'PassesController@index');
+
+        Route::get('website', 'UsersController@getWebsite');
     });
 });
 

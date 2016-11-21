@@ -22,7 +22,7 @@ class Pass extends Model
 
     public function visitors()
     {
-        return $this->hasMany('Wavvve\Visitor');
+        return $this->hasMany('Wavvve\Visitor', 'passes_uuid', 'uuid')->select(['passes_uuid', 'visitor_cookie', 'created_at', 'updated_at']);
     }
 
     public function getFriendlyTimeAttribute()

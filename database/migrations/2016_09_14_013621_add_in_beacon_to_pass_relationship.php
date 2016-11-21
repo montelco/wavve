@@ -24,7 +24,7 @@ class AddInBeaconToPassRelationship extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::create('pass_beacon', function(Blueprint $table) {
+        Schema::create('pass_beacon', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('beacon_uuid', 36)->index();
             $table->string('passes_uuid', 7)->index();

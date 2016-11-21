@@ -55,7 +55,7 @@
 		@elseif($pass->theme == 3)
 			#6674b6
 		@else
-			#528089
+			white
 		@endif
 	@else
 		#528089

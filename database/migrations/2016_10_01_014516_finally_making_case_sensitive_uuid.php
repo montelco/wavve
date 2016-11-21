@@ -35,7 +35,7 @@ class FinallyMakingCaseSensitiveUuid extends Migration
     public function down()
     {
         Schema::drop('visitors');
-        
+
         //We ain't stopping this now!
     }
 }

@@ -12,12 +12,13 @@ body {
 }
 
 .huge-centered{
-    font-size: 7em !important;
+    font-size: 7.1em !important;
     font-weight: bold !important;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
 }
+
 
 @media(min-width:768px) {
     body {

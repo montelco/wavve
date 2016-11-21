@@ -49,6 +49,11 @@
       });
 	</script>
 	<style>
+		p{
+			padding-left: 1vw;
+			padding-right: 1vw;
+		}
+
 		@media(min-width: 768px){
 			#mainLayout{
 				margin-left: auto;
@@ -63,6 +68,8 @@
 				height: 80vh;
 				min-height: 575px;
 				min-width: 440px;
+				max-height: 575px;
+				max-width: 475px;
 				width: 35vw;
 				-webkit-box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
 				-moz-box-shadow: 0px 8px 21px 0px rgba(0,0,0,0.19);
@@ -91,7 +98,6 @@
 				color: white;
 				font-size: 1.1em;
 			}
-
 			.watermark{
 				font-size: 0.6em;
 				color: white;
@@ -125,16 +131,9 @@
 			font-size: 0.8em !important;
 		}
 
-		.watermark{
-			text-align: right;
-			color: white;
-			font-size: 0.7em;
-			padding-right: 3em;
-		}
-
 		.strip_bg{
 			@if(isset($pass->strip_background_image))
-			    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/2000x2000/center/-/blur/45/) center center no-repeat;
+			    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat;
 			    background-size: cover;
 		    @endif
 		}
@@ -156,7 +155,7 @@
 			    height: 100%;
 			    width: 100%;
 			    @if(isset($pass->coupon_full_background_image))
-			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/4000x4000/center/-/blur/45/) center center fixed no-repeat;
+			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/-/blur/45/) center center fixed no-repeat;
 			    background-size: cover;
 			    @endif
 			    font-weight: 400;
@@ -165,16 +164,15 @@
 		}
 		@media(max-width: 767px){
 			#mainLayout{
-			    height: 100%;
+			    height: 100vh;
 			    transition: all 0.5s ease;
 			    -webkit-transition: all 0.5s ease;
 			    -moz-transition: all 0.5s ease;
 			    -o-transition: all 0.5s ease;
 			    -ms-transition: all 0.5s ease;
-			    height: 100%;
-			    width: 100%;
+			    width: 100vw;
 			    @if(isset($pass->coupon_full_background_image))
-			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1500x1500/center/-/blur/40/) center center fixed no-repeat !important;
+			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/750x1000/center/-/blur/60/) center center fixed no-repeat !important;
 			    background-size: 100%;
 			    @endif
 			    font-weight: 400;
@@ -182,6 +180,9 @@
 			}
 		}
 		@media(min-width: 768px){
+			.row{
+				position: relative;
+			}
 			#mainLayout{
 			    height: 100%;
 			    transition: all 0.5s ease;
@@ -190,11 +191,18 @@
 			    -o-transition: all 0.5s ease;
 			    -ms-transition: all 0.5s ease;
 			    @if(isset($pass->coupon_full_background_image))
-			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/2000x2000/center/-/blur/45/) center center fixed no-repeat !important;
+			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center fixed no-repeat !important;
 			    background-size: 100%;
 			    @endif
-			    font-weight: 400;
-			    padding-bottom: 100px;
+			    font-weight: 400;0.0.0.10.
+			}
+			.watermark{
+				font-size: 0.6em;
+				color: white;
+				text-align: right;
+				padding-right: 2em;
+				position: absolute;
+				bottom: 0 !important;
 			}
 		}
 	</style>
@@ -203,12 +211,12 @@
 	</div>
 	<?php
 		use Wavvve\Visitor;
-		if(isset($_COOKIE['wid'])) {
-			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
+		if(!(isset($_COOKIE['wid']))) {
+			$newVisitor = setcookie('wid', str_random(36), time() + (60 * 60 * 24 * 365 * 5));
+			$newVisitor = $_COOKIE['wid'];
+			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $newVisitor]);
 		} 
 		else {
-			setcookie('wid', str_random(36), time() + (60 * 60 * 24 * 365 * 5));
-			print_r($_COOKIE['wid']);
 			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
 		}
 		

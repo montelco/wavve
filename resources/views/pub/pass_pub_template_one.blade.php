@@ -23,8 +23,8 @@
 		</div>
 		@if(isset($pass->expiry))
 			<div class="row">
-				<div class="col-md-2 col-lg-2 col-lg-offset-10 col-sm-5 col-sm-offset-7 col-xs-5 col-xs-offset-7">
-					<p class="expiry">Exp: {{ $pass->expiry }}</p>
+				<div class="col-md-4 col-lg-4 col-lg-offset-8 col-sm-6 col-sm-offset-6 col-xs-8 col-xs-offset-4">
+					<p class="expiry">Exp: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pass->expiry)->format('D, j M Y') }}</p>
 				</div>
 			</div>
 		@endif
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<p class="watermark">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="19" height="22"></p>
+			<p class="watermark col-lg-4 col-lg-offset-8">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="19" height="22"></p>
 		</div>
 	</div>
 @endsection

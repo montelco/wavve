@@ -16,7 +16,7 @@
 	}
 
 	#bg{
-		background: #1A2128 !important;
+		background: white!important;
 	}
 
 	h1{

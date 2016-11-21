@@ -14,7 +14,7 @@
 @endsection
 
 @section('strip_pass_contents')
-		<h1> {{$pass->title}} </h1>
+		<h1 class="d2"> {{$pass->title}} </h1>
 		@if(isset($pass->expiry))
 			<p class="expiry">Exp: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pass->expiry)->format('D, j M Y') }}</p>
 		@endif
@@ -59,7 +59,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<p class="watermark">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="19" height="22"></p>
+			<p class="watermark col-lg-4 col-lg-offset-8">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="19" height="22"></p>
 		</div>
 	</div>
 @endsection

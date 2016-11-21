@@ -179,6 +179,7 @@ return [
         'Blade' => Illuminate\Support\Facades\Blade::class,
         'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
+        'Cashier' => Laravel\Cashier\CashierServiceProvider::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,

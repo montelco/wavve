@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8c799f7a1e6f2d275945aff2e51df57a",
-    "content-hash": "f4a62877f4f9f24f06e42c416c9d801f",
+    "hash": "25babc6c8f69f42a04d1e7d342bbd5a7",
+    "content-hash": "290fc86a40a4db55c9c2866a5fc29693",
     "packages": [
         {
             "name": "bugsnag/bugsnag",
-            "version": "v3.2.0",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bugsnag/bugsnag-php.git",
-                "reference": "081e3cb0ae199cea3d1bf13884934bd02b15a86f"
+                "reference": "c3b05a18f9116ac7cb4984fd7ee0614fe4490176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bugsnag/bugsnag-php/zipball/081e3cb0ae199cea3d1bf13884934bd02b15a86f",
-                "reference": "081e3cb0ae199cea3d1bf13884934bd02b15a86f",
+                "url": "https://api.github.com/repos/bugsnag/bugsnag-php/zipball/c3b05a18f9116ac7cb4984fd7ee0614fe4490176",
+                "reference": "c3b05a18f9116ac7cb4984fd7ee0614fe4490176",
                 "shasum": ""
             },
             "require": {
@@ -34,7 +34,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -62,24 +62,24 @@
                 "logging",
                 "tracking"
             ],
-            "time": "2016-08-09 00:56:48"
+            "time": "2016-09-05 15:23:22"
         },
         {
             "name": "bugsnag/bugsnag-laravel",
-            "version": "v2.2.0",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bugsnag/bugsnag-laravel.git",
-                "reference": "e2cd633c70d4ff64dc8eff64af719aae87259c71"
+                "reference": "b067bef4e2d87b92d4d554d511b7b262af17586d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bugsnag/bugsnag-laravel/zipball/e2cd633c70d4ff64dc8eff64af719aae87259c71",
-                "reference": "e2cd633c70d4ff64dc8eff64af719aae87259c71",
+                "url": "https://api.github.com/repos/bugsnag/bugsnag-laravel/zipball/b067bef4e2d87b92d4d554d511b7b262af17586d",
+                "reference": "b067bef4e2d87b92d4d554d511b7b262af17586d",
                 "shasum": ""
             },
             "require": {
-                "bugsnag/bugsnag": "^3.2",
+                "bugsnag/bugsnag": "^3.4",
                 "bugsnag/bugsnag-psr-logger": "^1.1",
                 "illuminate/contracts": "^5.0",
                 "illuminate/support": "^5.0",
@@ -93,7 +93,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -121,7 +121,7 @@
                 "logging",
                 "tracking"
             ],
-            "time": "2016-08-09 01:18:38"
+            "time": "2016-09-08 08:33:45"
         },
         {
             "name": "bugsnag/bugsnag-psr-logger",
@@ -237,16 +237,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "5df9ed0ed0c9506ea6404a23450854e5df15cc12"
+                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/5df9ed0ed0c9506ea6404a23450854e5df15cc12",
-                "reference": "5df9ed0ed0c9506ea6404a23450854e5df15cc12",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/ec21a59414b99501e723b63fd664aa8ead9c5680",
+                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680",
                 "shasum": ""
             },
             "require": {
@@ -255,6 +255,7 @@
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
+                "psr/log": "^1.0",
                 "symfony/process": "^2.5 || ^3.0"
             },
             "suggest": {
@@ -290,7 +291,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2016-07-18 23:07:53"
+            "time": "2016-09-04 19:00:06"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -836,8 +837,63 @@
             "time": "2015-12-07 04:07:13"
         },
         {
+            "name": "eo/passbook",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eymengunay/php-passbook.git",
+                "reference": "db4f235fb9f1e77c77eb844fed8420a75ca3073a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eymengunay/php-passbook/zipball/db4f235fb9f1e77c77eb844fed8420a75ca3073a",
+                "reference": "db4f235fb9f1e77c77eb844fed8420a75ca3073a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-zip": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Passbook\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eymen Gunay",
+                    "email": "eymen@egunay.com"
+                }
+            ],
+            "description": "iOS Passbook for PHP",
+            "homepage": "https://github.com/eymengunay/php-passbook",
+            "keywords": [
+                "coupons",
+                "ios",
+                "mobile",
+                "pass",
+                "passbook",
+                "tickets",
+                "wallet"
+            ],
+            "time": "2016-04-24 21:25:58"
+        },
+        {
             "name": "guzzlehttp/guzzle",
-<<<<<<< HEAD
             "version": "5.3.1",
             "source": {
                 "type": "git",
@@ -860,7 +916,6 @@
             },
             "type": "library",
             "autoload": {
-=======
             "version": "6.2.1",
             "source": {
                 "type": "git",
@@ -1888,22 +1943,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1917,12 +1980,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-09-19 16:02:08"
         },
         {
             "name": "psy/psysh",
@@ -2267,7 +2331,11 @@
         },
         {
             "name": "symfony/event-dispatcher",
+<<<<<<< HEAD
             "version": "v3.1.4",
+=======
+            "version": "v3.1.5",
+>>>>>>> 29b33e0e5e3bd4f636da0b6bfb3d92027bbb88f7
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -3362,6 +3430,7 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
+<<<<<<< HEAD
             "version": "3.1.0",
             "source": {
                 "type": "git",
@@ -3372,6 +3441,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
                 "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
+=======
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+>>>>>>> 29b33e0e5e3bd4f636da0b6bfb3d92027bbb88f7
                 "shasum": ""
             },
             "require": {
@@ -3403,7 +3484,11 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
+<<<<<<< HEAD
             "time": "2016-06-10 09:48:41"
+=======
+            "time": "2016-09-30 07:12:33"
+>>>>>>> 29b33e0e5e3bd4f636da0b6bfb3d92027bbb88f7
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -4368,6 +4453,7 @@
         },
         {
             "name": "symfony/yaml",
+<<<<<<< HEAD
             "version": "v3.1.4",
             "source": {
                 "type": "git",
@@ -4378,6 +4464,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/f291ed25eb1435bddbe8a96caaef16469c2a092d",
                 "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d",
+=======
+            "version": "v3.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "368b9738d4033c8b93454cb0dbd45d305135a6d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/368b9738d4033c8b93454cb0dbd45d305135a6d3",
+                "reference": "368b9738d4033c8b93454cb0dbd45d305135a6d3",
+>>>>>>> 29b33e0e5e3bd4f636da0b6bfb3d92027bbb88f7
                 "shasum": ""
             },
             "require": {
@@ -4413,7 +4511,11 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2016-09-02 02:12:52"
+=======
+            "time": "2016-09-25 08:27:07"
+>>>>>>> 29b33e0e5e3bd4f636da0b6bfb3d92027bbb88f7
         },
         {
             "name": "webmozart/assert",

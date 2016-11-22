@@ -79,7 +79,8 @@
 					<p class="admiral-focus">Wavvve is an all-in-one platform to reach new customers. While other companies may offer services or apps for iBeacon or Bluetooth Marketing, what they don't tell you is they sell a half-baked solution- often requiring you to already have an application or invest hundreds of thousands into developing one from scratch. And that's how we're different: We built the tools to reach as many people as possible: No. App. Required. Without needing an app, that means you can reach far more people than you ever could on any other service.</p>
 					<p class="admiral-focus">With our patent pending technology we made marketing content creation a simple process. If you can make a post on social media, you have all the skills you need to make content on Wavvve. There's no coding involved, no expensive developers, no app updates, and no email chains back and forth to get changes approved. We made simple tools to make your business life free of any added stress. Schedule your posts ahead of time, create admin accounts for other staff members, and keep your customers engaged from wherever you are.</p>
 				</div>
-                <a href="#" class="cta">Order Now</a>
+                <iframe class="centered" width="560" height="315" src="https://www.youtube.com/embed/Es3zrdthnTU" frameborder="0" allowfullscreen></iframe>
+                <a href="mailto:michael.j.innaurato@atmtllc.com" class="cta">Order Now</a>
 			</section>
 		</div>
 	</section>

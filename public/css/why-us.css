@@ -15,10 +15,9 @@ a:hover{
 }
 
 .cta {
-  display: inline-block;
+  display: table;
   text-decoration: none !important;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding: 12px 48px;
   color: #ececec !important;
   font-size: 22px;
@@ -29,7 +28,8 @@ a:hover{
   -o-transition: all 0.25s ease;
   -ms-transition: all 0.25s ease;
   text-shadow: 0 0 8px rgb(0, 0, 0);
-  background: rgba(255,255,255,0.1);
+  background: rgba(125,125,125,0.7);
+  margin-top: 2em !important;
 }
 
 .cta:hover{

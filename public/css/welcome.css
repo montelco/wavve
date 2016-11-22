@@ -27,6 +27,7 @@
 }
 
 .cta {
+  background: rgba(125,125,125,0.7);
   display: inline-block;
   text-decoration: none !important;
   margin: 0;
@@ -40,7 +41,6 @@
   -o-transition: all 0.25s ease;
   -ms-transition: all 0.25s ease;
   text-shadow: 0 0 8px rgb(0, 0, 0);
-  background: rgba(255,255,255,0.1);
 }
 
 .cta:hover{

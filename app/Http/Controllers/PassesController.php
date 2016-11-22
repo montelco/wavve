@@ -116,7 +116,7 @@ class PassesController extends Controller
         $deletePass = Pass::where('id', $id)->first();
         if ((int) $deletePass->user_id == (int) Auth::user()->id) {
             $deletePass = Pass::findOrFail($id);
-            $deletePass->delete();
+            $deletePass->delete()->cascade();
 
             return redirect('/passes/manage');
         } else {

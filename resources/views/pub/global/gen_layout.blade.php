@@ -1,3 +1,9 @@
+<?php
+	if(!isset($_COOKIE['wid'])) {
+		setcookie('wid', str_random(36), time() + (60 * 60 * 24 * 365 * 5));
+		header("Refresh:0");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,15 +217,9 @@
 	</div>
 	<?php
 		use Wavvve\Visitor;
-		if(!(isset($_COOKIE['wid']))) {
-			$newVisitor = setcookie('wid', str_random(36), time() + (60 * 60 * 24 * 365 * 5));
-			$newVisitor = $_COOKIE['wid'];
-			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $newVisitor]);
-		} 
-		else {
+		if(isset($_COOKIE['wid'])) {
 			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
-		}
-		
+		} 
 	?>
 </body>
 </html>

@@ -19,6 +19,9 @@ body {
     text-align: center !important;
 }
 
+.input-group-addon{
+    min-width: 161px !important;
+}
 
 @media(min-width:768px) {
     body {

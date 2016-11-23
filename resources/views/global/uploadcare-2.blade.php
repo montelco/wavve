@@ -2,7 +2,7 @@
     UPLOADCARE_LOCALE = "en";
     UPLOADCARE_LIVE = "false";
     UPLOADCARE_PUBLIC_KEY = "351ed2274c2d55ccfe18";
-    UPLOADCARE_TABS = 'file url facebook instagram gdrive skydrive dropbox';
+    UPLOADCARE_TABS = 'file url facebook instagram gdrive gphotos skydrive dropbox';
 </script>
 <script src="https://ucarecdn.com/widget/2.10.1/uploadcare/uploadcare.full.min.js" charset="utf-8"></script>
 <script>
@@ -36,6 +36,7 @@
                     'design_number' : '2',
                     'primary_field' : this.passPrimary,
                     'secondary_field' : this.passSecondary,
+                    'expiry': this.passExpiry,
                     'barcode_value' : this.passBarcode,
                     'cashier_helper' : this.passCashierHelper,
                     'strip_background_image': $.uploadedURL,
@@ -46,6 +47,7 @@
                 this.passBarcode = '';
                 this.passPrimary = '';
                 this.passTitle = '';
+                this.passExpiry,
                 this.passCashierHelper = '';
                 this.passSecondary = '';
                 this.passExpiry = '';

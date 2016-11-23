@@ -43,19 +43,21 @@ a:hover{
 }
 
 header{
-    position: relative;
-    height: 600px;
-    background: url(https://ucarecdn.com/695235bf-bd21-4c1d-be6d-751ccd0c2ed4/-/progressive/yes/-/quality/lightest/);
-    background-size: auto 600px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    overflow: hidden;
+  position: relative;
+  height: 600px;
+  background: url(https://ucarecdn.com/695235bf-bd21-4c1d-be6d-751ccd0c2ed4/-/progressive/yes/-/quality/lightest/);
+  background-size: auto 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
 }
+
 .page-header{
   border: none !important;
 }
+
 /*.logo{
     height: 180px;
     width: 100%;

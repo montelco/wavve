@@ -65,8 +65,13 @@
 					</div>
 	                <label for="basic-url">Business Name</label>
 					<div class="input-group">
-						<input placeholder="" type="text" class="form-control" id="igUN">
+						<input placeholder="ABC, LLC" type="text" class="form-control" id="bizName">
 					</div>
+					<label for="basic-url">Business Username</label>
+					<div class="input-group">
+						<input placeholder="abcllc" type="text" class="form-control" id="bizName">
+					</div>
+					<input class="clearable pd" id="file-uploader" name="profile_pic" type="hidden" data-clearable role="uploadcare-uploader" data-crop v-model="profile_pic">
 	            </div>
 	        </div>
 	    </div>

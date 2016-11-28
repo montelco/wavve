@@ -12,7 +12,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Wavvve
+                    <img src="/logo.svg" width="70px">
                 </a>
             </div>
 

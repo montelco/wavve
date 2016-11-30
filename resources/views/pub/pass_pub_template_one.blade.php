@@ -50,8 +50,20 @@
 				@endif
 			</div>
 		</div>
-		<div class="row">
-			<p class="watermark col-lg-4 col-lg-offset-8">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="19" height="22"></p>
+		<div class="social-bugs">
+			@if(isset($pass->user->website))
+			<a target="_blank" href="http://{{  $pass->user->website }}"><img src="www.svg" height="32px"></a>
+			@endif
+			@if(isset($pass->user->facebook))
+				<a target="_blank" href="https://facebook.com/{{  $pass->user->facebook }}"><img src="facebook.svg" height="32px"></a>
+			@endif			
+			@if(isset($pass->user->twitter))
+				<a target="_blank" href="https://twitter.com/{{  $pass->user->twitter }}"><img src="twitter.svg" height="32px"></a>
+			@endif
+			@if(isset($pass->user->instagram))
+				<a target="_blank" href="https://instagram.com/{{  $pass->user->instagram }}"><img src="instagram.svg" height="32px"></a>
+			@endif
+			<p class="watermark">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="14"></p>
 		</div>
 	</div>
 @endsection

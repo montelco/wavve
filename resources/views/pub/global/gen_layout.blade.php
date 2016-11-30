@@ -108,10 +108,13 @@
 				font-size: 0.6em;
 				color: white;
 				text-align: right;
-				right: 2em;
+			}
+			.social-bugs{
+				float: right;
 				position: absolute;
-				bottom: 2em;
-				padding-right: 2em;
+				right: 0.15em;
+				bottom: 0;
+
 			}
 		}
 		h1,h2,h3{
@@ -173,6 +176,7 @@
 		}
 		@media(max-width: 767px){
 			#mainLayout{
+				position: relative;
 			    height: 100vh;
 			    transition: all 0.5s ease;
 			    -webkit-transition: all 0.5s ease;
@@ -193,6 +197,7 @@
 				position: relative;
 			}
 			#mainLayout{
+				position: relative;
 			    height: 100%;
 			    transition: all 0.5s ease;
 			    -webkit-transition: all 0.5s ease;
@@ -209,9 +214,13 @@
 				font-size: 0.6em;
 				color: white;
 				text-align: right;
-				padding-right: 2em;
+			}
+
+			.social-bugs{
+				float: right;
 				position: absolute;
-				bottom: 0 !important;
+				right: 0.15em;
+				bottom: 0;
 			}
 		}
 	</style>

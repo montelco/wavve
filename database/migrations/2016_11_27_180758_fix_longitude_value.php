@@ -12,12 +12,15 @@ class FixLongitudeValue extends Migration
      */
     public function up()
     {
-        Schema::table('beacons', function ($table) {
-            $table->dropColumn('lon');
-        });
+        // Schema::table('beacons', function ($table) {
+        //     $table->dropColumn('lon');
+        // });
 
         Schema::table('beacons', function ($table) {
             $table->double('lon', 10, 6)->index();
+            $table->double('lat', 10, 6)->unsigned()->index();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

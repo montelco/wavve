@@ -31,8 +31,7 @@ class Kernel extends ConsoleKernel
         })->everyFiveMinutes();
 
         $schedule->call(function () {
-            Pass::create([
-                'id' => "80",
+            User::where('id', 1)->passes()->create([
                 'title' => "Free WiFi",
                 'template_number' => "1",
                 'primary_field' => "Free WiFi for all of our customers. Just check your receipt for the daily password.",
@@ -43,7 +42,6 @@ class Kernel extends ConsoleKernel
                 'expiry' => Carbon\Carbon::now(),
                 'uuid' => str_random(7),
             ]);
-            Pass::where('id', 80)->update(['user_id' => 1]);
         })->everyFiveMinutes();
     }
 }

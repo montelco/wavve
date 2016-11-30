@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () {
             Pass::create([
-                'user_id' => 1,
+                'user_id' => "1",
                 'title' => "Free WiFi",
                 'template_number' => "1",
                 'primary_field' => "Free WiFi for all of our customers. Just check your receipt for the daily password.",

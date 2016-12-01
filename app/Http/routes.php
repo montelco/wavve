@@ -32,6 +32,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         return view('account.settings');
     });
 
+    Route::get('help', function () {
+        return view('editor.pass-help');
+    });
+
     Route::group(['prefix' => 'passes'], function () {
         Route::get('/activity-feed', 'PassesController@feed');
 

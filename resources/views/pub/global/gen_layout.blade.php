@@ -205,10 +205,10 @@
 			    -o-transition: all 0.5s ease;
 			    -ms-transition: all 0.5s ease;
 			    @if(isset($pass->coupon_full_background_image))
-			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center fixed no-repeat !important;
+			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat !important;
 			    background-size: 100%;
 			    @endif
-			    font-weight: 400;0.0.0.10.
+			    font-weight: 400;
 			}
 			.watermark{
 				font-size: 0.6em;

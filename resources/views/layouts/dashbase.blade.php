@@ -91,6 +91,9 @@
                     <li>
                         <a href="{{ url('/settings') }}"><i class="fa fa-fw fa-wrench"></i> Settings</a>
                     </li>
+                    <li>
+                        <a href="{{ url('/help') }}"><i class="fa fa-fw fa-question-circle"></i> Help</a>
+                    </li>
                 </ul>
             </div>
         </nav>

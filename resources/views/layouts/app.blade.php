@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta property="og:title" content="Wavvve: A Better Way of Business" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.wavvve.io/" />
-    <meta property="og:image" content="https://www.wavvve.io/ogfblg.jpg" />
-    <meta property="og:description" content="Wavvve is an easy-to-use platform designed to make businesses of any size better at marketing." />
+    <meta property="og:title" content="Wavvve: A Better Way of Business">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.wavvve.io/">
+    <meta property="og:image" content="https://www.wavvve.io/ogfblg.jpg">
+    <meta property="og:description" content="Wavvve is an easy-to-use platform designed to make businesses of any size better at marketing.">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -23,9 +24,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-    <style
+    <style>
         body {
             font-family: 'Lato';
         }
@@ -34,6 +33,7 @@
             margin-right: 6px;
         }
     </style>
+    
     <link rel="stylesheet" href="{{ URL::to('/css/font.css') }}">
     <link rel="stylesheet" href="{{ URL::to('/css/master.css') }}">
 </head>

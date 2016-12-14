@@ -2,12 +2,12 @@
 
 namespace Wavvve\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
+use Carbon;
 use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\Visitor;
-use Carbon;
+use Illuminate\Http\Request;
 
 class PassesController extends Controller
 {
@@ -143,7 +143,7 @@ class PassesController extends Controller
     {
         return Pass::where('user_id', Auth::user()->id)->withCount(['visitors' => function ($query) {
             $query->where('created_at', '<=', Carbon\Carbon::now())->where('created_at', '>=', Carbon\Carbon::now()->subHours(24));
-        }, ])->get()->sum('visitors_count');
+        }])->get()->sum('visitors_count');
     }
 
     public function displayAreaChart()

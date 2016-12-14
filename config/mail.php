@@ -55,7 +55,6 @@ return [
     |
     */
 
-
     'from' => ['address' => 'no-reply@mail.wavvve.io', 'name' => 'The Wavvve Team'],
 
     /*

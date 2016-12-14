@@ -22,7 +22,6 @@ Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessCont
 
 Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
 
-
 /*
  *	Passes Router
  */
@@ -68,7 +67,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('editor/{template}', function ($template) {
             return view('editor.templates.design-'.$template);
         });
-
 
         Route::get('manage', 'PassesController@index');
 

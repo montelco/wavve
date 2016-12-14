@@ -2,11 +2,10 @@
 
 namespace Wavvve\Console;
 
+use Carbon;
+use Wavvve\Pass;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Wavvve\Pass;
-use Carbon;
-use Wavvve\User;
 
 class Kernel extends ConsoleKernel
 {

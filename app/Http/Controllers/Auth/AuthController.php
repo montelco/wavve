@@ -2,8 +2,8 @@
 
 namespace Wavvve\Http\Controllers\Auth;
 
-use Wavvve\User;
 use Validator;
+use Wavvve\User;
 use Wavvve\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;

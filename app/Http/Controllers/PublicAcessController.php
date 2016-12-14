@@ -6,9 +6,9 @@ use Wavvve\Pass;
 use Wavvve\User;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
+use Passbook\Pass\Beacon;
 use Passbook\PassFactory;
 use Passbook\Pass\Barcode;
-use Passbook\Pass\Beacon;
 use Passbook\Pass\Structure;
 use Passbook\Type\StoreCard;
 
@@ -30,7 +30,7 @@ class PublicAcessController extends Controller
     {
         $results = User::with(['passes' => function ($query) {
             $query->orderBy('updated_at', 'desc')->first();
-        }, ])->where('username', $username)->firstOrFail();
+        }])->where('username', $username)->firstOrFail();
 
         //echo $results->website;
 

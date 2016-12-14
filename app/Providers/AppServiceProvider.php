@@ -2,8 +2,8 @@
 
 namespace Wavvve\Providers;
 
-use Illuminate\Contracts\Logging\Log;
 use Psr\Log\LoggerInterface;
+use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

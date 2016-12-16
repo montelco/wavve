@@ -26,8 +26,11 @@ class User extends Authenticatable
     public function visitors()
     {
         return $this->hasManyThrough(
-            'Wavvve\Visitor', 'Wavvve\Pass',
-            'uuid', 'passes_uuid', 'id'
+            'Wavvve\Visitor',
+            'Wavvve\Pass',
+            'uuid',
+            'passes_uuid',
+            'id'
         );
     }
 }

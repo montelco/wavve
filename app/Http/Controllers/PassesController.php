@@ -106,7 +106,8 @@ class PassesController extends Controller
                 'secondary_field' => $request->secondary_field,
                 'barcode_value' => $request->barcode_value,
                 'cashier_helper' => $request->cashier_helper,
-        ]);
+            ]
+        );
 
         return response()->json(Pass::where('id', $request->passID));
     }

@@ -4,9 +4,11 @@ namespace Wavvve;
 
 use Laravel\Cashier\Billable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+use Notifiable;
     use HasRoles;
     use Billable;
 

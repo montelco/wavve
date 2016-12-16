@@ -4,7 +4,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/why-us', function () {
     return view('why');

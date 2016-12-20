@@ -20,7 +20,7 @@ class CreatePassEditor extends Migration
             $table->string('header_background_image', 254)->nullable();
             $table->string('title', 64);
             $table->string('theme', 1);
-            $table->enum('template_number', ['1','2','3']);
+            $table->enum('template_number', ['1', '2', '3']);
             $table->timestamp('expiry')->nullable();
             $table->boolean('published')->default(false);
             $table->string('strip_background_image', 254)->nullable();
@@ -34,7 +34,6 @@ class CreatePassEditor extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             DB::statement('ALTER TABLE `passes` CHANGE `uuid` `uuid` VARCHAR(16) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL');
             $table->unique('uuid');
-
         });
     }
 

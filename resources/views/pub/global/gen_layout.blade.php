@@ -1,7 +1,7 @@
 <?php
 	if(!isset($_COOKIE['wid'])) {
 		setcookie('wid', str_random(36), time() + (60 * 60 * 24 * 365 * 5));
-		header("Refresh:0");
+		header("Refresh:5");
 	}
 ?>
 <!DOCTYPE html>
@@ -169,10 +169,10 @@
 			    -ms-transition: all 0.5s ease;
 			    height: 100%;
 			    width: 100%;
-			   {{-- @if(isset($pass->coupon_full_background_image))
+			    @if(isset($pass->coupon_full_background_image))
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/-/blur/45/) center center fixed no-repeat;
 			    background-size: cover;
-			    @endif --}}
+			    @endif
 			    font-weight: 400;
 			    padding-bottom: 100px;
 			}
@@ -187,10 +187,10 @@
 			    -o-transition: all 0.5s ease;
 			    -ms-transition: all 0.5s ease;
 			    width: 100vw;
-			    {{-- @if(isset($pass->coupon_full_background_image))
+			    @if(isset($pass->coupon_full_background_image))
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/750x1000/center/-/blur/60/) center center fixed no-repeat !important;
 			    background-size: 100%;
-			    @endif --}}
+			    @endif
 			    font-weight: 400;
 			    padding-bottom: 100px;
 			}
@@ -207,10 +207,10 @@
 			    -moz-transition: all 0.5s ease;
 			    -o-transition: all 0.5s ease;
 			    -ms-transition: all 0.5s ease;
-			    {{-- @if(isset($pass->coupon_full_background_image))
+			    @if(isset($pass->coupon_full_background_image))
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat !important;
 			    background-size: 100%;
-			    @endif --}}
+			    @endif
 			    font-weight: 400;
 			}
 			.watermark{
@@ -231,10 +231,10 @@
 		@yield('strip_pass_contents')
 	</div>
 	<?php
-		// use Wavvve\Visitor;
-		// if(isset($_COOKIE['wid'])) {
-		// 	return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
-		// } 
+		use Wavvve\Visitor;
+		if(isset($_COOKIE['wid'])) {
+			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
+		} 
 	?>
 </body>
 </html>

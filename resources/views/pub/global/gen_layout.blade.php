@@ -19,15 +19,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    <link rel="stylesheet" href="{{ URL::to('/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('/css/lato.css') }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ URL::to('/css/bootstrap.min.css') }}">
 </head>
 <body>
-	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://www.jqueryscript.net/demo/Simple-jQuery-Based-Barcode-Generator-Barcode/jquery-barcode.js"></script>
+	<script src="{{ URL::to('/js/jquery-latest.min.js') }}"></script>
+	<script src="{{ URL::to('/js/jquery-barcode.js') }}"></script>
 	<script>
     	function generateBarcode(){
         var value = @yield('barcode_value')
@@ -140,15 +140,17 @@
 			font-size: 0.8em !important;
 		}
 
-		.strip_bg{
-			@if(isset($pass->strip_background_image))
-			    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat;
-			    background-size: cover;
-		    @else
-		    	background: url(https://ucarecdn.com/eea63b9c-0ca6-48ec-9ed4-90def8f09ef6/-/progressive/yes/-/scale_crop/1800x600/) center center no-repeat;
-			    background-size: cover;
-		    @endif
-		}
+		@if($pass->template_number == 2)
+			.strip_bg{
+				@if(isset($pass->strip_background_image))
+				    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat;
+				    background-size: cover;
+			    @else
+			    	background: url(https://ucarecdn.com/eea63b9c-0ca6-48ec-9ed4-90def8f09ef6/-/progressive/yes/-/scale_crop/1800x600/) center center no-repeat;
+				    background-size: cover;
+			    @endif
+			}
+		@endif
 		.secondary, .expiry{
 			text-align: right;
 		}

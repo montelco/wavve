@@ -15,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" type="image/png" href="{{ URL::to('favicons/favicon-96x96.png') }}" sizes="512x512">
     <meta name="theme-color" content=@yield('theme-color')>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 

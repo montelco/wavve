@@ -48,6 +48,7 @@ class Kernel extends ConsoleKernel
         //     ]);
         // })->everyFiveMinutes();
     }
+
     /**
      * Register the Closure based commands for the application.
      *

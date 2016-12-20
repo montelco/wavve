@@ -47,6 +47,7 @@ class Handler extends ExceptionHandler
         return parent::render($request, $e);
         //return view('errors.500');
     }
+
     /**
      * Convert an authentication exception into an unauthenticated response.
      *

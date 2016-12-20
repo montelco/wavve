@@ -12,24 +12,28 @@ class AddInBeaconToPassRelationship extends Migration
      */
     public function up()
     {
-        Schema::table('passes', function ($table) {
-            $table->unique('uuid');
-        });
-
         Schema::create('beacons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->string('uuid', 36)->unique()->index();
+            $table->uuid('uuid')->unique();
+            $table->macAddress('hardware_address');
+            $table->double('lon', 10, 6)->index();
+            $table->double('lat', 10, 6)->unsigned()->index();
+            $table->string('nickname', 32);
+            $table->string('software', 18);
+            $table->string('hardware', 16);
+            $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::create('pass_beacon', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+        Schema::create('user_beacon', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
             $table->string('beacon_uuid', 36)->index();
-            $table->string('passes_uuid', 7)->index();
-            $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('beacon_uuid')->references('uuid')->on('beacons')->onDelete('cascade');
         });
     }
@@ -41,12 +45,8 @@ class AddInBeaconToPassRelationship extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pass_beacon');
+        Schema::dropIfExists('user_beacon');
 
         Schema::dropIfExists('beacons');
-
-        Schema::table('passes', function ($table) {
-            $table->dropUnique('uuid');
-        });
     }
 }

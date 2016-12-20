@@ -229,11 +229,11 @@
 	<div id="mainLayout">
 		@yield('strip_pass_contents')
 	</div>
-	<?php
+	{{-- <?php
 		use Wavvve\Visitor;
 		if(isset($_COOKIE['wid'])) {
 			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
 		} 
-	?>
+	?> --}}
 </body>
 </html>

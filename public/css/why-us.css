@@ -1,61 +1,119 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:700,400,300,100);
 
-html, body{
-	height: 100%;
-	min-height: 100%;
-  color: #e6e6e6;
+a {
+  color: #fff;
 }
 
-a{
-  color: white;
-}
-
-a:hover{
+a:hover {
   color: grey;
 }
 
-.cta {
-  display: table;
-  text-decoration: none !important;
+.admiral-focus {
+  color: #fff;
+  font-size: 1.45em;
+}
+
+.admiral-header, .page-header h1 {
+  color: #fff;
+}
+
+.admiral-slug, .page-header em {
+  color: #fff;
+}
+
+body {
+  color: #e6e6e6;
+  height: 100%;
+  min-height: 100%;
+}
+
+.contact-us-container {
+  display: block;
   margin: 0 auto;
-  padding: 12px 48px;
-  color: #ececec !important;
-  font-size: 22px;
-  border: solid 4px #ececec;
-  transition: all 0.25s ease;
+  padding: 0;
+  width: 60%;
+}
+
+.contact-us-link,
+.contact-us-link:active,
+.contact-us-link:hover,
+.contact-us-link:link,
+.contact-us-link:visited {
+  text-decoration: none;
+}
+
+.contact-us-list {
+  font-size: 30px;
+  font-weight: 200;
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-us-list-item {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 700px) {
+
+  .contact-us-container {
+    display: inline;
+  }
+
+  .contact-us-list {
+    text-align: center;
+    width: 100%
+  }
+
+  .contact-us-list-item {
+    display: inline-block;
+    margin: 0 0 0 20px;
+  }
+}
+
+.cta {
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   -ms-transition: all 0.25s ease;
-  text-shadow: 0 0 8px rgb(0, 0, 0);
-  background: rgba(125,125,125,0.7);
+  background: rgba(125, 125, 125, 0.7);
+  border: solid 4px #ececec;
+  color: #ececec !important;
+  display: table;
+  font-size: 22px;
+  margin: 0 auto;
   margin-top: 2em !important;
+  padding: 12px 48px;
+  text-decoration: none !important;
+  text-shadow: 0 0 8px rgb(0, 0, 0);
+  transition: all 0.25s ease;
 }
 
-.cta:hover{
+.cta:hover {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
   color: #dadada !important;
   border: solid 4px #dadada;
   transition: all 0.25s ease;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
 }
 
-header{
-  position: relative;
-  height: 600px;
+header {
   background: url(https://ucarecdn.com/695235bf-bd21-4c1d-be6d-751ccd0c2ed4/-/progressive/yes/-/quality/lightest/);
-  background-size: auto 600px;
+  background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: auto 600px;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  height: 600px;
   overflow: hidden;
+  position: relative;
 }
 
-.page-header{
-  border: none !important;
+html {
+  color: #e6e6e6;
+  height: 100%;
+  min-height: 100%;
 }
 
 /*.logo{
@@ -69,68 +127,58 @@ header{
     margin-top: -90px;
 }*/
 
-.logo{
-    font-size: 4.5em;
-    color: #fff;
-    text-align: center;
-    margin-top: 230px;
-    font-family: 'Ubuntu', sans-serif !important;
-    font-weight: 300;
+.logo {
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 4.5em;
+  font-weight: 300;
+  margin-top: 230px;
+  text-align: center;
 }
 
-.admiral-header, .page-header h1{
-    color: white;
+.pagelet, #intro {
+  /*border-bottom: 2px solid rgba(200,200,200,0.5);*/
+  background-color: #416477;
+  padding: 50px 0 100px 0;
 }
 
-.admiral-slug, .page-header em{
-    color: white;
-}
-
-
-.admiral-focus{
-    color: white;
-    font-size: 1.45em;
-}
-
-.pagelet, #intro{
-    padding-top: 50px;
-    padding-bottom: 100px;
-    /*border-bottom: 2px solid rgba(200,200,200,0.5);*/
-    background-color: #416477;
+.page-header {
+  border: none !important;
 }
 
 section.module.parallax {
-  padding: 240px 0;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
+  padding: 240px 0;
 }
+
 section.module.parallax h1 {
   color: #b6e1e0;
   font-size: 48px;
-  line-height: 1;
   font-weight: 700;
+  line-height: 1;
   text-align: center;
+  text-shadow: 0 0 8px rgba(20, 20, 20, 0.5);
   text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(20,20,20,0.5);
 }
 
 section.module.parallax.para-1 {
+  background-attachment: fixed;
   background-image: url(https://ucarecdn.com/dcbf570f-83cc-42d6-9e9d-42be05fb45f1/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
   background-position: bottom center;
-  background-attachment: fixed;
   overflow: hidden;
 }
 
 section.module.parallax.para-2 {
+  background-attachment: fixed;
   background-image: url(https://ucarecdn.com/73444182-339e-455f-8652-c9aed5b910f4/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
   background-position: center center;
-  background-attachment: fixed;
   overflow: hidden;
 }
 
 section.module.parallax.para-3 {
+  background-attachment: fixed;
   background-image: url(https://ucarecdn.com/b053a724-2677-4e48-9f34-b52d15933188/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
   background-position: center center;
-  background-attachment: fixed;
   overflow: hidden;
 }

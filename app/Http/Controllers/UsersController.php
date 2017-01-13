@@ -27,7 +27,7 @@ class UsersController extends Controller
             'website' => 'max:255',
             'description' => 'max:250',
             'name' => 'max:32',
-            'username' => 'max:36'
+            'username' => 'max:36',
         ]);
 
         $updatedUser = User::where('id', Auth::user()->id);
@@ -39,7 +39,7 @@ class UsersController extends Controller
                 'website' => $request->website,
                 'description' => $request->description,
                 'name' => $request->name,
-                'username' => $request->username
+                'username' => $request->username,
             ]
         );
 

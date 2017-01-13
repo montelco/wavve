@@ -24,7 +24,7 @@ Route::get('/what', function () {
 
 Route::get('/dashboard', 'PassesController@dash');
 
-// Route::get('/business/{username}/', 'PublicAcessController@getWalletCompiledPass');
+Route::get('/business/{username}/', 'PublicAcessController@getWalletCompiledPass');
 
 Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
 

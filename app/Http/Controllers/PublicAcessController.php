@@ -28,28 +28,26 @@ class PublicAcessController extends Controller
 
     public function getWalletCompiledPass($username)
     {
-        // $results = User::with(['passes' => function ($query) {
-        //     $query->orderBy('updated_at', 'desc')->first();
-        // }])->where('username', $username)->firstOrFail();
-
-        //echo $results->website;
+        $results = User::with(['passes' => function ($query) {
+            $query->orderBy('updated_at', 'desc')->first();
+        }])->where('username', $username)->firstOrFail();
 
         define('P12_FILE', 'C:\keys\ATMT.p12');
         define('P12_PASSWORD', '1234');
         define('WWDR_FILE', 'C:\keys\wwdr.pem');
         define('PASS_TYPE_IDENTIFIER', 'pass.com.atmt.wavvvetest2');
         define('TEAM_IDENTIFIER', '527AHA4RH7');
-        define('ORGANIZATION_NAME', 'GCC Commerce');
+        define('ORGANIZATION_NAME', 'Wavvve® by ATMT');
         define('OUTPUT_PATH', 'C:\passbook');
         define('ICON_FILE', 'C:\tpw.png');
 
         // Create an event ticket
-        $pass = new StoreCard('gcevent', 'gcevent');
+        $pass = new StoreCard($results->username, $results->username);
         $pass->setBackgroundColor('rgb(234, 182, 73)');
         //$pass->setLogoText('rgb(255,255,255)');
         $pass->setAuthenticationToken('gPPx9M35dszXQzjG2cBOw4IEPAY8sFSV9ICqoBikLLYUq30GtFfuqJ8ykS8B');
-        $pass->setWebServiceURL('http://www.gc-chamber.com/site/');
-        $pass->setLogoText('Gloucester County Chamber of Commerce');
+        $pass->setWebServiceURL('https://www.wavvve.io');
+        $pass->setLogoText($results->name);
         $beacon = new Beacon('2b4fcf51-4eaa-446d-b24e-4d1b437f3840');
         $beacon->setMajor(0);
         $beacon->setMinor(0);
@@ -58,22 +56,24 @@ class PublicAcessController extends Controller
         // Create pass structure
         $structure = new Structure();
 
-        // Add primary field
-        $primary = new Field('title', 'Check Out Our New Site');
-        $primary->setLabel('Title:');
-        $structure->addPrimaryField($primary);
+        // Add header field
+        if(isset($results->passes['0']->title)) {
+            $header = new Field('title', $results->passes['0']->title);
+            $structure->addHeaderField($header);
+        }
 
-        // // Add secondary field
-        $secondary = new Field('description', 'Take a sneak peek of our new website launching later this month!  
-        URL: http://www.metasenseusa.com/demo/gcchamber/web/');
-        $secondary->setLabel('Description');
-        $structure->addSecondaryField($secondary);
+        // // Add primary field
+        if(isset($results->passes['0']->primary_field)) {
+            $primary = new Field('description', $results->passes['0']->primary_field);
+            $structure->addPrimaryField($primary);
+        }
 
         // Add auxiliary field
-        // $auxiliary = new Field('expiry', '2016-11-30 00:00:00');
-        // $auxiliary->setLabel('Expires:');
-        // $structure->addAuxiliaryField($auxiliary);
-
+        if(isset($results->passes['0']->uuid)) {
+            $auxiliary = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">View In Browser</a>');
+            $structure->addAuxiliaryField($auxiliary);
+        }
+        
         // Add icon image
         $icon = new Image(ICON_FILE, 'icon');
         $pass->addImage($icon);
@@ -82,8 +82,10 @@ class PublicAcessController extends Controller
         $pass->setStructure($structure);
 
         // Add barcode
-        $barcode = new Barcode(Barcode::TYPE_QR, 'GCCSOTC17');
-        $pass->setBarcode($barcode);
+        if(isset($results->passes['0']->barcode_value)) {
+            $barcode = new Barcode(Barcode::TYPE_QR, $results->passes['0']->barcode_value);
+            $pass->setBarcode($barcode);
+        }
 
         // Create pass factory instance
         $factory = new PassFactory(PASS_TYPE_IDENTIFIER, TEAM_IDENTIFIER, ORGANIZATION_NAME, P12_FILE, P12_PASSWORD, WWDR_FILE);

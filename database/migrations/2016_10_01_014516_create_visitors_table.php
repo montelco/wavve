@@ -14,8 +14,8 @@ class CreateVisitorsTable extends Migration
     {
         Schema::create('visitors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('passes_uuid')->index();
-            $table->foreign('passes_uuid')->references('uuid')->on('passes')->onDelete('cascade');
+            $table->string('passes_uuid', 7)->index();
+            //$table->foreign('passes_uuid')->references('uuid')->on('passes')->onDelete('cascade');
             $table->string('visitor_cookie')->index();
             $table->timestamps();
             $table->softDeletes();

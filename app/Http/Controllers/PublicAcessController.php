@@ -28,9 +28,9 @@ class PublicAcessController extends Controller
 
     public function getWalletCompiledPass($username)
     {
-        $results = User::with(['passes' => function ($query) {
-            $query->orderBy('updated_at', 'desc')->first();
-        }])->where('username', $username)->firstOrFail();
+        // $results = User::with(['passes' => function ($query) {
+        //     $query->orderBy('updated_at', 'desc')->first();
+        // }])->where('username', $username)->firstOrFail();
 
         //echo $results->website;
 
@@ -39,17 +39,17 @@ class PublicAcessController extends Controller
         define('WWDR_FILE', 'C:\keys\wwdr.pem');
         define('PASS_TYPE_IDENTIFIER', 'pass.com.atmt.wavvvetest2');
         define('TEAM_IDENTIFIER', '527AHA4RH7');
-        define('ORGANIZATION_NAME', 'Churchill Coffee');
+        define('ORGANIZATION_NAME', 'GCC Commerce');
         define('OUTPUT_PATH', 'C:\passbook');
         define('ICON_FILE', 'C:\tpw.png');
 
         // Create an event ticket
-        $pass = new StoreCard('churchill-coffee', 'churchill-coffee');
-        $pass->setBackgroundColor('rgb(26, 33, 40)');
+        $pass = new StoreCard('gcevent', 'gcevent');
+        $pass->setBackgroundColor('rgb(234, 182, 73)');
         //$pass->setLogoText('rgb(255,255,255)');
         $pass->setAuthenticationToken('gPPx9M35dszXQzjG2cBOw4IEPAY8sFSV9ICqoBikLLYUq30GtFfuqJ8ykS8B');
-        $pass->setWebServiceURL('www.endgrain.coffee');
-        $pass->setLogoText('Churchill Coffee');
+        $pass->setWebServiceURL('http://www.gc-chamber.com/site/');
+        $pass->setLogoText('Gloucester County Chamber of Commerce');
         $beacon = new Beacon('2b4fcf51-4eaa-446d-b24e-4d1b437f3840');
         $beacon->setMajor(0);
         $beacon->setMinor(0);
@@ -59,19 +59,20 @@ class PublicAcessController extends Controller
         $structure = new Structure();
 
         // Add primary field
-        $primary = new Field('special', 'Free WiFi');
-        $primary->setLabel('Special:');
+        $primary = new Field('title', 'Check Out Our New Site');
+        $primary->setLabel('Title:');
         $structure->addPrimaryField($primary);
 
         // // Add secondary field
-        // $secondary = new Field('location', 'New York, NY');
-        // $secondary->setLabel('Location');
-        // $structure->addSecondaryField($secondary);
+        $secondary = new Field('description', 'Take a sneak peek of our new website launching later this month!  
+        URL: http://www.metasenseusa.com/demo/gcchamber/web/');
+        $secondary->setLabel('Description');
+        $structure->addSecondaryField($secondary);
 
         // Add auxiliary field
-        $auxiliary = new Field('expiry', '2016-11-30 00:00:00');
-        $auxiliary->setLabel('Expires:');
-        $structure->addAuxiliaryField($auxiliary);
+        // $auxiliary = new Field('expiry', '2016-11-30 00:00:00');
+        // $auxiliary->setLabel('Expires:');
+        // $structure->addAuxiliaryField($auxiliary);
 
         // Add icon image
         $icon = new Image(ICON_FILE, 'icon');
@@ -81,7 +82,7 @@ class PublicAcessController extends Controller
         $pass->setStructure($structure);
 
         // Add barcode
-        $barcode = new Barcode(Barcode::TYPE_QR, 'WIFI4U16');
+        $barcode = new Barcode(Barcode::TYPE_QR, 'GCCSOTC17');
         $pass->setBarcode($barcode);
 
         // Create pass factory instance

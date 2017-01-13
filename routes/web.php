@@ -43,6 +43,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Auth::user()->newSubscription('monthly', 'wavvve-monthly')->create($token, [
             'email' => Auth::user()->email,
         ]);
+
         return 'You are now registered. Thanks!';
     });
     Route::get('settings', function () {

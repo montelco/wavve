@@ -33,7 +33,7 @@ class CreatePassEditor extends Migration
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-        
+
         Schema::table('passes', function (Blueprint $table) {
             DB::statement('ALTER TABLE `passes` CHANGE `uuid` `uuid` VARCHAR(16) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL');
         });

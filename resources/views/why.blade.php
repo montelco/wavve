@@ -104,31 +104,18 @@
 	</section>
 	<section class="pagelet">
 		<div class="container">
-			<div class="page-header">
+			<div class="page-header text-center">
 				<h1>Keep in Touch</h1>	
 			</div>
-			<section class="row-fluid">
 			<!-- {{-- @yield('contactus') --}} -->
-				<div class="col-md-6">
-					<h3>Hit us up on social media:</h3>
-					<div class="row-fluid">
-				  		<div class="col-md-6">
-				  			<a href="https://www.facebook.com/ATMTLLC/">Facebook</a>
-				  		</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-				 	<h3>Or stay in touch the more traditional ways:</h3>
-				  	<div class="row-fluid">
-				  		<div class="col-md-6">
-				  			<a href="mailto:steven.spinelli@atmtllc.com">Email Us</a>
-				  		</div>
-				  		<div class="col-md-6">
-				  			<a href="#">Call Us</a>
-				  		</div>
-				  	</div>
-				</div>
-			</section>
+			<div class="contact-us-container">
+				<ul class="contact-us-list">
+					<li class="contact-us-list-item"><a href="https://www.facebook.com/ATMTLLC/" class="contact-us-link"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+					<li class="contact-us-list-item"><a href="https://www.instagram.com/Wavvve_/" class="contact-us-link"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+					<li class="contact-us-list-item"><a href="mailto:steven.spinelli@atmtllc.com" class="contact-us-link"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></li>
+					<li class="contact-us-list-item"><a href="tel:+1-856-981-1094" class="contact-us-link"><i class="fa fa-phone-square" aria-hidden="true"></i> Call</a></li>
+				</ul>
+			</div>
 		</div>
 	</section>
 

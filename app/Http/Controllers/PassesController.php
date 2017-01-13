@@ -63,7 +63,7 @@ class PassesController extends Controller
         $this->validate($request, [
             'title' => 'required|max:64',
             'primary_field' => 'required|max:255',
-            'barcode_value' => 'required|max:16',
+            'barcode_value' => 'max:16',
             'coupon_full_background_image' => 'max:254',
             'strip_background_image' => 'max:254',
             'secondary_field' => 'max:255',

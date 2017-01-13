@@ -12,13 +12,13 @@
                     <input class="clearable hd" rows="1" placeholder="Title*" maxlength="32" required v-model="passTitle"></input>
                 </h1>
                 <div id="strip-bg-image">
-                	<input class="clearable pd" id="file-uploader" name="passStripBG" type="hidden" data-clearable role="uploadcare-uploader" required v-model="passStripBG">
+                	<input class="clearable pd" id="file-uploader" name="passStripBG" type="hidden" data-clearable role="uploadcare-uploader" data-crop="3:4" v-model="passStripBG">
 	                <textarea class="clearable pd white-override" rows="2" placeholder="Description*" maxlength="255" required v-model="passPrimary"></textarea>
                     <input type="text" id="from" name="from" placeholder="Expiry (Opt.)" class="time-picker-override white-override" v-model="passExpiry">
                 </div>
 				<div id="lower-content">
 					<input class="clearable pd" rows="1" placeholder="Extra Info (Opt.)" maxlength="512" v-model="passSecondary"></textarea>
-	            	<input class="clearable pd" rows="1" placeholder="Barcode Value*" maxlength="32" required v-model="passBarcode"></input>
+	            	<input class="clearable pd" rows="1" placeholder="Barcode Value*" maxlength="32" v-model="passBarcode"></input>
 	            	<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 	            	<input type="submit" value="Save Pass" class="form-control submit-button">
 				</div>

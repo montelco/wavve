@@ -1,4 +1,4 @@
-@include('global.vue')
+{{-- @include('global.vue') --}}
 <script>
 	UPLOADCARE_LOCALE = "en";
 	UPLOADCARE_LIVE = "false";

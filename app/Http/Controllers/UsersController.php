@@ -4,6 +4,7 @@ namespace Wavvve\Http\Controllers;
 
 use Auth;
 use Wavvve\User;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -17,13 +18,31 @@ class UsersController extends Controller
         // Put that logic here!
     }
 
-    public function getWebsite(User $user)
+    public function updateSettings(Request $request, User $user, Auth $auth)
     {
-        echo '<a href="'.User::where('id', Auth::user()->id)->pluck('website')['0'].'">Poop Face</a>';
-    }
+        $this->validate($request, [
+            'facebook' => 'required|max:24',
+            'instagram' => 'required|max:24',
+            'twitter' => 'required|max:14',
+            'website' => 'max:255',
+            'description' => 'max:250',
+            'name' => 'max:32',
+            'username' => 'max:36'
+        ]);
 
-    public function setWebsite(User $user)
-    {
-        // Put that shiiiiit here.
+        $updatedUser = User::where('id', Auth::user()->id);
+        $updatedUser->update(
+            [
+                'facebook' => $request->facebook,
+                'instagram' => $request->instagram,
+                'twitter' => $request->twitter,
+                'website' => $request->website,
+                'description' => $request->description,
+                'name' => $request->name,
+                'username' => $request->username
+            ]
+        );
+
+        return response()->json(User::where('id', Auth::user()->id));
     }
 }

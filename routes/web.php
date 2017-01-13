@@ -1,8 +1,15 @@
 <?php
 
+use Illuminate\Support\Facades\Input as Input;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post(
+    'stripe/webhook',
+    '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
+);
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
@@ -28,9 +35,20 @@ Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessCont
  */
 
 Route::group(['middleware' => ['web', 'auth']], function () {
+    Route::get('/plan', function () {
+        return view('auth.plan');
+    });
+    Route::post('/plan', function () {
+        $token = Input::get('stripeToken');
+        Auth::user()->newSubscription('monthly', 'wavvve-monthly')->create($token, [
+            'email' => Auth::user()->email,
+        ]);
+        return 'You are now registered. Thanks!';
+    });
     Route::get('settings', function () {
         return view('account.settings');
     });
+    Route::post('update-settings', 'UsersController@updateSettings');
 
     Route::get('help', function () {
         return view('editor.pass-help');

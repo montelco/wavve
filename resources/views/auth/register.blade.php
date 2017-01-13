@@ -66,57 +66,23 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
+                        
+                        {{-- <div class="form-group" display="none">
+                            <div class="col-md-6 col-md-offset-4">
+                                <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="pk_test_JTKAeFPFAOS9oJs9pHlwmG8F"
+                                    data-amount="15000"
+                                    data-name="Wavvve by ATMT"
+                                    data-currency="USD"
+                                    data-description="Monthly Subscription"
+                                    data-image="https://wavvve.io/favicons/favicon-96x96.png"
+                                    data-locale="auto"
+                                    data-label="Register"
+                                    data-zip-code="true">
+                                </script>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Card Number</label>
-
-                            <div class="col-md-6">
-                                <input type="text" size="20" data-stripe="number">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Expiration</label>
-
-                            <div class="col-md-6">
-                                <label>
-                                    <span>(MM/YY)</span>
-                                    <input type="text" size="2" data-stripe="exp_month">
-                                </label>
-                                <span> / </span>
-                                <input type="text" size="2" data-stripe="exp_year">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">CVV/CVC</label>
-
-                            <div class="col-md-6">
-                                <input type="text" size="4" data-stripe="cvc">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Billing Zip Code</label>
-
-                            <div class="col-md-6">
-                                <input type="text" size="6" data-stripe="address_zip">
-                            </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -133,6 +99,6 @@
 </div>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
-  Stripe.setPublishableKey('pk_test_JTKAeFPFAOS9oJs9pHlwmG8F');
+  Stripe.setPublishableKey('{{ env('STRIPE_KEY') }}');
 </script>
 @endsection

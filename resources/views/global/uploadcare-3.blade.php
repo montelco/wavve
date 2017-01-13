@@ -10,7 +10,7 @@
 	widget.onUploadComplete(function(info) {
 		$.uploadedURL =  info.cdnUrl;
 		console.log(info.cdnUrl);
-		$('#bgImg').append( '<style>#bgImg{background: url(' + $.uploadedURL + '-/scale_crop/1080x1920/center/-/blur/45/-/quality/lightest/-/progressive/yes/) center center no-repeat; background-size:100% !important;}</style>');
+		$('#bgImg').append( '<style>#bgImg{background: url(' + $.uploadedURL + '-/scale_crop/1080x1920/center/-/quality/lightest/-/progressive/yes/) center center no-repeat; background-size:100% !important;}</style>');
 	});
 	var demo = new Vue({
 		el: '#passEditor',
@@ -40,13 +40,16 @@
 						'expiry': this.passExpiry,
 						'barcode_value' : this.passBarcode,
 						'coupon_full_background_image': $.uploadedURL,
-						'design_number' : '1',
+						'design_number' : '3',
 					}
 					}).success(function() {
 						uploadcare.Widget('#file-uploader').value(null);
 						$('#bgImg').css('background', '#f7f7f7');
 						$('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Successfully added ' + this.passTitle + ' to your pass collection.');
 						$('#result').addClass('alert alert-success');
+						window.setTimeout(function() {
+                                  window.location.href="/passes/manage";
+                        }, 2000);
 						// this.passTitle: '',
 						// this.passExpiry: '',
 						// this.passPrimary: '',

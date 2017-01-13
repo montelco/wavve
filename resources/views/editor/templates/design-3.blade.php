@@ -3,6 +3,9 @@
 	"{{ csrf_token() }}"
 @endsection
 @section('dashContent')
+	<div id="pass_info" class="alert alert-info alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> The text you type here will not be shown on the pass, but it's needed for the notification users will see on their phone.
+	</div>
 	<div class="row" id="passEditor">
 		<div class="centred block panel" id="passPreviewer">
 			<form class="front" id="bgImg" action="#" v-on:submit="createPass">
@@ -17,7 +20,7 @@
 				<input class="clearable pd" rows="1" placeholder="Barcode Value*" maxlength="32" v-model="passBarcode"></input>
 				<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 				<input type="submit" value="Save Pass" class="form-control submit-button">
-				@include('global.uploadcare')
+				@include('global.uploadcare-3')
 			</form>
 			<div class="back">
 				{{-- <div class="btn-group theme-picker" data-toggle="buttons" align="center">

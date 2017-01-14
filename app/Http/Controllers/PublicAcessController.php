@@ -107,7 +107,7 @@ class PublicAcessController extends Controller
         // }
         
         // return substr($request->headers->authorization['0'], 9);
-        dd($request->headers->headers);
+        dd($request->headers->accept);
     }
 
     public function pubAccess($uuid, Pass $pass)

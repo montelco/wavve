@@ -11,6 +11,8 @@ Route::post(
     '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
 );
 
+Route::post('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@postWallet');
+
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 

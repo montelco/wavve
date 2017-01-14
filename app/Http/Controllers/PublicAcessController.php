@@ -4,6 +4,7 @@ namespace Wavvve\Http\Controllers;
 
 use Wavvve\Pass;
 use Wavvve\User;
+use Illuminate\Http\Request;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
 use Passbook\Pass\Beacon;
@@ -68,10 +69,10 @@ class PublicAcessController extends Controller
             $structure->addPrimaryField($primary);
         }
 
-        // Add auxiliary field
+        // Add back field
         if(isset($results->passes['0']->uuid)) {
-            $auxiliary = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">View In Browser</a>');
-            $structure->addAuxiliaryField($auxiliary);
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">View In Browser</a>');
+            $structure->addBackField($backField);
         }
         
         // Add icon image
@@ -93,6 +94,19 @@ class PublicAcessController extends Controller
         $factory->package($pass);
 
         return PassFactory::serialize($pass);
+    }
+
+    public function postWallet($deviceID, $passTypeID, $serial, Request $request)
+    {
+        // if($request->isMethod('post')) {
+
+        // } elseif ($request->isMethod('delete')) {
+            
+        // } else {
+
+        // }
+        
+        dd($request);
     }
 
     public function pubAccess($uuid, Pass $pass)

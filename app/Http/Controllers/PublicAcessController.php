@@ -121,9 +121,9 @@ class PublicAcessController extends Controller
     {
         if (iOS_Pass::where('serial_no', $serial)->where('passTypeID', $passTypeID)->where('authentication_token', 'authentication_token', substr($request->header('authorization'), 9))->firstOrFail()) {
 
-            if (file_exists('/home/forge/wavvve.io/public/business/' . $serial . '.pkpass')) {
+            if (file_exists('https://www.wavvve.io/public/business/' . $serial . '.pkpass')) {
                 header('Content-Type: application/vnd.apple.pkpass');
-                readfile('/home/forge/wavvve.io/public/business/' . $serial . '.pkpass');
+                readfile('https://www.wavvve.io/public/business/' . $serial . '.pkpass');
             } else {
                 return response(404);
             }

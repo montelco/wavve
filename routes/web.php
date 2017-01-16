@@ -11,13 +11,13 @@ Route::post(
     '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
 );
 
-Route::post('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@postWallet');
-
 Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}', 'PublicAcessController@updateWallet');
 
 Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}?passesUpdatedSince={tag?}', 'PublicAcessController@updateWallet');
 
 Route::get('/v1/passes/{passTypeID}/{serialNumber}', 'PublicAcessController@getWallet');
+
+Route::post('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@postWallet');
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');

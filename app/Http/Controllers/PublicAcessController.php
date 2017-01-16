@@ -71,8 +71,6 @@ class PublicAcessController extends Controller
                 //This request was incorrectly formed either in serial number or in the authorization token.
                 return response(401);
             }   
-        } elseif ($request->isMethod('get')) {
-
         } else {
             return response(400);
         }

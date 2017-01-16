@@ -121,12 +121,12 @@ class PublicAcessController extends Controller
             if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 9))->firstOrFail()) {
                 if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
                     //Device isn't registered, but it's addable
-                    iOS_Registration::create(
+                    iOS_Registration::create([
                         'uuid' => $uuid, 
                         'pass_type_id' => $passTypeID,
                         'push_token' => $request->pushToken,
                         'ios_devices_id' => $deviceID,
-                        'ios_passes_serial' => $serial);
+                        'ios_passes_serial' => $serial]);
                     return response(201);
                 } else {
                     //Device is already registered. No further action is required.

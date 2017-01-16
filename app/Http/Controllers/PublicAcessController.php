@@ -113,7 +113,7 @@ class PublicAcessController extends Controller
             }
         } else {
             //No, it's not registered with our service.
-            return response(418);
+            return response(404);
         }
     }
 
@@ -125,7 +125,7 @@ class PublicAcessController extends Controller
                 header('Content-Type: application/vnd.apple.pkpass');
                 readfile('https://www.wavvve.io/public/business/' . $serial . '.pkpass');
             } else {
-                return response(404);
+                return response(418);
             }
         } else {
             return response(401);

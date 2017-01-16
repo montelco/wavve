@@ -31,7 +31,6 @@ class PublicAcessController extends Controller
      * @param  Request $request    This is the incoming request made by the APNs server and includes the Auth header field and the push token in the request body.
      * @return HTTP Response Code              This method returns the appropriate HTTP Response code given the logic and input.
      */
-    
     public function postWallet($deviceID, $passTypeID, $serial, Request $request)
     {
         $uuid = $deviceID . "-" . $serial;
@@ -117,6 +116,21 @@ class PublicAcessController extends Controller
         } else {
             //No, it's not registered with our service.
             return response(404);
+        }
+    }
+
+    public function getWallet($passTypeID, $serial, Request $request)
+    {
+        if (iOS_Pass::where('serial_no', $serial)->where('passTypeID', $passTypeID)->where('authentication_token', 'authentication_token', substr($request->header('authorization'), 9))->firstOrFail()) {
+
+            if (file_exists('/home/forge/wavvve.io/public/business/' . $serial . '.pkpass')) {
+                header('Content-Type: application/vnd.apple.pkpass');
+                readfile('/home/forge/wavvve.io/public/business/' . $serial . '.pkpass');
+            } else {
+                return response(404);
+            }
+        } else {
+            return response(401);
         }
     }
 

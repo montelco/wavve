@@ -13,6 +13,12 @@ Route::post(
 
 Route::post('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@postWallet');
 
+Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}', 'PublicAcessController@updateWallet');
+
+Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}?passesUpdatedSince={tag?}', 'PublicAcessController@updateWallet');
+
+Route::get('/v1/passes/{passTypeID}/{serialNumber}', 'PublicAcessController@getWalletPass');
+
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 

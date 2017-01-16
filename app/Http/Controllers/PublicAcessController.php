@@ -167,8 +167,10 @@ class PublicAcessController extends Controller
      * @param  time $tag        This is the current time or the most recently updated_at time that the device has logged.
      * @return HTTP Response Code              This method returns the appropriate HTTP Response code given the logic and input.
      */
-    public function updateWallet($deviceID, $passTypeID, $tag = time())
+    public function updateWallet($deviceID, $passTypeID, $tag)
     {
+        $tag = time();
+        
         //Is it in our table of registered devices?
         if (iOS_Registration::where('ios_devices_id', $deviceID)->count() > 0) {
             //Yes, it's registered with our service.

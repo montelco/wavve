@@ -28,6 +28,6 @@ class CreateIOSDevicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('i_o_s__devices');
+        Schema::dropIfExists('ios_devices');
     }
 }

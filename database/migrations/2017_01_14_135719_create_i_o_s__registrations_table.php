@@ -36,6 +36,6 @@ class CreateIOSRegistrationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('i_o_s__registrations');
+        Schema::dropIfExists('ios_registrations');
     }
 }

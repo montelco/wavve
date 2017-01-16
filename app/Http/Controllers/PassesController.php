@@ -7,6 +7,8 @@ use Carbon;
 use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\Visitor;
+use Wavvve\iOS_Registration;
+use Wavvve\iOS_Pass;
 use Illuminate\Http\Request;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;

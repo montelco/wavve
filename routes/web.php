@@ -17,7 +17,7 @@ Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}', 'PublicAcessCont
 
 Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}?passesUpdatedSince={tag?}', 'PublicAcessController@updateWallet');
 
-Route::get('/v1/passes/{passTypeID}/{serialNumber}', 'PublicAcessController@getWalletPass');
+Route::get('/v1/passes/{passTypeID}/{serialNumber}', 'PublicAcessController@getWallet');
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');

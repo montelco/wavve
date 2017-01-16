@@ -52,7 +52,7 @@ class PublicAcessController extends Controller
                 }
             } else {
                 //This request cannot be determined to be authentic.
-                return response(401);
+                return response(418);
             }
         } elseif ($request->isMethod('delete')) {
             //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial

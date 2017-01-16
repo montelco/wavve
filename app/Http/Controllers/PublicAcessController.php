@@ -113,7 +113,7 @@ class PublicAcessController extends Controller
             }
         } else {
             //No, it's not registered with our service.
-            return response(404);
+            return response(418);
         }
     }
 

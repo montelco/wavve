@@ -29,6 +29,6 @@ class CreateIOSPassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('i_o_s__passes');
+        Schema::dropIfExists('ios_passes');
     }
 }

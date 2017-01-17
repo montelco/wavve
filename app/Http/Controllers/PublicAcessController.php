@@ -36,7 +36,7 @@ class PublicAcessController extends Controller
     {
         if ($request->isMethod('post')) {
             //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
-            $auth_token = substr($request->header('authorization'), 9);
+            $auth_token = substr($request->header('authorization'), 10);
             return (string) $auth_token;
             // if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 9))->first()) {
             //     $uuid = $deviceID . "-" . $serial;

@@ -36,27 +36,25 @@ class PublicAcessController extends Controller
     {
         if ($request->isMethod('post')) {
             //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
-            $auth_token = substr($request->header('authorization'), 10);
-            return (string) $auth_token;
-            // if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 9))->first()) {
-            //     $uuid = $deviceID . "-" . $serial;
-            //     if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
-            //         //Device isn't registered, but it's addable
-            //         iOS_Registration::create([
-            //             'uuid' => $uuid, 
-            //             'pass_type_id' => $passTypeID,
-            //             'push_token' => $request->pushToken,
-            //             'ios_devices_id' => $deviceID,
-            //             'ios_passes_serial' => $serial]);
-            //         return response(201);
-            //     } else {
-            //         //Device is already registered. No further action is required.
-            //         return response(200);
-            //     }
-            // } else {
-            //     //This request cannot be determined to be authentic.
-            //     return response(401);
-            // }
+            if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
+                $uuid = $deviceID . "-" . $serial;
+                if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
+                    //Device isn't registered, but it's addable
+                    iOS_Registration::create([
+                        'uuid' => $uuid, 
+                        'pass_type_id' => $passTypeID,
+                        'push_token' => $request->pushToken,
+                        'ios_devices_id' => $deviceID,
+                        'ios_passes_serial' => $serial]);
+                    return response(201);
+                } else {
+                    //Device is already registered. No further action is required.
+                    return response(200);
+                }
+            } else {
+                //This request cannot be determined to be authentic.
+                return response(401);
+            }
         } elseif ($request->isMethod('delete')) {
             //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
             if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 9))->firstOrFail()) {

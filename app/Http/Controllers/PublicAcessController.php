@@ -35,7 +35,7 @@ class PublicAcessController extends Controller
     {
         if ($request->isMethod('post')) {
             //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
-            if (iOS_Pass::whereStrict('serial_no', $serial)->whereStrict('authentication_token', substr($request->header('authorization'), 9))->first()) {
+            if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 9))->first()) {
                 $uuid = $deviceID . "-" . $serial;
                 if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
                     //Device isn't registered, but it's addable

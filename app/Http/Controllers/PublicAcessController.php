@@ -8,6 +8,7 @@ use Wavvve\iOS_Registration;
 use Wavvve\iOS_Pass;
 use Wavvve\Device;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PublicAcessController extends Controller
 {

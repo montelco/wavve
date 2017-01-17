@@ -6,7 +6,7 @@ use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\iOS_Registration;
 use Wavvve\iOS_Pass;
-use Wavvve\Device;
+use Wavvve\iOS_Device;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 

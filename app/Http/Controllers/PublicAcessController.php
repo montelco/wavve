@@ -46,34 +46,34 @@ class PublicAcessController extends Controller
                         'push_token' => $request->pushToken,
                         'ios_devices_id' => $deviceID,
                         'ios_passes_serial' => $serial]);
-                    return Response::json([], 201);
+                    return response(201);
                 } else {
                     //Device is already registered. No further action is required.
-                    return Response::json([], 200);
+                    return response(200);
                 }
             } else {
                 //This request cannot be determined to be authentic.
-                return Response::json([], 401);
+                return response(401);
             }
         } elseif ($request->isMethod('delete')) {
             //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
             if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 9))->firstOrFail()) {
                 if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
                     //Device isn't registered to the pass. This is an error, as a bad request has occurred.
-                    return Response::json([], 400);
+                    return response(400);
                 } else {
                     $unRegisterDevice = iOS_Registration::where('ios_devices_id', $deviceID)->where('ios_passes_serial', $serial)->firstOrFail();
                     $unRegisterDevice->delete();
 
                     //The deletion was successful. Return HTTP OK
-                    return Response::json([], 200);
+                    return response(200);
                 }
             } else {
                 //This request was incorrectly formed either in serial number or in the authorization token.
-                return Response::json([], 401);
+                return response(401);
             }   
         } else {
-            return Response::json([], 400);
+            return response(400);
         }
     }
 
@@ -110,11 +110,11 @@ class PublicAcessController extends Controller
             } else {
 
                 //No content to return.
-                return Response::json([], 204);
+                return response(204);
             }
         } else {
             //No, it's not registered with our service.
-            return Response::json([], 404);
+            return response(404);
         }
     }
 
@@ -126,10 +126,10 @@ class PublicAcessController extends Controller
                 header('Content-Type: application/vnd.apple.pkpass');
                 readfile('https://www.wavvve.io/public/business/' . $serial . '.pkpass');
             } else {
-                return Response::json([], 404);
+                return response(404);
             }
         } else {
-            return Response::json([], 401);
+            return response(401);
         }
     }
 

@@ -59,9 +59,15 @@ class PublicAcessController extends Controller
                 //This request cannot be determined to be authentic.
                 return response(401);
             }
-        } elseif ($request->isMethod('delete')) {
-            //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
-            if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 9))->firstOrFail()) {
+        } else {
+            return response(400);
+        }
+    }
+
+    public function deleteDevice($deviceID, $passTypeID, $serial, Request $request)
+    {
+        //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
+            if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
                 if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
                     //Device isn't registered to the pass. This is an error, as a bad request has occurred.
                     return response(400);
@@ -75,10 +81,7 @@ class PublicAcessController extends Controller
             } else {
                 //This request was incorrectly formed either in serial number or in the authorization token.
                 return response(401);
-            }   
-        } else {
-            return response(400);
-        }
+            }  
     }
 
     /**

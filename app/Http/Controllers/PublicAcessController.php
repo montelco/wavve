@@ -40,6 +40,10 @@ class PublicAcessController extends Controller
                 $uuid = $deviceID . "-" . $serial;
                 if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
                     //Device isn't registered, but it's addable
+                    iOS_Device::create([
+                        'device' => $deviceID,
+                        'push_token' => $request->pushToken]);
+
                     iOS_Registration::create([
                         'uuid' => $uuid, 
                         'pass_type_id' => $passTypeID,

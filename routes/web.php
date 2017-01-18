@@ -19,7 +19,7 @@ Route::get('/v1/passes/{passTypeID}/{serialNumber}', 'PublicAcessController@getW
 
 Route::post('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@postWallet');
 
-Route::delete('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@postWallet');
+Route::delete('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@deleteDevice');
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');

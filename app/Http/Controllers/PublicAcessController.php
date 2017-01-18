@@ -69,18 +69,17 @@ class PublicAcessController extends Controller
         //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
             if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
                 $uuid = $deviceID . "-" . $serial;
-                return $uuid;
-                // if (iOS_Registration::where('uuid', $uuid)->count() > 0) {
-                //     $unRegisterDevice = iOS_Registration::where('ios_devices_id', $deviceID)->where('ios_passes_serial', $serial)->findOrFail();
-                //     $unRegisterDevice->delete();
+                if (iOS_Registration::where('uuid', $uuid)->count() > 0) {
+                    $unRegisterDevice = iOS_Registration::where('ios_devices_id', $deviceID)->where('ios_passes_serial', $serial)->findOrFail();
+                    $unRegisterDevice->delete();
 
-                //     //The deletion was successful. Return HTTP OK
-                //     return response(200);
+                    //The deletion was successful. Return HTTP OK
+                    return response(200);
                     
-                // } else {
-                //     //Device isn't registered to the pass. This is an error, as a bad request has occurred.
-                //     return response(400);
-                // }
+                } else {
+                    //Device isn't registered to the pass. This is an error, as a bad request has occurred.
+                    return response(400);
+                }
             } else {
                 //This request was incorrectly formed either in serial number or in the authorization token.
                 return response(401);

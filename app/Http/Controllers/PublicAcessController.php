@@ -70,7 +70,7 @@ class PublicAcessController extends Controller
             if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
                 $uuid = $deviceID . "-" . $serial;
                 if (iOS_Registration::where('uuid', $uuid)->count() > 0) {
-                    $unRegisterDevice = iOS_Registration::where('ios_devices_id', $deviceID)->where('ios_passes_serial', $serial)->findOrFail();
+                    $unRegisterDevice = iOS_Registration::where('ios_devices_id', $deviceID)->where('ios_passes_serial', $serial)->first();
                     $unRegisterDevice->delete();
 
                     //The deletion was successful. Return HTTP OK

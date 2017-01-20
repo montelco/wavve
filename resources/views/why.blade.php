@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#91a9a9">
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
@@ -27,101 +27,105 @@
 
     <title>Wavvve</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
-    <link rel="stylesheet" href="{{ URL::to('/css/font.css') }}">
+    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ URL::to('/css/master.css') }}">
-    <link rel="stylesheet" href="{{ URL::to('/css/why-us.css') }}">
 </head>
 <body id="app-layout">
-    
-    @include('layouts.pagelets.navigation')
 
-	<header class="parabox">
-		<div class="container">
-			<div class="row-fluid">
-				<div class="col-md-4 col-md-offset-4 logo">
-					So Why Us?
-				</div>
-			</div>
-		</div>
-	</header>
+@include('layouts.pagelets.navigation')
 
-	<section id="intro">
-		<div class="container">
-			<div class="page-header">
-				<h1 class="admiral-header">We get it...</h1>
-				<em class="admiral-slug">...because we've been there.</em>	
-			</div>
-			<section class="row-fluid">
-				<div class="span6 offset3">
-					<!-- {{-- @yield('intro') --}} -->
-					<p class="admiral-focus">You've got a business to run and having to spend valuable time and money on social media and internet marketing is pretty frustrating. You shouldn't need to be stuck on your computer or phone 24/7 to bring in new customers or bring back old ones. We know the frustration because we've had to deal with it as well.</p>
-					<p class="admiral-focus">We were stuck with either expensive print ads that (let's face it) aren't part of a growing market or social media ads that cost far too much for far too little results. In the spirit of never accepting the status quo we set out to make something that was fun, simple, and could consistently deliver results.</p>
-				</div>
-			</section>
-		</div>
-	</section>
-	<section id="about" class="module parallax para-1">
-		<div class="container">
-		<h1 class="paratit">Our Promise to Customer Service</h1>
-		</div>
-	</section>
-	<section class="pagelet">
-		<div class="container">
-			<div class="page-header">
-				<h1>Our Commitment...</h1>
-				<em>...always there for you.</em>	
-			</div>
-			<section class="row-fluid">
-				<div class="span6 offset3">
-					<!-- {{-- @yield('aboutus') --}} -->
-					<p class="admiral-focus">The magic of the Wavvve platform is its easy to use interface combined with its unrivaled customer service. You'll always have a real person on the other end making sure that you've got exactly the right solution. No more robo-directories, awful hold music...and no more foreign call centers. Just real people there to help you succeed.</p>
-					<p class="admiral-focus">Our platform is constantly evolving and getting better by the day, but as a pledge to our customers we want your input. If you think that something should be easier or we should add features, rest assured that you'll always have someone to which you can speak. We believe that the best change comes from the bottom up, so we're always listening to feedback in the pursuit of making the absolute best.</p>
-				</div>
-			</section>
-		</div>
-	</section>
-	<section id="contact" class="module parallax para-3">
-		<div class="container">
-		<h1 class="paratit">Contact Us</h1>
-		</div>
-	</section>
-	<section class="pagelet">
-		<div class="container">
-			<div class="page-header text-center">
-				<h1>Keep in Touch</h1>	
-			</div>
-			<!-- {{-- @yield('contactus') --}} -->
-			<div class="contact-us-container">
-				<ul class="contact-us-list">
-					<li class="contact-us-list-item"><a href="https://www.facebook.com/ATMTLLC/" class="contact-us-link"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
-					<li class="contact-us-list-item"><a href="https://www.instagram.com/Wavvve_/" class="contact-us-link"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
-					<li class="contact-us-list-item"><a href="mailto:steven.spinelli@atmtllc.com" class="contact-us-link"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></li>
-					<li class="contact-us-list-item"><a href="tel:+1-856-981-1094" class="contact-us-link"><i class="fa fa-phone-square" aria-hidden="true"></i> Call</a></li>
-				</ul>
-			</div>
-		</div>
-	</section>
+<header class="parabox">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="col-md-4 col-md-offset-4 logo">
+                So Why Us?
+            </div>
+        </div>
+    </div>
+</header>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.22/vue.min.js"></script>
+<section id="intro">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="admiral-header">We get it...</h1>
+            <em class="admiral-slug">...because we've been there.</em>
+        </div>
+        <section class="row-fluid">
+            <div class="span6 offset3">
+            <!-- {{-- @yield('intro') --}} -->
+                <p class="admiral-focus">You've got a business to run and having to spend valuable time and money on
+                    social media and internet marketing is pretty frustrating. You shouldn't need to be stuck on your
+                    computer or phone 24/7 to bring in new customers or bring back old ones. We know the frustration
+                    because we've had to deal with it as well.</p>
+                <p class="admiral-focus">We were stuck with either expensive print ads that (let's face it) aren't part
+                    of a growing market or social media ads that cost far too much for far too little results. In the
+                    spirit of never accepting the status quo we set out to make something that was fun, simple, and
+                    could consistently deliver results.</p>
+            </div>
+        </section>
+    </div>
+</section>
+<section id="about" class="module parallax para-1">
+    <div class="container">
+        <h1 class="paratit">Our Promise to Customer Service</h1>
+    </div>
+</section>
+<section class="pagelet">
+    <div class="container">
+        <div class="page-header">
+            <h1>Our Commitment...</h1>
+            <em>...always there for you.</em>
+        </div>
+        <section class="row-fluid">
+            <div class="span6 offset3">
+            <!-- {{-- @yield('aboutus') --}} -->
+                <p class="admiral-focus">The magic of the Wavvve platform is its easy to use interface combined with its
+                    unrivaled customer service. You'll always have a real person on the other end making sure that
+                    you've got exactly the right solution. No more robo-directories, awful hold music...and no more
+                    foreign call centers. Just real people there to help you succeed.</p>
+                <p class="admiral-focus">Our platform is constantly evolving and getting better by the day, but as a
+                    pledge to our customers we want your input. If you think that something should be easier or we
+                    should add features, rest assured that you'll always have someone to which you can speak. We believe
+                    that the best change comes from the bottom up, so we're always listening to feedback in the pursuit
+                    of making the absolute best.</p>
+            </div>
+        </section>
+    </div>
+</section>
+<section id="contact" class="module parallax para-3">
+    <div class="container">
+        <h1 class="paratit">Contact Us</h1>
+    </div>
+</section>
+<section class="pagelet">
+    <div class="container">
+        <div class="page-header text-center">
+            <h1>Keep in Touch</h1>
+        </div>
+    <!-- {{-- @yield('contactus') --}} -->
+        <div class="why__contactUs">
+            <ul class="why__contactList">
+                <li class="why__contactListItem"><a href="https://www.facebook.com/ATMTLLC/" class="contact-us-link"><i
+                                class="fa fa-facebook-square fa-fw" aria-hidden="true"></i>&nbsp;Facebook</a></li>
+                <li class="why__contactListItem"><a href="https://www.instagram.com/Wavvve_/" class="contact-us-link"><i
+                                class="fa fa-instagram fa-fw" aria-hidden="true"></i>&nbsp;Instagram</a></li>
+                <li class="why__contactListItem"><a href="tel:+1-856-981-1094" class="contact-us-link"><i
+                                class="fa fa-phone-square fa-fw" aria-hidden="true"></i>&nbsp;Call</a></li>
+                <li class="why__contactListItem"><a href="mailto:steven.spinelli@atmtllc.com" class="contact-us-link"><i
+                                class="fa fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;Email</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"
+        integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.22/vue.min.js"></script>
 
 </body>
 </html>

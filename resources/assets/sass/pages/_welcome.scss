@@ -1,0 +1,49 @@
+.welcome {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+
+  &__button {
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    background: rgba(125, 125, 125, 0.7);
+    border: solid 4px $isabelline;
+    color: $isabelline !important;
+    display: inline-block;
+    font-size: 22px;
+    margin: 0;
+    padding: 12px 48px;
+    text-shadow: 0 0 8px rgb(0, 0, 0);
+    transition: all 0.25s ease;
+
+    &:hover {
+      -moz-transition: all 0.25s ease;
+      -ms-transition: all 0.25s ease;
+      -o-transition: all 0.25s ease;
+      -webkit-transition: all 0.25s ease;
+      border: solid 4px $gainsboro;
+      color: $gainsboro;
+      transition: all 0.25s ease;
+    }
+  }
+
+  &__header {
+    color: $white;
+    font-size: 44px;
+    @include font-weight(semi-bold);
+    margin-bottom: 24px;
+    text-shadow: 0 0 4px rgba(20, 20, 20, 0.25);
+  }
+
+  &__text {
+    color: $white;
+    font-size: 22px;
+    @include font-weight(light);
+    margin-bottom: 24px;
+    text-shadow: 0 0 4px rgba(20, 20, 20, 0.55);
+  }
+}

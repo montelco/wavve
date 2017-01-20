@@ -1,0 +1,8 @@
+// Important: This file should be imported before bootstrap
+
+$fa-font-path: "/fonts";
+@import "colors";
+@import "fonts";
+
+// bootstrap overrides
+$link-hover-decoration: none;  // side-effect: removes underline from links in dashboard. can be fixed if that is desired

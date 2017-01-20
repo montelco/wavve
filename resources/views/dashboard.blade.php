@@ -21,9 +21,9 @@
                 <div class="panel-body">
                     <p>Get started below...</p>
                     <hr>
-                    <a href="{{ url('/passes/editor') }}" class="cta">Make a new Pass</a>
+                    <a href="{{ url('/passes/editor') }}" >Make a new Pass</a>
                     <hr>
-                    <a href="{{ url('/passes/scheduler') }}" class="cta">Pass Scheduler</a>
+                    <a href="{{ url('/passes/scheduler') }}" >Pass Scheduler</a>
                 </div>
             </div>
         </div>

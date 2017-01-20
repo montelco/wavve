@@ -1,4 +1,6 @@
-const elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir');
+var rename = require("gulp-rename");
+
 
 require('laravel-elixir-vue-2');
 
@@ -13,7 +15,15 @@ require('laravel-elixir-vue-2');
  |
  */
 
-elixir((mix) => {
+elixir(function(mix) {
     mix.sass('app.scss')
-       .webpack('app.js');
+        .webpack('app.js')
+        .copy('node_modules/bootstrap-sass', 'resources/assets/sass/vendor/bootstrap-sass/')
+        .copy('public/font-awesome/fonts', 'public/fonts')
+        .copy('public/font-awesome', 'resources/assets/sass/vendor/font-awesome/');
 });
+
+// move contents of morris.css and place them into _morris.scss in assets/sass
+gulp.src("public/css/plugins/morris.css")
+    .pipe(rename("_morris.scss"))
+    .pipe(gulp.dest("resources/assets/sass/vendor/morris/"));

@@ -4,7 +4,7 @@
 
 @section('dashContent')
     <style>
-        .pass-theme-select{
+        .pass-theme-select {
             width: 100%;
             height: 65vh;
             background: #6B5078 !important; /* Alternate colour: #774A78 */
@@ -15,7 +15,8 @@
             -o-transition: all 0.3s ease;
             -ms-transition: all 0.3s ease;
         }
-        .pass-theme-select{
+
+        .pass-theme-select {
             transition: all 0.3s ease;
             -webkit-transition: all 0.3s ease;
             -moz-transition: all 0.3s ease;
@@ -35,13 +36,14 @@
             -ms-transition: all 0.3s ease;
             background: #503C59 !important;
         }
-        @media(max-width: 767px){
-            .pass-theme-select{
+
+        @media (max-width: 767px) {
+            .pass-theme-select {
                 margin-bottom: 4vh;
             }
         }
     </style>
-	<div class="row">
+    <div class="row">
         <div class="col-md-4">
             <a href="{{ URL::to('/passes/editor/1') }}">
                 <button type="button" class="btn btn-default btn-lg pass-theme-select">

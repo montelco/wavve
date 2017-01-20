@@ -1,4 +1,6 @@
-.row{
+/*DELETE*/
+
+.row {
   margin: 0 auto !important;
 }
 
@@ -15,7 +17,7 @@
   color: #fff;
   font-size: 44px;
   font-weight: 600;
-  text-shadow: 0 0 4px rgba(20,20,20,0.25);
+  text-shadow: 0 0 4px rgba(20, 20, 20, 0.25);
 }
 
 .ct {
@@ -23,11 +25,11 @@
   color: #fff;
   font-size: 22px;
   font-weight: 300;
-  text-shadow: 0 0 4px rgba(20,20,20,0.55);
+  text-shadow: 0 0 4px rgba(20, 20, 20, 0.55);
 }
 
 .cta {
-  background: rgba(125,125,125,0.7);
+  background: rgba(125, 125, 125, 0.7);
   display: inline-block;
   text-decoration: none !important;
   margin: 0;
@@ -43,7 +45,7 @@
   text-shadow: 0 0 8px rgb(0, 0, 0);
 }
 
-.cta:hover{
+.cta:hover {
   color: #dadada !important;
   border: solid 4px #dadada;
   transition: all 0.25s ease;

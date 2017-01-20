@@ -12,9 +12,10 @@
                     right to a person's phone.</p>
             @if (Auth::guest())
                 <!-- <a href="{{ url('/register') }}" class="cta">Sign Up</a> -->
-                    <a href="{{ url('/login') }}" class="welcome__button btn">Login</a>
+                    <a href="{{ url('/login') }}" class="welcome__button">Login</a>
                 @else
                     <a href="{{ url('/dashboard') }}" class="welcome__button">Dashboard</a>
+
                 @endif
             </div>
         </div>

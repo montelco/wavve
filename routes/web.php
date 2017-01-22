@@ -15,7 +15,7 @@ Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}', 'PublicAcessCont
 
 Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}?passesUpdatedSince={tag}', 'PublicAcessController@updateWalletTagged');
 
-Route::get('/v1/passes/{passTypeID}/{serialNumber}', 'PublicAcessController@getWallet');
+Route::get('/v1/passes/{passTypeID}/{serial}', 'PublicAcessController@getWallet');
 
 Route::post('/v1/devices/{deviceID}/registrations/{passTypeID}/{serial}', 'PublicAcessController@postWallet');
 

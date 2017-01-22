@@ -176,7 +176,7 @@ class PublicAcessController extends Controller
 
     public function getWallet($passTypeID, $serial, Request $request)
     {
-        if (iOS_Pass::where('serial_no', $serial)->where('passTypeID', $passTypeID)->where('authentication_token', 'authentication_token', substr($request->header('authorization'), 10))->first()) {
+        if (iOS_Pass::where('serial_no', $serial)->where('passTypeID', $passTypeID)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
 
             if (file_exists('https://www.wavvve.io/public/business/' . $serial . '.pkpass')) {
                 header('Content-Type: application/vnd.apple.pkpass');

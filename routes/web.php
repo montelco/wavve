@@ -13,7 +13,7 @@ Route::post(
 
 Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}', 'PublicAcessController@updateWallet');
 
-Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}?passesUpdatedSince={tag?}', 'PublicAcessController@updateWallet');
+Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}?passesUpdatedSince={tag}', 'PublicAcessController@updateWalletTagged');
 
 Route::get('/v1/passes/{passTypeID}/{serialNumber}', 'PublicAcessController@getWallet');
 
@@ -45,6 +45,10 @@ Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessCont
  */
 
 Route::group(['middleware' => ['web', 'auth']], function () {
+    Route::get('/register', function () {
+        return view('auth.register');
+    });
+
     Route::get('/plan', function () {
         return view('auth.plan');
     });

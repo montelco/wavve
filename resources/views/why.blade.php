@@ -110,10 +110,10 @@
 			<!-- {{-- @yield('contactus') --}} -->
 			<div class="contact-us-container">
 				<ul class="contact-us-list">
-					<li class="contact-us-list-item"><a href="https://www.facebook.com/ATMTLLC/" class="contact-us-link"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
-					<li class="contact-us-list-item"><a href="https://www.instagram.com/Wavvve_/" class="contact-us-link"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
-					<li class="contact-us-list-item"><a href="mailto:steven.spinelli@atmtllc.com" class="contact-us-link"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></li>
-					<li class="contact-us-list-item"><a href="tel:+1-856-981-1094" class="contact-us-link"><i class="fa fa-phone-square" aria-hidden="true"></i> Call</a></li>
+					<li class="contact-us-list-item"><a href="https://www.facebook.com/ATMTLLC/" class="contact-us-link"><i class="fa fa-facebook-square fa-fw" aria-hidden="true"></i> Facebook</a></li>
+					<li class="contact-us-list-item"><a href="https://www.instagram.com/Wavvve_/" class="contact-us-link"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i> Instagram</a></li>
+					<li class="contact-us-list-item"><a href="mailto:steven.spinelli@atmtllc.com" class="contact-us-link"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> Email</a></li>
+					<li class="contact-us-list-item"><a href="tel:+1-856-981-1094" class="contact-us-link"><i class="fa fa-phone-square fa-fw" aria-hidden="true"></i> Call</a></li>
 				</ul>
 			</div>
 		</div>

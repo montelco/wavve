@@ -195,7 +195,7 @@ class PassesController extends Controller
         //$pass->setLogoText('rgb(255,255,255)');
         $pass->setAuthenticationToken($results->apple_auth);
         $pass->setWebServiceURL('https://www.wavvve.io');
-        // $pass->setLogoText($results->name);
+        $pass->setLogoText($results->name);
         $beacon = new Beacon('2b4fcf51-4eaa-446d-b24e-4d1b437f3840');
         $beacon->setMajor(0);
         $beacon->setMinor(0);
@@ -205,10 +205,10 @@ class PassesController extends Controller
         $structure = new Structure();
 
         // Add header field
-        if(isset($results->passes['0']->title)) {
-            $header = new Field('title', $results->passes['0']->title);
-            $structure->addHeaderField($header);
-        }
+        // if(isset($results->passes['0']->title)) {
+        //     $header = new Field('title', $results->passes['0']->title);
+        //     $structure->addHeaderField($header);
+        // }
 
         // // Add primary field
         // if(isset($results->passes['0']->primary_field)) {
@@ -223,7 +223,7 @@ class PassesController extends Controller
         }
         
         // Add icon image
-        $icon = new Image(ICON_FILE, 'background');
+        $icon = new Image(ICON_FILE, 'icon');
         $pass->addImage($icon);
 
         // Set pass structure

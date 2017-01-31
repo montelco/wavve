@@ -188,10 +188,10 @@ class PassesController extends Controller
         define('TEAM_IDENTIFIER', '527AHA4RH7');
         define('ORGANIZATION_NAME', 'Wavvve® by ATMT');
         define('OUTPUT_PATH', '/home/forge/wavvve.io/public/business');
-        define('ICON_FILE', '/home/forge/wavvve.io/public/ogfblg.jpg');
+        define('ICON_FILE', '/home/forge/wavvve.io/public/tpw.png');
 
         // Create an event ticket
-        $pass = new EventTicket($results->username, $results->name);
+        $pass = new StoreCard($results->username, $results->name);
         $pass->setBackgroundColor('rgb(178, 215, 234)');
         //$pass->setLogoText('rgb(255,255,255)');
         $pass->setAuthenticationToken($results->apple_auth);
@@ -224,7 +224,7 @@ class PassesController extends Controller
         }
         
         // Add icon image
-        $icon = new Image(ICON_FILE, 'background');
+        $icon = new Image(ICON_FILE, 'icon');
         $pass->addImage($icon);
 
         // Set pass structure

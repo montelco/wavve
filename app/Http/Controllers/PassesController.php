@@ -17,6 +17,7 @@ use Passbook\PassFactory;
 use Passbook\Pass\Barcode;
 use Passbook\Pass\Structure;
 use Passbook\Type\StoreCard;
+use Wavvve\Jobs\Passes\ApplePushNotificationService;
 
 class PassesController extends Controller
 {
@@ -170,6 +171,7 @@ class PassesController extends Controller
     {
         Pass::where('id', $id)->update(['published' => $request->published]);
         return $this->getWalletCompiledPass(Auth::user()->username);
+        $this->dispatch(new ApplePushNotificationService());
     }
 
     public function getWalletCompiledPass($username)

@@ -187,7 +187,7 @@ class PassesController extends Controller
         define('TEAM_IDENTIFIER', '527AHA4RH7');
         define('ORGANIZATION_NAME', 'Wavvve® by ATMT');
         define('OUTPUT_PATH', '/home/forge/wavvve.io/public/business');
-        define('ICON_FILE', '/home/forge/wavvve.io/public/logo-tiny-greyscale.png');
+        define('ICON_FILE', '/home/forge/wavvve.io/public/ogfblg.jpg');
 
         // Create an event ticket
         $pass = new StoreCard($results->username, $results->username);
@@ -218,22 +218,22 @@ class PassesController extends Controller
 
         // Add back field
         if(isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">' . $results->passes['0']->primary_field . '</a>');
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">' . $results->passes['0']->title . '</a>');
             $structure->addBackField($backField);
         }
         
         // Add icon image
-        $icon = new Image(ICON_FILE, 'icon');
+        $icon = new Image(ICON_FILE, 'background');
         $pass->addImage($icon);
 
         // Set pass structure
         $pass->setStructure($structure);
 
         // Add barcode
-        if(isset($results->passes['0']->barcode_value)) {
-            $barcode = new Barcode(Barcode::TYPE_QR, $results->passes['0']->barcode_value);
-            $pass->setBarcode($barcode);
-        }
+        // if(isset($results->passes['0']->barcode_value)) {
+        //     $barcode = new Barcode(Barcode::TYPE_QR, $results->passes['0']->barcode_value);
+        //     $pass->setBarcode($barcode);
+        // }
 
         // Create pass factory instance
         $factory = new PassFactory(PASS_TYPE_IDENTIFIER, TEAM_IDENTIFIER, ORGANIZATION_NAME, P12_FILE, P12_PASSWORD, WWDR_FILE);

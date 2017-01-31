@@ -13,7 +13,7 @@
 			bizUsername: '',
 		},
 		methods: {
-			createPass: function (e){
+			updateInfo: function (e){
 				e.preventDefault();
 				$.ajax({
 					url: '/update-settings',
@@ -30,8 +30,8 @@
 						'username' : this.bizUsername,
 					}
 					}).success(function() {
-						$('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Updated ' + this.passTitle + ' in your pass collection.');
-                		$('#result').addClass('alert alert-success');
+						$('#results').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Updated your profile.');
+                		$('#results').addClass('alert alert-success');
 					}.bind(this));
 			}
 		}

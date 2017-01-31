@@ -43,6 +43,6 @@ class UsersController extends Controller
             ]
         );
 
-        return response()->json(User::where('id', Auth::user()->id));
+        return response()->json(null, 201);
     }
 }

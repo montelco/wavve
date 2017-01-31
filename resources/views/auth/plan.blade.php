@@ -7,22 +7,22 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Choose Your Plan</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="">
+                    <form class="form-horizontal" role="form" method="POST" action="/plan/monthly-3">
                         {!! csrf_field() !!}
                         <span class="payment-errors"></span>
-
+                        //Dropdown goes here
                         <div class="form-group">
                             <div class="col-md-5 col-md-offset-2">
                                 <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_JTKAeFPFAOS9oJs9pHlwmG8F"
-                                    data-amount="15000"
+                                    data-amount="37500"
                                     data-name="Wavvve by ATMT"
                                     data-currency="USD"
-                                    data-description="Monthly Subscription"
+                                    data-description="Monthly Subscription (w Three Beacons)"
                                     data-image="https://wavvve.io/favicons/favicon-96x96.png"
                                     data-locale="auto"
-                                    data-label="Get Monthly (15/mo)"
+                                    data-label="Get Monthly (375/mo)"
                                     data-zip-code="true">
                                 </script>
                             </div>

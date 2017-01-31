@@ -223,7 +223,7 @@ class PassesController extends Controller
         }
         
         // Add icon image
-        $icon = new Image(ICON_FILE, 'background');
+        $icon = new Image(ICON_FILE, 'strip');
         $pass->addImage($icon);
 
         // Set pass structure

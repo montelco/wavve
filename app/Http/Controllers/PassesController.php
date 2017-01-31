@@ -17,6 +17,7 @@ use Passbook\PassFactory;
 use Passbook\Pass\Barcode;
 use Passbook\Pass\Structure;
 use Passbook\Type\StoreCard;
+use Passbook\Type\EventTicket;
 use Wavvve\Jobs\Passes\ApplePushNotificationService;
 
 class PassesController extends Controller
@@ -223,7 +224,7 @@ class PassesController extends Controller
         }
         
         // Add icon image
-        $icon = new Image(ICON_FILE, 'icon');
+        $icon = new Image(ICON_FILE, 'background');
         $pass->addImage($icon);
 
         // Set pass structure

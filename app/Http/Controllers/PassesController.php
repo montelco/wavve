@@ -224,7 +224,7 @@ class PassesController extends Controller
         }
         
         // Add icon image
-        $icon = new Image(ICON_FILE, 'icon);
+        $icon = new Image(ICON_FILE, 'icon');
         $pass->addImage($icon);
 
         // Set pass structure

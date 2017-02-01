@@ -1,0 +1,153 @@
+ // Needs to be bemified
+
+.admiral-focus {
+  color: $white;
+  font-size: 1.45em;
+}
+
+.admiral-header,
+.page-header h1 {
+  color: $white;
+}
+
+.admiral-slug,
+.page-header em {
+  color: $white;
+}
+
+.cta {
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  background: rgba(125, 125, 125, 0.7);
+  border: solid 4px $isabelline;
+  color: $isabelline !important;
+  display: table;
+  font-size: 22px;
+  margin: 0 auto;
+  margin-top: 2em !important;
+  padding: 12px 48px;
+  text-shadow: 0 0 8px rgb(0, 0, 0);
+  transition: all 0.25s ease;
+
+  &:hover {
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    color: $gainsboro !important;
+    border: solid 4px $gainsboro;
+    transition: all 0.25s ease;
+  }
+}
+
+
+
+header {
+  background: url(https://ucarecdn.com/695235bf-bd21-4c1d-be6d-751ccd0c2ed4/-/progressive/yes/-/quality/lightest/);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: auto 600px;
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo {
+  color: $white;
+  font-family: $ubuntu !important;
+  font-size: 4.5em;
+  @include font-weight(light);
+  margin-top: 230px;
+  text-align: center;
+}
+
+.pagelet, #intro {
+  background-color: $deep-space-sparkle;
+  padding: 50px 0 100px 0;
+}
+
+.page-header {
+  border: none !important;
+}
+
+section.module.parallax {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 240px 0;
+}
+
+section.module.parallax h1 {
+  color: $powder-blue;
+  font-size: 48px;
+  @include font-weight(bold);
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(20, 20, 20, 0.5);
+  text-transform: uppercase;
+}
+
+section.module.parallax.para-1 {
+  background-attachment: fixed;
+  background-image: url(https://ucarecdn.com/dcbf570f-83cc-42d6-9e9d-42be05fb45f1/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
+  background-position: bottom center;
+  overflow: hidden;
+}
+
+section.module.parallax.para-2 {
+  background-attachment: fixed;
+  background-image: url(https://ucarecdn.com/73444182-339e-455f-8652-c9aed5b910f4/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
+  background-position: center center;
+  overflow: hidden;
+}
+
+section.module.parallax.para-3 {
+  background-attachment: fixed;
+  background-image: url(https://ucarecdn.com/b053a724-2677-4e48-9f34-b52d15933188/-/quality/lightest/-/progressive/yes/-/effect/grayscale/);
+  background-position: center center;
+  overflow: hidden;
+}
+
+ .why__contactList {
+   font-size: 30px;
+   @include font-weight(thin);
+   list-style-type: none;
+   padding: 0;
+
+   @media only screen and (min-width: 700px) {
+     text-align: center;
+   }
+ }
+
+ .why__contactListItem {
+   margin-bottom: 10px;
+
+   @media only screen and (min-width: 700px) {
+     display: inline-block;
+     margin: 0 0 0 20px;
+   }
+ }
+
+ .why__contactUs {
+   display: block;
+   margin: 0 auto;
+   padding: 0;
+   width: 60%;
+
+   // TODO: find way to remove base element selector
+   a {
+     color: $white;
+
+     &:hover {
+       color: $trolley-grey;
+     }
+   }
+
+   @media only screen and (min-width: 700px) {
+     display: inline;
+     width: 100%;
+   }
+ }

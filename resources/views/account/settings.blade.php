@@ -6,8 +6,8 @@
 @endsection
 
 @section('dashContent')
-	<div id="results"></div>
-	<form id="settings" v-on:submit="createPass">
+
+	<form id="settings" v-on:submit="updateInfo">
 		<div class="row">
 	        <div class="col-lg-12">
 	            <h1 class="page-header">
@@ -82,5 +82,6 @@
 	    </div>
 	    <input type="submit" class="edit-submit" value="Save Settings">
     </form>
+    <div id="results"></div>
     @include('account.updateInfo')
 @endsection

@@ -2,6 +2,7 @@
 
 namespace Wavvve\Http\Controllers;
 
+use Carbon;
 use Wavvve\Pass;
 use Wavvve\iOS_Pass;
 use Wavvve\iOS_Device;
@@ -102,27 +103,24 @@ class PublicAcessController extends Controller
      */
     public function updateWallet($deviceID, $passTypeID)
     {
-        $tag = time();
 
         //Is it in our table of registered devices?
         if (iOS_Registration::where('ios_devices_id', $deviceID)->count() > 0) {
             //Yes, it's registered with our service.
 
             //Now grab all the passes to which this device is registered.
-            $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->get('serial_no');
-            if (isset($tag) && $tag != '') {
-                //Tag is set and is not equal to a blank string.
-                $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers)->where('updated_at', '>=', $tag);
-            } else {
-                //Tag may not be set or is a blank string.
-                $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers);
-            }
+
+            $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->pluck('ios_passes_serial')->take(1);
+            $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers);
+            $registered_passes_count = iOS_Pass::where('serial_no', $registered_serial_numbers)->count();
+
 
             //If there are passes that should be updated.
-            if ($registered_passes > 0) {
+            if ($registered_passes_count > 0) {
 
                 //Return a JSON formatted object.
-                return Response::json(['lastUpdated' => time(), 'serialNumbers' => $registered_passes], 200);
+                $response = response()->json(['lastUpdated' => '"' . time() . '"', 'serialNumbers' => $registered_serial_numbers], 200)->header('If-Modified-Since', Carbon\Carbon::now()->format('D, d M Y H:i:s \G\M\T'));
+                return $response;
             } else {
 
                 //No content to return.

@@ -16,6 +16,8 @@ use Passbook\Pass\Barcode;
 use Illuminate\Http\Request;
 use Passbook\Pass\Structure;
 use Passbook\Type\StoreCard;
+use Passbook\Type\EventTicket;
+use Wavvve\Jobs\Passes\ApplePushNotificationService;
 
 class PassesController extends Controller
 {
@@ -169,6 +171,7 @@ class PassesController extends Controller
         Pass::where('id', $id)->update(['published' => $request->published]);
 
         return $this->getWalletCompiledPass(Auth::user()->username);
+        $this->dispatch(new ApplePushNotificationService());
     }
 
     public function getWalletCompiledPass($username)
@@ -184,10 +187,10 @@ class PassesController extends Controller
         define('TEAM_IDENTIFIER', '527AHA4RH7');
         define('ORGANIZATION_NAME', 'Wavvve® by ATMT');
         define('OUTPUT_PATH', '/home/forge/wavvve.io/public/business');
-        define('ICON_FILE', '/home/forge/wavvve.io/public/tpw.png');
+        define('ICON_FILE', '/home/forge/wavvve.io/public/background.png');
 
         // Create an event ticket
-        $pass = new StoreCard($results->username, $results->username);
+        $pass = new EventTicket($results->username, $results->name);
         $pass->setBackgroundColor('rgb(178, 215, 234)');
         //$pass->setLogoText('rgb(255,255,255)');
         $pass->setAuthenticationToken($results->apple_auth);
@@ -202,20 +205,23 @@ class PassesController extends Controller
         $structure = new Structure();
 
         // Add header field
-        if (isset($results->passes['0']->title)) {
-            $header = new Field('title', $results->passes['0']->title);
-            $structure->addHeaderField($header);
-        }
+
+        // if(isset($results->passes['0']->title)) {
+        //     $header = new Field('title', $results->passes['0']->title);
+        //     $structure->addHeaderField($header);
+        // }
 
         // // Add primary field
-        if (isset($results->passes['0']->primary_field)) {
-            $primary = new Field('description', $results->passes['0']->primary_field);
-            $structure->addPrimaryField($primary);
-        }
+        // if(isset($results->passes['0']->primary_field)) {
+        //     $primary = new Field('description', $results->passes['0']->primary_field);
+        //     $structure->addPrimaryField($primary);
+        // }
 
         // Add back field
-        if (isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">View In Browser</a>');
+        if(isset($results->passes['0']->uuid)) {
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">' . $results->passes['0']->title . '</a>');
+            $backField->setValue($results->passes['0']->title);
+            $backField->setChangeMessage('A new pass "%a"');
             $structure->addBackField($backField);
         }
 
@@ -227,10 +233,11 @@ class PassesController extends Controller
         $pass->setStructure($structure);
 
         // Add barcode
-        if (isset($results->passes['0']->barcode_value)) {
-            $barcode = new Barcode(Barcode::TYPE_QR, $results->passes['0']->barcode_value);
-            $pass->setBarcode($barcode);
-        }
+
+        // if(isset($results->passes['0']->barcode_value)) {
+        //     $barcode = new Barcode(Barcode::TYPE_QR, $results->passes['0']->barcode_value);
+        //     $pass->setBarcode($barcode);
+        // }
 
         // Create pass factory instance
         $factory = new PassFactory(PASS_TYPE_IDENTIFIER, TEAM_IDENTIFIER, ORGANIZATION_NAME, P12_FILE, P12_PASSWORD, WWDR_FILE);

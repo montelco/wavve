@@ -3,11 +3,6 @@
 @include('editor.applets.latest-jquery')
 
 @section('dashContent')
-    @if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-    @endif
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
             <h1 class="page-header">

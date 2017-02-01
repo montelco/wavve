@@ -181,7 +181,7 @@ class PassesController extends Controller
             $query->where('published', 1)->orderBy('updated_at', 'desc')->firstOrFail();
         }])->where('username', $username)->firstOrFail();
 
-        define('P12_FILE', '/home/forge/wavvve.io/atmt.p12');
+        define('P12_FILE', '/home/forge/wavvve.io/ATMT.p12');
         define('P12_PASSWORD', '1234');
         define('WWDR_FILE', '/home/forge/wavvve.io/wwdr.pem');
         define('PASS_TYPE_IDENTIFIER', 'pass.com.atmt.wavvvetest2');

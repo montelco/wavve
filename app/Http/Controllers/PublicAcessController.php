@@ -111,9 +111,10 @@ class PublicAcessController extends Controller
             //Now grab all the passes to which this device is registered.
             $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->pluck('ios_passes_serial')->take(1);
             $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers);
+            $registered_passes_count = iOS_Pass::where('serial_no', $registered_serial_numbers)->count();
 
             //If there are passes that should be updated.
-            if ($registered_passes > 0) {
+            if ($registered_passes_count > 0) {
 
                 //Return a JSON formatted object.
                 $response = Response::json(['lastUpdated' => time(), 'serialNumbers' => $registered_passes], 200);

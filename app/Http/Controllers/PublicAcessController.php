@@ -118,8 +118,7 @@ class PublicAcessController extends Controller
 
                 //Return a JSON formatted object.
                 $response = response()->json(['lastUpdated' => time(), 'serialNumbers' => $registered_passes], 200);
-                $dt = new DateTime('UTC');
-                $response->headers('If-Modified-Since', $dt->format('D, d M Y H:i:s \G\M\T'));
+                $response->headers('If-Modified-Since', Carbon::now()->format('D, d M Y H:i:s \G\M\T'));
                 return $response;
             } else {
 

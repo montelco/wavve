@@ -3,11 +3,10 @@
 namespace Wavvve\Http\Controllers;
 
 use Wavvve\Pass;
-use Wavvve\User;
-use Wavvve\iOS_Registration;
 use Wavvve\iOS_Pass;
 use Wavvve\iOS_Device;
 use Illuminate\Http\Request;
+use Wavvve\iOS_Registration;
 use Illuminate\Http\Response;
 
 class PublicAcessController extends Controller
@@ -37,19 +36,20 @@ class PublicAcessController extends Controller
         if ($request->isMethod('post')) {
             //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
             if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
-                $uuid = $deviceID . "-" . $serial;
+                $uuid = $deviceID.'-'.$serial;
                 if (iOS_Registration::where('uuid', $uuid)->count() < 1) {
                     //Device isn't registered, but it's addable
                     iOS_Device::create([
                         'device' => $deviceID,
-                        'push_token' => $request->pushToken]);
+                        'push_token' => $request->pushToken, ]);
 
                     iOS_Registration::create([
-                        'uuid' => $uuid, 
+                        'uuid' => $uuid,
                         'pass_type_id' => $passTypeID,
                         'push_token' => $request->pushToken,
                         'ios_devices_id' => $deviceID,
-                        'ios_passes_serial' => $serial]);
+                        'ios_passes_serial' => $serial, ]);
+
                     return response('Content created', 201);
                 } else {
                     //Device is already registered. No further action is required.
@@ -76,14 +76,13 @@ class PublicAcessController extends Controller
     {
         //Validates the incoming request by comparing the authorization_token as well as the pass serial (eg: churchill-coffee.pkpass) where the 'churchill-coffee' is the serial
             if (iOS_Pass::where('serial_no', $serial)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
-                $uuid = $deviceID . "-" . $serial;
+                $uuid = $deviceID.'-'.$serial;
                 if (iOS_Registration::where('uuid', $uuid)->count() > 0) {
                     $unRegisterDevice = iOS_Registration::where('ios_devices_id', $deviceID)->where('ios_passes_serial', $serial)->first();
                     $unRegisterDevice->delete();
 
                     //The deletion was successful. Return HTTP OK
                     return response('OK', 200);
-                    
                 } else {
                     //Device isn't registered to the pass. This is an error, as a bad request has occurred.
                     return response('Bad Request', 400);
@@ -91,7 +90,7 @@ class PublicAcessController extends Controller
             } else {
                 //This request was incorrectly formed either in serial number or in the authorization token.
                 return response('Unauthorized', 401);
-            }  
+            }
     }
 
     /**
@@ -108,10 +107,10 @@ class PublicAcessController extends Controller
         //Is it in our table of registered devices?
         if (iOS_Registration::where('ios_devices_id', $deviceID)->count() > 0) {
             //Yes, it's registered with our service.
-            
+
             //Now grab all the passes to which this device is registered.
             $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->get('serial_no');
-            if (isset($tag) && $tag != "") {
+            if (isset($tag) && $tag != '') {
                 //Tag is set and is not equal to a blank string.
                 $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers)->where('updated_at', '>=', $tag);
             } else {
@@ -147,10 +146,10 @@ class PublicAcessController extends Controller
         //Is it in our table of registered devices?
         if (iOS_Registration::where('ios_devices_id', $deviceID)->count() > 0) {
             //Yes, it's registered with our service.
-            
+
             //Now grab all the passes to which this device is registered.
             $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->get('serial_no');
-            if (isset($tag) && $tag != "") {
+            if (isset($tag) && $tag != '') {
                 //Tag is set and is not equal to a blank string.
                 $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers)->where('updated_at', '>=', $tag);
             } else {
@@ -177,15 +176,14 @@ class PublicAcessController extends Controller
     public function getWallet($passTypeID, $serial, Request $request)
     {
         if (iOS_Pass::where('serial_no', $serial)->where('passTypeID', $passTypeID)->where('authentication_token', substr($request->header('authorization'), 10))->first()) {
-
-            if (file_exists('/home/forge/wavvve.io/public/business/' . $serial . '.pkpass')) {
+            if (file_exists('/home/forge/wavvve.io/public/business/'.$serial.'.pkpass')) {
                 header('Content-Type: application/vnd.apple.pkpass');
-                readfile('/home/forge/wavvve.io/public/business/' . $serial . '.pkpass');
+                readfile('/home/forge/wavvve.io/public/business/'.$serial.'.pkpass');
             } else {
                 return response('Not found', 404);
             }
         } else {
-            return response( 'Unauthorized', 401);
+            return response('Unauthorized', 401);
         }
     }
 

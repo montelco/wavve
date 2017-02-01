@@ -12,7 +12,7 @@ class User extends Authenticatable
     use Billable;
 
     protected $fillable = [
-        'name', 'email', 'password', 'profile_pic', 'apple_auth'
+        'name', 'email', 'password', 'profile_pic', 'apple_auth',
     ];
 
     protected $hidden = [

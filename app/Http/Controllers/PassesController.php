@@ -191,7 +191,7 @@ class PassesController extends Controller
         define('ICON_FILE', '/home/forge/wavvve.io/public/background.png');
 
         // Create an event ticket
-        $pass = new StoreCard($results->username, $results->name);
+        $pass = new EventTicket($results->username, $results->name);
         $pass->setBackgroundColor('rgb(178, 215, 234)');
         //$pass->setLogoText('rgb(255,255,255)');
         $pass->setAuthenticationToken($results->apple_auth);
@@ -225,7 +225,7 @@ class PassesController extends Controller
         }
 
         // Add icon image
-        $icon = new Image(ICON_FILE, 'icon');
+        $icon = new Image(ICON_FILE, 'background');
         $pass->addImage($icon);
 
         // Set pass structure

@@ -44,7 +44,8 @@ class ApplePushNotificationService implements ShouldQueue
     {
         $message = 'Welcome Nick Castellucci!';
         $ctx = stream_context_create();
-        stream_context_set_option($ctx, 'ssl', 'local_cert', '/home/forge/wavvve.io/production_com.wavvve.wavvve.pem');
+        stream_context_set_option($ctx, 'ssl', 'local_cert', '/home/forge/wavvve.io/atmt.p12');
+        stream_context_set_option($ctx, 'ssl', 'passphrase', '1234');
         stream_context_set_option($ctx, 'ssl', 'cafile', '/home/forge/wavvve.io/wwdr.pem');
         // Open a connection to the APNS server
         $fp = stream_socket_client(

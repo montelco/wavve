@@ -181,14 +181,14 @@ class PassesController extends Controller
             $query->where('published', 1)->orderBy('updated_at', 'desc')->firstOrFail();
         }])->where('username', $username)->firstOrFail();
 
-        define('P12_FILE', '/home/forge/wavvve.io/production_com.wavvve.wavvve.p12');
-        define('P12_PASSWORD', 'wavvveRandom280840821625a8d8c7e7aYYk');
+        define('P12_FILE', '/home/forge/wavvve.io/atmt.p12');
+        define('P12_PASSWORD', '1234');
         define('WWDR_FILE', '/home/forge/wavvve.io/wwdr.pem');
         define('PASS_TYPE_IDENTIFIER', 'pass.com.atmt.wavvvetest2');
         define('TEAM_IDENTIFIER', '527AHA4RH7');
         define('ORGANIZATION_NAME', 'Wavvve® by ATMT');
         define('OUTPUT_PATH', '/home/forge/wavvve.io/public/business');
-        define('ICON_FILE', '/home/forge/wavvve.io/public/tpw.png');
+        define('ICON_FILE', '/home/forge/wavvve.io/public/background.png');
 
         // Create an event ticket
         $pass = new StoreCard($results->username, $results->name);
@@ -220,11 +220,12 @@ class PassesController extends Controller
         // Add back field
         if(isset($results->passes['0']->uuid)) {
             $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">' . $results->passes['0']->title . '</a>');
+            $backField->setChangeMessage('A new pass is available. Check it out!')
             $structure->addBackField($backField);
         }
-        
+
         // Add icon image
-        $icon = new Image(ICON_FILE, 'icon');
+        $icon = new Image(ICON_FILE, 'background');
         $pass->addImage($icon);
 
         // Set pass structure

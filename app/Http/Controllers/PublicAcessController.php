@@ -122,7 +122,10 @@ class PublicAcessController extends Controller
             if ($registered_passes > 0) {
 
                 //Return a JSON formatted object.
-                return Response::json(['lastUpdated' => time(), 'serialNumbers' => $registered_passes], 200);
+                $response = Response::json(['lastUpdated' => time(), 'serialNumbers' => $registered_passes], 200);
+                $dt = new DateTime('UTC');
+                $response->headers('If-Modified-Since', $dt->format('D, d M Y H:i:s \G\M\T'));
+                return $response;
             } else {
 
                 //No content to return.

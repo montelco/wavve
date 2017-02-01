@@ -109,7 +109,7 @@ class PublicAcessController extends Controller
             //Yes, it's registered with our service.
             
             //Now grab all the passes to which this device is registered.
-            $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->pluck('serial_no');
+            $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->pluck('ios_passes_serial');
             $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers);
 
             //If there are passes that should be updated.

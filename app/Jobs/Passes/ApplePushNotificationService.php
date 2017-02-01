@@ -55,7 +55,7 @@ class ApplePushNotificationService implements ShouldQueue
             exit("Failed to connect: $err $errstr" . PHP_EOL);
         echo 'Connected to APNS' . PHP_EOL;
         // Create the payload body
-        $body['aps'] = array();            );
+        $body['aps'] = array();
         // Encode the payload as JSON
         $payload = json_encode($body);
         // Build the binary notification

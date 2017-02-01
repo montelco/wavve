@@ -7,20 +7,18 @@ use Carbon;
 use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\Visitor;
-use Wavvve\iOS_Registration;
 use Wavvve\iOS_Pass;
-use Illuminate\Http\Request;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
 use Passbook\Pass\Beacon;
 use Passbook\PassFactory;
 use Passbook\Pass\Barcode;
+use Illuminate\Http\Request;
 use Passbook\Pass\Structure;
 use Passbook\Type\StoreCard;
 
 class PassesController extends Controller
 {
-
     /**
      * Require authentication middleware for all Pass interaction from console.
      * @return void
@@ -169,6 +167,7 @@ class PassesController extends Controller
     public function setPublish(Request $request, $id)
     {
         Pass::where('id', $id)->update(['published' => $request->published]);
+
         return $this->getWalletCompiledPass(Auth::user()->username);
     }
 
@@ -203,23 +202,23 @@ class PassesController extends Controller
         $structure = new Structure();
 
         // Add header field
-        if(isset($results->passes['0']->title)) {
+        if (isset($results->passes['0']->title)) {
             $header = new Field('title', $results->passes['0']->title);
             $structure->addHeaderField($header);
         }
 
         // // Add primary field
-        if(isset($results->passes['0']->primary_field)) {
+        if (isset($results->passes['0']->primary_field)) {
             $primary = new Field('description', $results->passes['0']->primary_field);
             $structure->addPrimaryField($primary);
         }
 
         // Add back field
-        if(isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">View In Browser</a>');
+        if (isset($results->passes['0']->uuid)) {
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">View In Browser</a>');
             $structure->addBackField($backField);
         }
-        
+
         // Add icon image
         $icon = new Image(ICON_FILE, 'icon');
         $pass->addImage($icon);
@@ -228,7 +227,7 @@ class PassesController extends Controller
         $pass->setStructure($structure);
 
         // Add barcode
-        if(isset($results->passes['0']->barcode_value)) {
+        if (isset($results->passes['0']->barcode_value)) {
             $barcode = new Barcode(Barcode::TYPE_QR, $results->passes['0']->barcode_value);
             $pass->setBarcode($barcode);
         }

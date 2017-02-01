@@ -9,6 +9,6 @@ class iOS_Device extends Model
     protected $table = 'ios_devices';
 
     protected $fillable = [
-    	'device', 'push_token'
+        'device', 'push_token',
     ];
 }

@@ -4,7 +4,6 @@ namespace Wavvve\Jobs\Users;
 
 use Wavvve\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -37,7 +36,7 @@ class UserTracking implements ShouldQueue
     public function handle()
     {
         $this->user->update([
-            'last_logged_in' => $this->date
+            'last_logged_in' => $this->date,
         ]);
     }
 }

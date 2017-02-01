@@ -15,7 +15,6 @@ use Passbook\PassFactory;
 use Passbook\Pass\Barcode;
 use Illuminate\Http\Request;
 use Passbook\Pass\Structure;
-use Passbook\Type\StoreCard;
 use Passbook\Type\EventTicket;
 use Wavvve\Jobs\Passes\ApplePushNotificationService;
 
@@ -218,8 +217,8 @@ class PassesController extends Controller
         // }
 
         // Add back field
-        if(isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">' . $results->passes['0']->title . '</a>');
+        if (isset($results->passes['0']->uuid)) {
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">'.$results->passes['0']->title.'</a>');
             $backField->setValue($results->passes['0']->title);
             $backField->setChangeMessage('A new pass "%a"');
             $structure->addBackField($backField);

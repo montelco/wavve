@@ -114,12 +114,12 @@ class PublicAcessController extends Controller
             $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers);
             $registered_passes_count = iOS_Pass::where('serial_no', $registered_serial_numbers)->count();
 
-
             //If there are passes that should be updated.
             if ($registered_passes_count > 0) {
 
                 //Return a JSON formatted object.
-                $response = response()->json(['lastUpdated' => '"' . time() . '"', 'serialNumbers' => $registered_serial_numbers], 200)->header('If-Modified-Since', Carbon\Carbon::now()->format('D, d M Y H:i:s \G\M\T'));
+                $response = response()->json(['lastUpdated' => '"'.time().'"', 'serialNumbers' => $registered_serial_numbers], 200)->header('If-Modified-Since', Carbon\Carbon::now()->format('D, d M Y H:i:s \G\M\T'));
+
                 return $response;
             } else {
 

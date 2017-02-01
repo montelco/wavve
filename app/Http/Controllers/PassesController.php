@@ -188,7 +188,7 @@ class PassesController extends Controller
         define('TEAM_IDENTIFIER', '527AHA4RH7');
         define('ORGANIZATION_NAME', 'Wavvve® by ATMT');
         define('OUTPUT_PATH', '/home/forge/wavvve.io/public/business');
-        define('ICON_FILE', '/home/forge/wavvve.io/public/tpw.png');
+        define('ICON_FILE', '/home/forge/wavvve.io/public/ogfblg.jpg');
 
         // Create an event ticket
         $pass = new StoreCard($results->username, $results->name);
@@ -224,7 +224,7 @@ class PassesController extends Controller
         }
         
         // Add icon image
-        $icon = new Image(ICON_FILE, 'icon');
+        $icon = new Image(ICON_FILE, 'background');
         $pass->addImage($icon);
 
         // Set pass structure

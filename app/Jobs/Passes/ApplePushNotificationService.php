@@ -50,22 +50,9 @@ class ApplePushNotificationService implements ShouldQueue
         $fp = stream_socket_client(
             'ssl://gateway.push.apple.com:2195', $err,
             $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
-        if (!$fp)
-            exit("Failed to connect: $err $errstr" . PHP_EOL);
-        echo 'Connected to APNS';
-        // Create the payload body
-        $body['aps'] = array();
-        // Encode the payload as JSON
-        $payload = json_encode($body);
-        // Build the binary notification
-        $msg = chr(0) . pack('n', 32) . pack('H*', $this->testPT) . pack('n', strlen($payload)) . $payload;
-        // Send it to the server
-        $result = fwrite($fp, $msg, strlen($msg));
-        if (!$result)
-            echo 'Message not delivered';
-        else
-            echo 'Message successfully delivered';
-        // Close the connection to the server
+        $payload = json_encode(array("aps" => array("sound" => "default")));
+        $msg = chr(0) . pack("n",32) . pack('H*', $testPT) . pack("n",strlen($payload)) . $payload;
+        fwrite($fp, $msg);
         fclose($fp);
     }
 }

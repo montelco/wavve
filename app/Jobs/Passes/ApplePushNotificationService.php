@@ -42,15 +42,16 @@ class ApplePushNotificationService implements ShouldQueue
      */
     public function handle()
     {
-        $message = 'Welcome Nick Castellucci!';
         $ctx = stream_context_create();
-        stream_context_set_option($ctx, 'ssl', 'local_cert', '/home/forge/wavvve.io/atmt.p12');
+        stream_context_set_option($ctx, 'ssl', 'local_cert', '/home/forge/wavvve.io/pushcert.pem');
         stream_context_set_option($ctx, 'ssl', 'passphrase', '1234');
         stream_context_set_option($ctx, 'ssl', 'cafile', '/home/forge/wavvve.io/wwdr.pem');
         $fp = stream_socket_client(
             'ssl://gateway.push.apple.com:2195', $err,
             $errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
-        $payload = json_encode(array("aps" => array("sound" => "default")));
+        $body['aps'] = array();
+        // Encode the payload as JSON
+        $payload = json_encode($body);
         $msg = chr(0) . pack("n",32) . pack('H*', $testPT) . pack("n",strlen($payload)) . $payload;
         fwrite($fp, $msg);
         fclose($fp);

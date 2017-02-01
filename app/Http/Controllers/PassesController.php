@@ -220,7 +220,7 @@ class PassesController extends Controller
         // Add back field
         if(isset($results->passes['0']->uuid)) {
             $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">' . $results->passes['0']->title . '</a>');
-            $backField->setChangeMessage('A new pass is available. Check it out!')
+            $backField->setChangeMessage('A new pass is available. Check it out!');
             $structure->addBackField($backField);
         }
 

@@ -110,13 +110,7 @@ class PublicAcessController extends Controller
             
             //Now grab all the passes to which this device is registered.
             $registered_serial_numbers = iOS_Registration::where('ios_devices_id', $deviceID)->where('pass_type_id', $passTypeID)->get('serial_no');
-            if (isset($tag) && $tag != "") {
-                //Tag is set and is not equal to a blank string.
-                $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers)->where('updated_at', '>=', $tag);
-            } else {
-                //Tag may not be set or is a blank string.
-                $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers);
-            }
+            $registered_passes = iOS_Pass::where('serial_no', $registered_serial_numbers);
 
             //If there are passes that should be updated.
             if ($registered_passes > 0) {

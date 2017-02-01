@@ -103,7 +103,6 @@ class PublicAcessController extends Controller
      */
     public function updateWallet($deviceID, $passTypeID)
     {
-        $tag = time();
 
         //Is it in our table of registered devices?
         if (iOS_Registration::where('ios_devices_id', $deviceID)->count() > 0) {

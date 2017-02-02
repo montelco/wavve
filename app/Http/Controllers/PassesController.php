@@ -7,22 +7,19 @@ use Carbon;
 use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\Visitor;
-use Wavvve\iOS_Registration;
 use Wavvve\iOS_Pass;
-use Illuminate\Http\Request;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
 use Passbook\Pass\Beacon;
 use Passbook\PassFactory;
 use Passbook\Pass\Barcode;
+use Illuminate\Http\Request;
 use Passbook\Pass\Structure;
-use Passbook\Type\StoreCard;
 use Passbook\Type\EventTicket;
 use Wavvve\Jobs\Passes\ApplePushNotificationService;
 
 class PassesController extends Controller
 {
-
     /**
      * Require authentication middleware for all Pass interaction from console.
      * @return void
@@ -171,6 +168,7 @@ class PassesController extends Controller
     public function setPublish(Request $request, $id)
     {
         Pass::where('id', $id)->update(['published' => $request->published]);
+
         return $this->getWalletCompiledPass(Auth::user()->username);
         $this->dispatch(new ApplePushNotificationService());
     }
@@ -206,6 +204,7 @@ class PassesController extends Controller
         $structure = new Structure();
 
         // Add header field
+
         // if(isset($results->passes['0']->title)) {
         //     $header = new Field('title', $results->passes['0']->title);
         //     $structure->addHeaderField($header);
@@ -218,8 +217,8 @@ class PassesController extends Controller
         // }
 
         // Add back field
-        if(isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/' . $results->passes['0']->uuid . '">' . $results->passes['0']->title . '</a>');
+        if (isset($results->passes['0']->uuid)) {
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">'.$results->passes['0']->title.'</a>');
             $backField->setValue($results->passes['0']->title);
             $backField->setChangeMessage('A new pass "%a"');
             $structure->addBackField($backField);
@@ -233,6 +232,7 @@ class PassesController extends Controller
         $pass->setStructure($structure);
 
         // Add barcode
+
         // if(isset($results->passes['0']->barcode_value)) {
         //     $barcode = new Barcode(Barcode::TYPE_QR, $results->passes['0']->barcode_value);
         //     $pass->setBarcode($barcode);

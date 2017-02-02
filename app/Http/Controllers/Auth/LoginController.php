@@ -2,6 +2,7 @@
 
 namespace Wavvve\Http\Controllers\Auth;
 
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Wavvve\Jobs\Users\UserTracking;
@@ -49,6 +50,10 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $this->dispatch(new UserTracking($user, Carbon::now()));
+        if (!$user->subscribed) {
+            return redirect('/plan')->withError('Please pick a subscription plan to continue.');
+        } else {
+            $this->dispatch(new UserTracking($user, Carbon::now()));
+        }
     }
 }

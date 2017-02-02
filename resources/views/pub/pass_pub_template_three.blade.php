@@ -10,7 +10,9 @@
 @include('pub.global.theme-color')
 
 @section('barcode_value')
-	"{{ $pass->barcode_value }}";
+	@if(isset($pass->barcode_value) && $pass->barcode_value != null)
+		"{{ $pass->barcode_value }}";
+	@endif
 @endsection
 
 @section('strip_pass_contents')

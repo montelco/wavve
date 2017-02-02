@@ -3,6 +3,20 @@
 @include('editor.applets.latest-jquery')
 
 @section('dashContent')
+
+    @if (session('status'))
+        <div class="row">
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+                {{ session('status') }}
+            </div>
+         </div>
+    @endif
+
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
             <h1 class="page-header">

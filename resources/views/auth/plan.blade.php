@@ -7,27 +7,31 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Choose Your Plan</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="/plan/monthly-3">
+                    <form class="form-horizontal" role="form" method="POST" action="/plan/monthly-1">
                         {!! csrf_field() !!}
                         <span class="payment-errors"></span>
-                        //Dropdown goes here
                         <div class="form-group">
-                            <div class="col-md-5 col-md-offset-2">
+                            <div class="col-lg-12 col-lg-offset-4">
                                 <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_JTKAeFPFAOS9oJs9pHlwmG8F"
-                                    data-amount="37500"
+                                    data-amount="15000"
                                     data-name="Wavvve by ATMT"
                                     data-currency="USD"
                                     data-description="Monthly Subscription (w Three Beacons)"
                                     data-image="https://wavvve.io/favicons/favicon-96x96.png"
                                     data-locale="auto"
-                                    data-label="Get Monthly (375/mo)"
+                                    data-label="Get Monthly (150/mo)"
                                     data-zip-code="true">
                                 </script>
                             </div>
-
-                            <div class="col-md-4">
+                        </div>
+                    </form>
+                    <form class="form-horizontal" role="form" method="POST" action="/plan/yearly-1">
+                        {!! csrf_field() !!}
+                        <span class="payment-errors"></span>
+                        <div class="form-group">
+                            <div class="col-lg-12 col-lg-offset-4">
                                 <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_JTKAeFPFAOS9oJs9pHlwmG8F"
@@ -37,7 +41,7 @@
                                     data-description="Yearly Subscription"
                                     data-image="https://wavvve.io/favicons/favicon-96x96.png"
                                     data-locale="auto"
-                                    data-label="Get Yearly (150/yr)"
+                                    data-label="Get Yearly (1500/yr)"
                                     data-zip-code="true">
                                 </script>
                             </div>

@@ -170,13 +170,16 @@
 			    height: 100%;
 			    width: 100%;
 			    @if(isset($pass->coupon_full_background_image))
-				@if($pass->template_number == 3)
+					@if($pass->template_number == 3)
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/) center center no-repeat !important;
 			    background-size: 100%;
-			    @else
+			    	@else
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/-/blur/45/) center center fixed no-repeat;
 			    background-size: cover;
-			    @endif
+			    	@endif
+		    	@else
+		    		background: url(https://ucarecdn.com/eea63b9c-0ca6-48ec-9ed4-90def8f09ef6/-/progressive/yes/-/scale_crop/1800x600/) center center no-repeat;
+				    background-size: cover;
 			    @endif
 			    font-weight: 400;
 			    padding-bottom: 100px;
@@ -218,13 +221,16 @@
 			    -o-transition: all 0.5s ease;
 			    -ms-transition: all 0.5s ease;
 			    @if(isset($pass->coupon_full_background_image))
-			    @if($pass->template_number == 3)
+			    	@if($pass->template_number == 3)
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/600x800/center/) center center no-repeat !important;
 			    background-size: 100%;
-			    @else
+			    	@else
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat !important;
 			    background-size: 100%;
-			    @endif
+			    	@endif
+		    	@else
+		    		background: url(https://ucarecdn.com/eea63b9c-0ca6-48ec-9ed4-90def8f09ef6/-/progressive/yes/-/scale_crop/1800x600/) center center no-repeat;
+				    background-size: cover;
 			    @endif
 			    font-weight: 400;
 			}

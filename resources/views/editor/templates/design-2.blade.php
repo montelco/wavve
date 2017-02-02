@@ -18,7 +18,7 @@
                 </div>
 				<div id="lower-content">
 					<input class="clearable pd" rows="1" placeholder="Extra Info (Opt.)" maxlength="512" v-model="passSecondary"></textarea>
-	            	<input class="clearable pd" rows="1" placeholder="Barcode Value*" maxlength="32" v-model="passBarcode"></input>
+	            	<input class="clearable pd" rows="1" placeholder="Barcode Value" maxlength="32" v-model="passBarcode"></input>
 	            	<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 	            	<input type="submit" value="Save Pass" class="form-control submit-button">
 				</div>

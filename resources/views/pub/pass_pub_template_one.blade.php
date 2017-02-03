@@ -23,7 +23,7 @@
 		<div class="row">
 				<hr>
 		</div>
-		@if(isset($pass->expiry) && $pass->expiry != null)
+		@if(isset($pass->expiry) && $pass->expiry != '0000-00-00 00:00:00')
 			<div class="row">
 				<div class="col-md-4 col-lg-4 col-lg-offset-8 col-sm-6 col-sm-offset-6 col-xs-8 col-xs-offset-4">
 					<p class="expiry">Exp: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pass->expiry)->format('D, j M Y') }}</p>

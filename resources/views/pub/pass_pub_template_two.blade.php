@@ -17,7 +17,7 @@
 
 @section('strip_pass_contents')
 		<h1 class="d2"> {{$pass->title}} </h1>
-		@if(isset($pass->expiry))
+		@if(isset($pass->expiry && $pass->expiry != null))
 			<p class="expiry">Exp: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pass->expiry)->format('D, j M Y') }}</p>
 		@endif
 		<div class="jumbotron strip_bg">

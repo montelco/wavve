@@ -263,7 +263,7 @@ class PassesController extends Controller
         $passphrase = '1234';
         $deviceToken = '6429f7bade9ad66f2026e8ec6fed6a77c6d018475f1dbcc1728349565c7270bb';
         $ctx = stream_context_create();
-        stream_context_set_option($ctx, 'ssl', 'local_cert', 'pushcert.pem');
+        stream_context_set_option($ctx, 'ssl', 'local_cert', '/home/forge/wavvve.io/pushcert.pem');
         stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
 
         // Open a connection to the APNS server

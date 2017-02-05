@@ -170,6 +170,7 @@ return [
         Wavvve\Providers\EventServiceProvider::class,
         Wavvve\Providers\RouteServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
     ],

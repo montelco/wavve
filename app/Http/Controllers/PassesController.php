@@ -216,15 +216,14 @@ class PassesController extends Controller
         if(isset($results->passes['0']->title)) {
             $secondary = new Field('description', 'Tap the info button below to view '. $results->passes['0']->title);
             $secondary->setValue($results->passes['0']->title);
-            $secondary->setChangeMessage('A new pass called "%a" is available.');
+            $secondary->setChangeMessage('A new pass called "%@" is available.');
             $structure->addSecondaryField($secondary);
         }
 
         // Add back field
         if (isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">View Pass in Browser</a>');
-            $backField->setValue($results->passes['0']->title);
-            $backField->setChangeMessage('A new pass called "%a" is available.');
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">'.$results->passes['0']->title.'</a>');
+            // $backField->setChangeMessage('A new pass called "%@" is available.');
             $structure->addBackField($backField);
         }
 

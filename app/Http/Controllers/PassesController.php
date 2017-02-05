@@ -212,15 +212,17 @@ class PassesController extends Controller
         //     $structure->addHeaderField($header);
         // }
 
-        // // Add primary field
-        // if(isset($results->passes['0']->primary_field)) {
-        //     $primary = new Field('description', $results->passes['0']->primary_field);
-        //     $structure->addPrimaryField($primary);
-        // }
+        // Add primary field
+        if(isset($results->passes['0']->title)) {
+            $secondary = new Field('description', 'Tap the info button below to view '. $results->passes['0']->title);
+            $secondary->setValue($results->passes['0']->title);
+            $secondary->setChangeMessage('A new pass called "%a" is available.');
+            $structure->addSecondaryField($secondary);
+        }
 
         // Add back field
         if (isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">'.$results->passes['0']->title.'</a>');
+            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">View Pass in Browser</a>');
             $backField->setValue($results->passes['0']->title);
             $backField->setChangeMessage('A new pass called "%a" is available.');
             $structure->addBackField($backField);
@@ -272,10 +274,10 @@ class PassesController extends Controller
           $errstr, 60, STREAM_CLIENT_CONNECT | STREAM_CLIENT_PERSISTENT, $ctx);
 
         if (! $fp) {
-            exit("Failed to connect: $err $errstr".PHP_EOL);
+            // exit("Failed to connect: $err $errstr".PHP_EOL);
         }
 
-        echo 'Connected to APNS'.PHP_EOL;
+        // echo 'Connected to APNS'.PHP_EOL;
 
         // Create the payload body
         $body['aps'] = [];
@@ -290,9 +292,9 @@ class PassesController extends Controller
         $result = fwrite($fp, $msg, strlen($msg));
 
         if (! $result) {
-            echo 'Message not delivered'.PHP_EOL;
+            // echo 'Message not delivered'.PHP_EOL;
         } else {
-            echo 'Message successfully delivered'.PHP_EOL;
+            // echo 'Message successfully delivered'.PHP_EOL;
         }
 
         // Close the connection to the server

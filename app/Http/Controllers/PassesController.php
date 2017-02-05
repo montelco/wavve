@@ -220,7 +220,7 @@ class PassesController extends Controller
 
         // Add back field
         if (isset($results->passes['0']->uuid)) {
-            $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">'.$results->passes['0']->title.'</a>');
+            $backField = new Field('redirect', '<a href="https://wavvve.io/' . $results->passes['0']->uuid . '"> ' . $results->passes['0']->title . ' </a>');
             $backField->setValue($results->passes['0']->title);
             $backField->setChangeMessage('A new pass called "%a" is available.');
             $structure->addBackField($backField);
@@ -298,6 +298,8 @@ class PassesController extends Controller
         // Close the connection to the server
         fclose($fp);
 
-        return null;
+        return User::with(['passes' => function ($query) {
+            $query->where('published', 1)->orderBy('updated_at', 'desc')->firstOrFail();
+        }])->where('username', $username)->firstOrFail();
     }
 }

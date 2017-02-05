@@ -186,12 +186,14 @@ class PassesController extends Controller
         define('TEAM_IDENTIFIER', '527AHA4RH7');
         define('ORGANIZATION_NAME', 'Wavvve® by ATMT');
         define('OUTPUT_PATH', '/home/forge/wavvve.io/public/business');
-        define('ICON_FILE', '/home/forge/wavvve.io/public/background.png');
+        define('ICON_FILE', '/home/forge/wavvve.io/public/icon@2x.png');
+        define('LOGO_FILE', '/home/forge/wavvve.io/public/logo@2x.png');
+        define('STRIP_FILE', '/home/forge/wavvve.io/public/strip@2x.png');
 
         // Create an event ticket
         $pass = new EventTicket($results->username, $results->name);
-        $pass->setBackgroundColor('rgb(178, 215, 234)');
-        //$pass->setLogoText('rgb(255,255,255)');
+        $pass->setBackgroundColor('rgb(0, 80, 127)');
+        $pass->setForegroundColor('rgb(255,255,255)');
         $pass->setAuthenticationToken($results->apple_auth);
         $pass->setWebServiceURL('https://www.wavvve.io');
         $pass->setLogoText($results->name);
@@ -220,13 +222,19 @@ class PassesController extends Controller
         if (isset($results->passes['0']->uuid)) {
             $backField = new Field('redirect', '<a href="https://www.wavvve.io/'.$results->passes['0']->uuid.'">'.$results->passes['0']->title.'</a>');
             $backField->setValue($results->passes['0']->title);
-            $backField->setChangeMessage('A new pass "%a"');
+            $backField->setChangeMessage('A new pass called "%a" is available.');
             $structure->addBackField($backField);
         }
 
         // Add icon image
         $icon = new Image(ICON_FILE, 'icon');
         $pass->addImage($icon);
+
+        $logo= new Image(LOGO_FILE, 'logo');
+        $pass->addImage($logo);
+
+        $strip = new Image(STRIP_FILE, 'strip');
+        $pass->addImage($strip);
 
         // Set pass structure
         $pass->setStructure($structure);

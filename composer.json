@@ -16,7 +16,8 @@
         "bugsnag/bugsnag-laravel": "^2.0",
         "guzzlehttp/guzzle": "^6.2.1",
         "webpatser/laravel-uuid": "2.*",
-        "eo/passbook": "^1.3"
+        "eo/passbook": "^1.3",
+        "laravel/passport" : "^v1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

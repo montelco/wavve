@@ -14,7 +14,7 @@
                             <div class="col-lg-12 col-lg-offset-4">
                                 <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="pk_test_JTKAeFPFAOS9oJs9pHlwmG8F"
+                                    data-key="{{ env('STRIPE_KEY', 'pk_test_JTKAeFPFAOS9oJs9pHlwmG8F') }}"
                                     data-amount="15000"
                                     data-name="Wavvve by ATMT"
                                     data-currency="USD"

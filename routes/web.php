@@ -46,12 +46,7 @@ Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessCont
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/register', function () {
-        if (Auth::user()->id === 1) {
-            return view('auth.register');
-        } else {
-            return redirect('/');
-        }
-        
+        return view('auth.register');
     });
 
     Route::get('/plan', function () {

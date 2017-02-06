@@ -16,7 +16,7 @@ class PublicAcessController extends Controller
 
     public function fetchBeaconPayload($user_id, $hardware_id, $lat, $lon)
     {
-        return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->orderBy('updated_at', 'desc')->firstOrFail()['uuid']), 2, ' '), ' ')], 200);
+        return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->orderBy('updated_at', 'desc')->firstOrFail()['uuid']), 2, ' '), ' '), 'iBeacon' => '1E 02 01 1A 1A FF 4C 00 02 15 2b 4f cf 51 4e aa 44 6d b2 4e 4d 1b 43 7f 38 40 00 00 00 00 C5 00'], 200);
     }
 
     public function iBeaconUUID($user_id, $hardware_id, $lat, $lon)

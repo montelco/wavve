@@ -53,16 +53,16 @@
 			</div>
 		</div>
 		<div class="social-bugs">
-			@if(isset($pass->user->website && $pass->user->website != null))
+			@if(isset($pass->user->website) && $pass->user->website != null)
 			<a target="_blank" href="http://{{  $pass->user->website }}"><img src="www.svg" height="32px"></a>
 			@endif
-			@if(isset($pass->user->facebook && $pass->user->facebook != null))
+			@if(isset($pass->user->facebook) && $pass->user->facebook != null)
 				<a target="_blank" href="https://facebook.com/{{  $pass->user->facebook }}"><img src="facebook.svg" height="32px"></a>
 			@endif			
-			@if(isset($pass->user->twitter && $pass->user->twitter != null))
+			@if(isset($pass->user->twitter) && $pass->user->twitter != null)
 				<a target="_blank" href="https://twitter.com/{{  $pass->user->twitter }}"><img src="twitter.svg" height="32px"></a>
 			@endif
-			@if(isset($pass->user->instagram && $pass->user->instagram != null))
+			@if(isset($pass->user->instagram )&& $pass->user->instagram != null)
 				<a target="_blank" href="https://instagram.com/{{  $pass->user->instagram }}"><img src="instagram.svg" height="32px"></a>
 			@endif
 			<p class="watermark">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153; <img src="tpw.png" width="14"></p>

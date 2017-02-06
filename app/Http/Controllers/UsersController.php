@@ -21,9 +21,9 @@ class UsersController extends Controller
     public function updateSettings(Request $request, User $user, Auth $auth)
     {
         $this->validate($request, [
-            'facebook' => 'required|max:24',
-            'instagram' => 'required|max:24',
-            'twitter' => 'required|max:14',
+            'facebook' => 'max:24',
+            'instagram' => 'max:24',
+            'twitter' => 'max:14',
             'website' => 'max:255',
             'description' => 'max:250',
             'name' => 'max:32',

@@ -15,7 +15,7 @@ class SalesAccount extends Seeder
         User::create([
             'email' => 'sales@atmtllc.com',
             'password' => bcrypt('password'),
-            'subscribed' => 1,
+            'subscribed' => '1',
             'name' => 'Churchill Coffee',
             'username' => 'churchill-coffee',
         ]);

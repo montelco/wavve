@@ -35,7 +35,6 @@ class ApplePushNotificationService implements ShouldQueue
      */
     public function handle()
     {
-
         $passphrase = '1234';
         $ctx = stream_context_create();
         stream_context_set_option($ctx, 'ssl', 'local_cert', '/home/forge/wavvve.io/pushcert.pem');

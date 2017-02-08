@@ -213,8 +213,8 @@ class PassesController extends Controller
         // }
 
         // Add primary field
-        if(isset($results->passes['0']->title)) {
-            $secondary = new Field('description', 'Tap the info button below to view '. $results->passes['0']->title);
+        if (isset($results->passes['0']->title)) {
+            $secondary = new Field('description', 'Tap the info button below to view '.$results->passes['0']->title);
             $secondary->setValue($results->passes['0']->title);
             $secondary->setChangeMessage('A new pass called "%@" is available.');
             $structure->addSecondaryField($secondary);
@@ -231,7 +231,7 @@ class PassesController extends Controller
         $icon = new Image(ICON_FILE, 'icon');
         $pass->addImage($icon);
 
-        $logo= new Image(LOGO_FILE, 'logo');
+        $logo = new Image(LOGO_FILE, 'logo');
         $pass->addImage($logo);
 
         $strip = new Image(STRIP_FILE, 'strip');

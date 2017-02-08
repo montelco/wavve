@@ -32,8 +32,6 @@ Route::get('/what', function () {
     return view('what');
 });
 
-
-
 // Route::get('/business/{username}/', 'PublicAcessController@getWalletCompiledPass');
 
 Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
@@ -50,7 +48,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     })->name('plan');
     Route::post('/plan/{planName}', function ($planName) {
         $token = Input::get('stripeToken');
-        Auth::user()->newSubscription($planName, 'wavvve-' . $planName)->create($token, [
+        Auth::user()->newSubscription($planName, 'wavvve-'.$planName)->create($token, [
             'email' => Auth::user()->email,
         ]);
 
@@ -118,7 +116,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
             Route::get('website', 'UsersController@getWebsite');
         });
     });
-    
 });
 
 Route::get('/{uuid}', ['uses' => 'PublicAcessController@pubAccess']);

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Wavvve\User;
+use Illuminate\Database\Seeder;
 
 class SalesAccount extends Seeder
 {

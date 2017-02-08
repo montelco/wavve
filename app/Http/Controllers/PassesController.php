@@ -169,8 +169,8 @@ class PassesController extends Controller
     {
         Pass::where('id', $id)->update(['published' => $request->published]);
 
-        $this->getWalletCompiledPass(Auth::user()->username);
-        return $this->dispatch(new ApplePushNotificationService());
+        return $this->getWalletCompiledPass(Auth::user()->username);
+        // return $this->dispatch(new ApplePushNotificationService($Auth::user()->username)->delay(Carbon::now()->addMinutes(90)));
     }
 
     public function getWalletCompiledPass($username)

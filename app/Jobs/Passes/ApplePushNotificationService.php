@@ -2,6 +2,7 @@
 
 namespace Wavvve\Jobs\Passes;
 
+use Wavvve\iOS_Registration;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;

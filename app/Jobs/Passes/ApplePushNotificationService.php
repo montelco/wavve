@@ -24,7 +24,7 @@ class ApplePushNotificationService implements ShouldQueue
      */
     public function __construct($username)
     {
-        $this->username = $username
+        $this->username = $username;
     }
 
     /**

@@ -15,8 +15,7 @@ class ApplePushNotificationService implements ShouldQueue
     public $tries = 3;
     public $timeout = 60;
 
-    // public $testUDID = 'fda31bdef14012a7634538ee9b15cc9b';
-    // public $testPT = '6429f7bade9ad66f2026e8ec6fed6a77c6d018475f1dbcc1728349565c7270bb';
+    public $username;
 
     /**
      * Create a new job instance.

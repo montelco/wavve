@@ -41,6 +41,36 @@
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-question fa-fw"></i> Why can't iPhone users scan my barcode?</h3>
+            </div>
+            <div class="panel-body">
+                The most likely cause is your content isn't activated. You must have you passes set to "True" in the active column of you Passes Manager. You can activate your content by clicking on the text that says either "True" or "False" on the  <a href="{{ url('/passes/manage') }}">"Manage Passes"</a> page. Your pass in someone's iPhone Wallet app will be updated with your latest content any time you activate your new content, so please be aware that they'll be notified each time you activate something new.
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-question fa-fw"></i> Why can't I see the proximity notification?</h3>
+            </div>
+            <div class="panel-body">
+                Your beacon hardware only pulls active content. That means any time you create new content it won't be broadcasted by the beacon until you set it to active. We have it set in this way so you don't have to worry about unfinished content being broadcast to the world to see. So if you have a Tuesday ad that you created for next week, but it's not Tuesday, you don't have to worry about people seeing it. To resolve this the most likely cause is your content isn't activated. You must have you passes set to "True" in the active column of you Passes Manager. You can activate your content by clicking on the text that says either "True" or "False" on the  <a href="{{ url('/passes/manage') }}">"View Passes"</a> page.
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-question fa-fw"></i> Why are iOS Passes different than Android/Google Passes?</h3>
+            </div>
+            <div class="panel-body">
+                Apple tightly regulates content on their devices. As a result, we have to use their format for passes. This has its advantages and disadvantages: mainly, we're fortunate that we have the ability to push a notification to a phone directly even once they leave the area yet they have to allow us access to their phone's Wallet app first to do so. With Android/Google, the user will see the pass without any additional requirements yet you're limited by current technologies. In the future we'll be working to expand capabilities of all platforms, so please feel free to let us know if you would like to see any other features added soon. 
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-question fa-fw"></i> How do I delete a pass?</h3>
             </div>
             <div class="panel-body">

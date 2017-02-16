@@ -14,13 +14,14 @@
                 </button>
                 {{ session('status') }}
             </div>
-         </div>
+        </div>
     @endif
 
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
             <h1 class="page-header">
-                Dashboard <small> Your Overview</small>
+                Dashboard
+                <small> Your Overview</small>
             </h1>
         </div>
     </div>
@@ -32,12 +33,34 @@
                     <h3 class="panel-title"><i class="fa fa-dashboard fa-fw"></i> Quick Links</h3>
                 </div>
 
-                <div class="panel-body">
-                    <p>Get started below...</p>
+                <div class="panel-body quickLinks">
+                    <a href="{{ url('/passes/editor') }}">
+                        <div class="quickLinks__link"><i class="fa fa-plus" aria-hidden="true"></i> Make a new Pass
+                        </div>
+                    </a>
                     <hr>
-                    <a href="{{ url('/passes/editor') }}" class="cta">Make a new Pass</a>
+                    <a href="{{ url('/passes/scheduler') }}">
+                        <div class="quickLinks__link"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Pass
+                            Scheduler
+                        </div>
+                    </a>
+                </div>
+
+                <div class="panel-body quickLinksButtons">
+                    <button class="btn btn-block quickLinksButtons__button">
+                        <a href="{{ url('/passes/editor') }}">
+                            <div class="quickLinks__link"><i class="fa fa-plus" aria-hidden="true"></i> Make a new Pass
+                            </div>
+                        </a>
+                    </button>
                     <hr>
-                    <a href="{{ url('/passes/scheduler') }}" class="cta">Pass Scheduler</a>
+                    <button class="btn btn-block quickLinksButtons__button">
+                        <a href="{{ url('/passes/scheduler') }}" class="cta">
+                            <div class="quickLinks__link"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Pass
+                                Scheduler
+                            </div>
+                        </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -49,12 +72,12 @@
                 <div class="panel-body">
                     <div class="list-group">
                         @if($newsFeed->count())
-                        @foreach ($newsFeed as $item)
-                            <a href="/{{$item->uuid}}" class="list-group-item">
-                                <span class="badge">{{ $item->FriendlyTime }}</span>
-                                <i class="fa fa-fw fa-tags"></i> <strong>Pass:</strong>{{ $item->title }}
-                            </a>
-                        @endforeach
+                            @foreach ($newsFeed as $item)
+                                <a href="/{{$item->uuid}}" class="list-group-item">
+                                    <span class="badge">{{ $item->FriendlyTime }}</span>
+                                    <i class="fa fa-fw fa-tags"></i> <strong>Pass:</strong>{{ $item->title }}
+                                </a>
+                            @endforeach
                         @else
                             Nothing to show yet. Make a pass to get started.
                         @endif

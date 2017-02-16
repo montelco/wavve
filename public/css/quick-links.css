@@ -1,0 +1,42 @@
+.quickLinks {
+  background-color: #8AC7A4;
+  display: block;
+  text-align: center;
+}
+
+.quickLinks a {
+  text-decoration: none;
+}
+
+.quickLinksButtons {
+  display: none;
+}
+
+.quickLinksButtons a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.quickLinksButtons__button {
+  background-color: #8AC7A4;
+}
+
+.quickLinksButtons__button:hover {
+  background-color: #5D8E71;
+}
+
+.quickLinks__link {
+  color: #FFF;
+  margin: -1em;
+  padding: 1em;
+}
+
+@media only screen and (min-width: 992px) {
+  .quickLinks {
+    display: none;
+  }
+
+  .quickLinksButtons {
+    display: block;
+  }
+}

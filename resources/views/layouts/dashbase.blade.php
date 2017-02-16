@@ -20,6 +20,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::to('/css/font.css') }}">
     <link rel="stylesheet" href="{{ URL::to('/css/nav.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('/css/quick-links.css') }}">
     <link href="{{ URL::to('/css/sb-admin.css') }}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->

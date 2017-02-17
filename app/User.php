@@ -19,6 +19,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function beacons()
+    {
+        return $this->hasMany('Wavvve\Beacon');
+    }
+
     public function passes()
     {
         return $this->hasMany('Wavvve\Pass');

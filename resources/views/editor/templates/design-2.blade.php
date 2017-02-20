@@ -5,9 +5,9 @@
 @include('pass-style.d2')
 @section('dashContent')
 	<div class="row" id="passEditor">
-        <div class="centred block panel" id="passPreviewer">
+        <div class="centred block panel passPreviewer">
             <form class="front" id="bg" action="#" v-on:submit="createPass">
-            	<a class="action" id="goToSettingsPanel"><i class="fa fa-btn fa-paint-brush"></i></a>
+            	{{--<a class="action" id="goToSettingsPanel"><i class="fa fa-btn fa-paint-brush"></i></a>--}}
                 <h1>
                     <input class="clearable hd" rows="1" placeholder="Title*" maxlength="32" required v-model="passTitle"></input>
                 </h1>

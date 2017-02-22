@@ -34,9 +34,7 @@ class ApplePushNotificationService implements ShouldQueue
      */
     public function handle()
     {
-
-        foreach (iOS_Registration::where('ios_passes_serial', $this->username)->distinct()->pluck('push_token') as $deviceToken) 
-        {
+        foreach (iOS_Registration::where('ios_passes_serial', $this->username)->distinct()->pluck('push_token') as $deviceToken) {
             $passphrase = '1234';
             $ctx = stream_context_create();
             stream_context_set_option($ctx, 'ssl', 'local_cert', '/home/forge/wavvve.io/pushcert.pem');

@@ -7,5 +7,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(SalesAccount::class);
+        $this->call(SampleBeacon::class);
+        $this->call(SamplePass::class);
     }
 }

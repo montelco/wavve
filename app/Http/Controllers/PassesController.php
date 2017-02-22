@@ -186,11 +186,9 @@ class PassesController extends Controller
 
     public function setPublish(Request $request, $id)
     {
-        Pass::where('id', $id)->update(['published' => $request->published]);
-
-        $this->getWalletCompiledPass(Auth::user()->username);
-
-        return $this->dispatch(new ApplePushNotificationService(Auth::user()->username));
+        return Pass::where('id', $id)->update(['published' => $request->published]);
+        //$this->getWalletCompiledPass(Auth::user()->username);
+        //return $this->dispatch(new ApplePushNotificationService(Auth::user()->username));
     }
 
     public function getWalletCompiledPass($username)

@@ -11,6 +11,8 @@ Route::post(
     '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
 );
 
+Route::get('/uuid/{fullPayload?}', 'PublicAcessController@uuid');
+
 Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}', 'PublicAcessController@updateWallet');
 
 Route::get('/v1/devices/{deviceID}/registrations/{passTypeID}?passesUpdatedSince={tag}', 'PublicAcessController@updateWalletTagged');

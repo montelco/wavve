@@ -4,7 +4,9 @@ namespace Wavvve\Http\Controllers;
 
 use Carbon;
 use Wavvve\Pass;
+use Wavvve\Beacon;
 use Wavvve\iOS_Pass;
+use Ramsey\Uuid\Uuid;
 use Wavvve\iOS_Device;
 use Illuminate\Http\Request;
 use Wavvve\iOS_Registration;
@@ -13,15 +15,22 @@ use Illuminate\Http\Response;
 class PublicAcessController extends Controller
 {
     const WAVVVE_BASE_URL = '1f 02 01 06 03 03 aa fe 17 16 aa fe 10 00 03 77 61 76 76 76 65 2e 69 6f 2f ';
+    const WAVVVE_WALLET_HEADER = '1E 02 01 1A 1A FF 4C 00 02 15 ';
+    const WAVVVE_WALLLET_TRAILER = ' 00 00 00 00 C5 00';
 
     public function fetchBeaconPayload($user_id, $hardware_id, $lat, $lon)
     {
-        return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()['uuid']), 2, ' '), ' '), 'iBeacon' => '1E 02 01 1A 1A FF 4C 00 02 15 2B 4F CF 51 4E AA 44 6D B2 4E 4D 1B 43 7F 38 40 00 00 00 00 C5 00'], 200);
-    }
-
-    public function iBeaconUUID($user_id, $hardware_id, $lat, $lon)
-    {
-        return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex('2b 4f cf 51 4e aa 44 6d b2 4e 4d 1b 43 7f 38 40'), 2, ' '), ' ')], 200);
+        if (Beacon::where('user_id', $user_id)->where('uuid', $hardware_id)->where('lon', $lon)->where('lat', $lat)->firstOrFail()) {
+            $beacon = Beacon::where('user_id', $user_id)->where('uuid', $hardware_id)->where('lon', $lon)->where('lat', $lat)->first();
+            if (Pass::where('user_id', $user_id)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()) {
+                return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()['uuid']), 2, ' '), ' '), 'iBeacon' => self::WAVVVE_WALLET_HEADER.$beacon->TerminalUuid.self::WAVVVE_WALLLET_TRAILER], 200)->header('If-Modified-Since', Carbon\Carbon::now()->format('D, d M Y H:i:s \G\M\T'))->header('CPEH', bcrypt($beacon->hardware_address));
+            } else {
+                return response('Empty Response', 204)
+            }
+        } else {
+            return response('Unauthorized', 401);
+        }
+        
     }
 
     /**

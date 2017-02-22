@@ -170,6 +170,7 @@ class PassesController extends Controller
         Pass::where('id', $id)->update(['published' => $request->published]);
 
         $this->getWalletCompiledPass(Auth::user()->username);
+
         return $this->dispatch(new ApplePushNotificationService(Auth::user()->username));
     }
 

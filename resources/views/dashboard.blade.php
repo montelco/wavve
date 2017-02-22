@@ -75,7 +75,7 @@
                             @foreach ($newsFeed as $item)
                                 <a href="/{{$item->uuid}}" class="list-group-item">
                                     <span class="badge">{{ $item->FriendlyTime }}</span>
-                                    <i class="fa fa-fw fa-tags"></i> <strong>Pass:</strong>{{ $item->title }}
+                                    <i class="fa fa-fw fa-tags"></i> <strong>Pass: </strong>{{ $item->title }}
                                 </a>
                             @endforeach
                         @else

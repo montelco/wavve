@@ -18,6 +18,14 @@ class PublicAcessController extends Controller
     const WAVVVE_WALLET_HEADER = '1E 02 01 1A 1A FF 4C 00 02 15 ';
     const WAVVVE_WALLLET_TRAILER = ' 00 00 00 00 C5 00';
 
+    /**
+     * This method is called by remote beacon devices to request their payload. This is used by any device which requires an active internet connection when additional features are added to it (eg: proximity, weather, etc).
+     * @param  int    $user_id     Unique ID of the user object.
+     * @param  string $hardware_id The UUID4 value of the broadcast from the device.
+     * @param  double $lat         Latitude location in decimal notation.
+     * @param  double $lon         Longitude location in decimal notation.
+     * @return JSON Object         Payload is returned to the device in a JSON format.
+     */
     public function fetchBeaconPayload($user_id, $hardware_id, $lat, $lon)
     {
         if (Beacon::where('user_id', $user_id)->where('uuid', $hardware_id)->where('lon', $lon)->where('lat', $lat)->firstOrFail()) {
@@ -217,14 +225,5 @@ class PublicAcessController extends Controller
                 return abort('404');
             }
         }
-    }
-
-    public function setFlowCookie()
-    {
-    }
-
-    public function caching()
-    {
-        //Caching JSON output to run for service workers.
     }
 }

@@ -36,6 +36,8 @@
 		el: '#passPublisher',
 		data: {
 			published : '',
+			from : '',
+			until : '',
 		},
 		methods: {
 			changeActivePass: function (e){
@@ -47,6 +49,8 @@
 					data: {
 						"_token": @yield('token'),
 						"published" : this.published,
+						"from" : this.from,
+						"until" : this.until,
 					}
 					}).success(function() {
 						window.location="/passes/manage";

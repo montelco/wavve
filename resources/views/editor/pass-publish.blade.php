@@ -23,10 +23,10 @@
 					<br>
 					<small>If you want it to only be active between certain times, specify the start and end times. Otherwise, it'll be active until something else gets activated.</small>
 					<br>
-					<input type="text" id="from" name="from" class="form-control time-picker-override white-override" placeholder="Start Date">
+					<input type="text" id="from" class="form-control time-picker-override white-override" v-model="from" placeholder="Start Date">
 				</div>
 				<div>
-					<input type="text" id="until" name="until" class="form-control time-picker-override white-override" placeholder="End Date">
+					<input type="text" id="until" class="form-control time-picker-override white-override" v-model="until" placeholder="End Date">
 				</div>
 				<div>
 					<input type="submit" class="edit-submit" value="Save Changes To Pass">

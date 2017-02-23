@@ -9,6 +9,7 @@ use Wavvve\User;
 use Wavvve\Visitor;
 use Wavvve\iOS_Pass;
 use Wavvve\Redemption;
+use Wavvve\Beacon as BeaconDB;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
 use Passbook\Pass\Beacon;
@@ -17,6 +18,8 @@ use Passbook\Pass\Barcode;
 use Illuminate\Http\Request;
 use Passbook\Pass\Structure;
 use Passbook\Type\EventTicket;
+use Wavvve\Jobs\Passes\PublishPass;
+// use Wavvve\Jobs\Passes\UnpublishPass;
 use Wavvve\Jobs\Passes\ApplePushNotificationService;
 
 class PassesController extends Controller
@@ -186,9 +189,14 @@ class PassesController extends Controller
 
     public function setPublish(Request $request, $id)
     {
-        return Pass::where('id', $id)->update(['published' => $request->published]);
-        //$this->getWalletCompiledPass(Auth::user()->username);
-        //return $this->dispatch(new ApplePushNotificationService(Auth::user()->username));
+        if (isset($request->from) && isset($request->until)) {
+            // $this->dispatch(new PublishPass($request->from));
+            // $this->dispatch(new UnpublishPass($request->until));
+        } else {
+            return Pass::where('id', $id)->update(['published' => $request->published]);
+            // $this->getWalletCompiledPass(Auth::user()->username);
+            // return $this->dispatch(new ApplePushNotificationService(Auth::user()->username));
+        }
     }
 
     public function getWalletCompiledPass($username)
@@ -215,7 +223,7 @@ class PassesController extends Controller
         $pass->setAuthenticationToken($results->apple_auth);
         $pass->setWebServiceURL('https://www.wavvve.io');
         $pass->setLogoText($results->name);
-        $beacon = new Beacon('2b4fcf51-4eaa-446d-b24e-4d1b437f3840');
+        $beacon = new Beacon(BeaconDB::where('user_id', $results->id)->firstOrFail()['uuid']);
         $beacon->setMajor(0);
         $beacon->setMinor(0);
         $pass->addBeacon($beacon);

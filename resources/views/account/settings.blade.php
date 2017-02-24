@@ -73,7 +73,7 @@
 						</div>
 						<label for="basic-url">Business Username</label>
 						<div class="input-group">
-							<input placeholder="abcllc" type="text" maxlength="16" class="form-control" id="bizUsername" v-model="bizUsername" value="{{ Auth::user()->username }}">
+							<input placeholder="abcllc" type="text" maxlength="36" class="form-control" id="bizUsername" v-model="bizUsername" value="{{ Auth::user()->username }}">
 						</div>
 						{{-- <input class="clearable pd" id="file-uploader" name="profile_pic" type="hidden" data-clearable role="uploadcare-uploader" data-crop v-model="profile_pic"> --}}
 		            </div>

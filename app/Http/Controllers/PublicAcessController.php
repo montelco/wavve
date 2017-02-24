@@ -33,7 +33,7 @@ class PublicAcessController extends Controller
             if (Pass::where('user_id', $user_id)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()) {
                 return response()->json(['payload' => self::WAVVVE_BASE_URL.rtrim(chunk_split(bin2hex(Pass::where('user_id', $user_id)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()['uuid']), 2, ' '), ' '), 'iBeacon' => self::WAVVVE_WALLET_HEADER.$beacon->TerminalUuid.self::WAVVVE_WALLLET_TRAILER], 200)->header('If-Modified-Since', Carbon\Carbon::now()->format('D, d M Y H:i:s \G\M\T'))->header('CPEH', bcrypt($beacon->hardware_address));
             } else {
-                return response('Empty Response', 204)
+                return response('Empty Response', 204);
             }
         } else {
             return response('Unauthorized', 401);

@@ -10,15 +10,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class UnpublishPass implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
+    public $tries = 3;
+    public $timeout = 60;
+
+    public $pass;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
@@ -28,6 +32,6 @@ class UnpublishPass implements ShouldQueue
      */
     public function handle()
     {
-        //
+        return Pass::where('id', $this->id)->update(['published' => '0']);
     }
 }

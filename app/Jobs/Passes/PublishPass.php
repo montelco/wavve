@@ -18,19 +18,15 @@ class PublishPass implements ShouldQueue
     public $timeout = 60;
 
     public $pass;
-    public $user;
-    public $time;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Pass $pass, User $user, Carbon $time)
+    public function __construct($id)
     {
-        $this->pass = $pass;
-        $this->user = $user;
-        $this->time = $time;
+        $this->id = $id;
     }
 
     /**
@@ -40,6 +36,6 @@ class PublishPass implements ShouldQueue
      */
     public function handle()
     {
-        //
+        return Pass::where('id', $this->id)->update(['published' => '1']);
     }
 }

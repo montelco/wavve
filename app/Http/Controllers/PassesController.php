@@ -4,6 +4,7 @@ namespace Wavvve\Http\Controllers;
 
 use Auth;
 use Carbon;
+use DateTime;
 use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\Visitor;
@@ -19,7 +20,7 @@ use Illuminate\Http\Request;
 use Passbook\Pass\Structure;
 use Passbook\Type\EventTicket;
 use Wavvve\Jobs\Passes\PublishPass;
-// use Wavvve\Jobs\Passes\UnpublishPass;
+use Wavvve\Jobs\Passes\UnpublishPass;
 use Wavvve\Jobs\Passes\ApplePushNotificationService;
 
 class PassesController extends Controller
@@ -190,11 +191,13 @@ class PassesController extends Controller
     public function setPublish(Request $request, $id)
     {
         if (isset($request->from) && isset($request->until)) {
-            // $this->dispatch(new PublishPass($request->from));
-            // $this->dispatch(new UnpublishPass($request->until));
+            $this->dispatch((new PublishPass($id))->delay($request->from));
+            $this->dispatch((new UnpublishPass($id))->delay($request->until));
+            return response(null, 204);
         } else {
-            return Pass::where('id', $id)->update(['published' => $request->published]);
-            // $this->getWalletCompiledPass(Auth::user()->username);
+            Pass::where('id', $id)->update(['published' => $request->published]);
+            $this->getWalletCompiledPass(Auth::user()->username);
+            return response(null, 204);
             // return $this->dispatch(new ApplePushNotificationService(Auth::user()->username));
         }
     }

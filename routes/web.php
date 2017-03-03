@@ -116,8 +116,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
             Route::post('/publish/{id}', 'PassesController@setPublish');
 
             Route::get('scheduler', 'PassesController@index');
-
-            Route::get('website', 'UsersController@getWebsite');
         });
     });
 });

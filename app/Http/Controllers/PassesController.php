@@ -69,7 +69,7 @@ class PassesController extends Controller
 
     public function scheduler(Pass $pass)
     {
-        return view('editor.pass-manager')->with('passes', $pass->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get());
+        return view('editor.pass-manager')->with('passes', Pass::where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(10));
     }
 
     public function create(Request $request, Pass $pass)

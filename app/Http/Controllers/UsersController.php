@@ -13,11 +13,6 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
-    public function setLogo(User $user)
-    {
-        // Put that logic here!
-    }
-
     public function updateSettings(Request $request, User $user, Auth $auth)
     {
         $this->validate($request, [

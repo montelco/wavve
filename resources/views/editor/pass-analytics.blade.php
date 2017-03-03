@@ -82,7 +82,7 @@
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-tag fa-fw"></i> Passes Overview</h3>
+                <h3 class="panel-title"><i class="fa fa-ticket fa-fw"></i> Passes Overview</h3>
             </div>
             <div class="panel-body">
             @if(isset($totals))
@@ -114,6 +114,18 @@
             @endif
             </div>
         </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-mobile fa-fw"></i> Apple Wallet Registrations</h3>
+                </div>
+                <div class="panel-body">
+                    @if(isset($registrations))
+                        <p class="huge-centered">{{ $registrations }}</p>
+                    @else
+                        <p class="huge-centered">0</p>
+                    @endif
+                </div>
+            </div>
     </div>
     <div class="col-lg-4">
             <div class="panel panel-default">

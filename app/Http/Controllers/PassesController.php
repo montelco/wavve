@@ -18,7 +18,9 @@ use Passbook\PassFactory;
 use Passbook\Pass\Barcode;
 use Illuminate\Http\Request;
 use Passbook\Pass\Structure;
+use Wavvve\iOS_Registration;
 use Passbook\Type\EventTicket;
+use Wavvve\Beacon as WavvveBeacon;
 use Wavvve\Jobs\Passes\PublishPass;
 use Wavvve\Jobs\Passes\UnpublishPass;
 use Wavvve\Jobs\Passes\ApplePushNotificationService;
@@ -40,7 +42,8 @@ class PassesController extends Controller
             ->with(['visitors' => $this->displayTwentyFourHourActivity(),
                     'morrisData' => $this->displayAreaChart(),
                     'recent' => $this->displayRecentActivity(),
-                    'totals' => $this->displayTotalsforPasses(), ]);
+                    'totals' => $this->displayTotalsforPasses(), 
+                    'registrations' => $this->displayIosRegistrations()]);
     }
 
     public function index(Pass $pass)
@@ -159,7 +162,11 @@ class PassesController extends Controller
 
     public function getPublish($id)
     {
-        return view('editor.pass-publish')->with('pass', Pass::where('id', $id)->firstOrFail());
+        return view('editor.pass-publish')
+                ->with([
+                    'pass' => Pass::where('id', $id)->firstOrFail(),
+                    'beacons' => WavvveBeacon::where('user_id', Auth::user()->id)->get(),
+                ]);
     }
 
     public function displayRecentActivity()
@@ -170,6 +177,11 @@ class PassesController extends Controller
     public function displayTotalsforPasses()
     {
         return Pass::where('user_id', Auth::user()->id)->withCount('visitors')->get()->sortByDesc('visitors_count')->take(5);
+    }
+
+    public function displayIosRegistrations()
+    {
+        return iOS_Registration::where('ios_passes_serial', Auth::user()->username)->count();
     }
 
     public function displayTwentyFourHourActivity()

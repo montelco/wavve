@@ -1,0 +1,22 @@
+.one-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2.5vh 7vw 0 7vw;
+}
+
+@media only screen and (min-width: 768px) {
+  .one-time {
+    padding: 2.5vh 2.8vw 4vh 2.7vw;
+  }
+}
+
+.one-time__label {
+  color: #000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.focus-override, a, a:focus {
+  outline: 0 !important;
+}

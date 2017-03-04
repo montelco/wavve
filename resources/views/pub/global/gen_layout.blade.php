@@ -25,6 +25,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ URL::to('/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ URL::to('/css/public-pass.css') }}">
 </head>
 <body>
 	<script src="{{ URL::to('/js/jquery-latest.min.js') }}"></script>

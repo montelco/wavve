@@ -14,7 +14,9 @@
         "{{ $pass->barcode_value }}";
     @endif
 @endsection
-
+@section('token')
+    "{{ csrf_token() }}"
+@endsection
 @section('strip_pass_contents')
     <div id="public-pass">
         <h1 class="d2"> {{$pass->title}} </h1>
@@ -48,16 +50,16 @@
                 @endif
             </div>
         </div>
-        {{--TODO: add && logic to include the cookie info--}}
-        @if($pass->one_time_redemption)
+        @if($pass->one_time_redemption && $pass->CantRedeem == false)
             <div class="redeem-button text-center">
                 <button class="btn btn-lg" v-on:click="confirmMessage">Redeem</button>
             </div>
+        @elseif($pass->one_time_redemption && $pass->CantRedeem == true)
+            <div class="redeem-button text-center">
+                <button class="btn btn-lg" disabled>Already Redeemed</button>
+            </div>
         @endif
 
-        <div class="redeem-button text-center">
-            <button class="btn btn-lg" v-on:click="confirmMessage">Redeem</button>
-        </div>
         <div class="social-bugs">
             <p class="watermark">Powered by <a href="https://wavvve.io">Wavvve</a> &#0153;
                 <img src="tpw.png" width="19" height="22">
@@ -71,16 +73,22 @@
             data: {},
             methods: {
                 confirmMessage: function () {
-                    if (confirm("Warning: This offer may only be redeemed once. If you are not ready to redeem the offer now, press cancel. Once OK is pressed, the offer will no longer be available.")) {
+                    if (confirm("Warning: This offer may only be redeemed once. If you are not ready to redeem the offer now, press cancel. Once OK is pressed, the offer will no longer be available. If you're ready to redeem, hand your device to the cashier.")) {
                         this.redeemOneTime();
                     }
                 },
                 redeemOneTime: function () {
                     $.ajax({
-                        url: '/passes/redeem',
+                        url: '/redeem',
                         type: 'post',
                         dataType: 'json',
-                        data: {}
+                        data: {
+                            "_token": @yield('token'),
+                            "wid": "@if(isset($_COOKIE['wid'])) {{$_COOKIE['wid']}} @endif",
+                            "passes_uuid": "{{$pass->uuid}}"
+                        }
+                    }).complete(function () {
+                        $('.redeem-button').html('<button class="btn btn-lg" disabled>Already Redeemed</button>');
                     });
                 }
             }

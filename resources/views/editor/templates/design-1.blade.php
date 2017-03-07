@@ -28,8 +28,8 @@
                                 type="checkbox"
                                 v-model="oneTimeRedemption">
                         <span aria-hidden="true">
-                            <span>Off</span>
                             <span>On</span>
+                            <span>Off</span>
                             <a class="focus-override"></a>
                         </span>
                     </label>

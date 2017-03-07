@@ -145,7 +145,7 @@
 		@if($pass->template_number == 2)
 			.strip_bg{
 				@if(isset($pass->strip_background_image))
-				    background: url({{$pass->strip_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat;
+				    background: url({{$pass->strip_background_image}}-/progressive/yes/) center center no-repeat;
 				    background-size: cover;
 			    @else
 			    	background: url(https://ucarecdn.com/eea63b9c-0ca6-48ec-9ed4-90def8f09ef6/-/progressive/yes/-/scale_crop/1800x600/) center center no-repeat;
@@ -229,6 +229,7 @@
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/600x800/center/-/blur/45/) center center no-repeat !important;
 			    background-size: 100%;
 			    	@endif
+		    	@elseif($pass->template_number == 2)
 		    	@else
 		    		background: url(https://ucarecdn.com/eea63b9c-0ca6-48ec-9ed4-90def8f09ef6/-/progressive/yes/-/scale_crop/1800x600/) center center no-repeat;
 				    background-size: cover;

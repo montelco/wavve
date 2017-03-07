@@ -15,7 +15,7 @@
     new Vue({
         el: '#passEditor',
         data: {
-            oneTimeRedemption: '',
+            oneTimeRedemption: false,
             passTitle: '',
             passExpiry: '',
             passPrimary: '',
@@ -42,7 +42,7 @@
                         'barcode_value': this.passBarcode,
                         'coupon_full_background_image': $.uploadedURL,
                         'design_number': '1',
-                        'one_time_redemption': this.oneTimeRedemption
+                        'one_time_redemption': this.oneTimeRedemption ? 1 : 0
                     }
                 }).success(function () {
                     uploadcare.Widget('#file-uploader').value(null);

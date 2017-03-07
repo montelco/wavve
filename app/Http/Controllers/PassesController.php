@@ -8,6 +8,7 @@ use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\Visitor;
 use Wavvve\iOS_Pass;
+use Wavvve\Redemption;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
 use Passbook\Pass\Beacon;
@@ -91,6 +92,7 @@ class PassesController extends Controller
             'strip_background_image' => $request->strip_background_image,
             'coupon_full_background_image' => $request->coupon_full_background_image,
             'expiry' => $request->expiry,
+            'one_time_redemption' => (boolean) $request->one_time_redemption,
             'uuid' => str_random(7),
         ]);
 
@@ -132,6 +134,23 @@ class PassesController extends Controller
         } else {
             return redirect()->route('dashboard');
         }
+    }
+
+    public function setCookie(Request $request)
+    {
+        if(!isset($_COOKIE['redeemed'])){
+            $redemption_id = str_random(128);
+            setcookie('redeemed', $redemption_id, time() + 43200);
+            Redemption::create([
+                'redemption_id' => $redemption_id,
+                'visitor_cookie_id' => $request->wid,
+                'passes_uuid' => $request->passes_uuid,
+            ]);
+            return response(null,201);
+        } else {
+            return response(null,204);
+        }
+        
     }
 
     public function getPublish($id)

@@ -38,6 +38,8 @@ Route::get('{account_id}/{beacon_id}/{lat},{lon}/payload.json', 'PublicAcessCont
 
 Route::get('/{user_id}/{hardware_id}/{lat},{lon}/payload.json', 'PublicAcessController@fetchBeaconPayload');
 
+Route::post('/redeem', 'PassesController@setCookie');
+
 /*
  *	Passes Router
  */

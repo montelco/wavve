@@ -19,12 +19,17 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ URL::to('/css/font.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('/css/one-time.css') }}">
     <link rel="stylesheet" href="{{ URL::to('/css/nav.css') }}">
     <link rel="stylesheet" href="{{ URL::to('/css/quick-links.css') }}">
     <link href="{{ URL::to('/css/sb-admin.css') }}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="{{ URL::to('/css/plugins/morris.css') }}" rel="stylesheet">
+
+    <!-- CSS Toggle Switch-->
+    <link href="{{ URL::to('/css/plugins/toggle-switch.css') }}" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <script src="https://use.fontawesome.com/334e9fc970.js"></script>

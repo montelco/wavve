@@ -8,12 +8,14 @@
 <script>
     var widget = uploadcare.Widget('[role=uploadcare-uploader]');
     widget.onUploadComplete(function(info) {
-        $.uploadedURL =  'https://ucarecdn.com/' + info.uuid + '/';
-        $('#passPreviewer').append( '<style>#strip-bg-image{background: url(' + $.uploadedURL + '-/scale_crop/1080x1920/center/-/blur/45/-/quality/lightest/-/progressive/yes/) center center no-repeat; background-size:100% !important;}</style>');
+        $.uploadedURL = info.cdnUrl;
+        console.log(info.cdnUrl);
+        $('#strip-bg-image').append( '<style>#strip-bg-image{background: url(' + $.uploadedURL + '-/scale_crop/1080x1920/center/-/blur/45/-/quality/lightest/-/progressive/yes/) center center no-repeat; background-size:100% !important;}</style>');
     });
-    var demo = new Vue({
+    new Vue({
       el: '#passEditor',
       data: {
+        oneTimeRedemption: false,
         passTitle : '',
         passPrimary : '',
         passBarcode : '',
@@ -39,7 +41,8 @@
                     'expiry': this.passExpiry,
                     'barcode_value' : this.passBarcode,
                     'cashier_helper' : this.passCashierHelper,
-                    'strip_background_image': $.uploadedURL,
+                    'one_time_redemption': this.oneTimeRedemption ? 1 : 0,
+                    'strip_background_image': $.uploadedURL
                 }
             }).success(function() {
                 $('#result').html('<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Updated ' + this.passTitle + ' in your pass collection.');

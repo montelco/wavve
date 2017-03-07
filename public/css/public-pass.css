@@ -1,0 +1,40 @@
+.redeem-button button {
+  background-color: #8AC7A4;
+  color: #fff;
+}
+
+.redeem-button button:hover {
+  background-color: #5D8E71;
+  color: #fff;
+}
+
+.promo-code {
+  bottom: 75px;
+  left: 50%;
+  margin-left: -50%;
+  position: absolute;
+  width: 100%;
+}
+
+.promo-code--stripe {
+  bottom: 40px;
+}
+
+.social-bugs {
+  padding-right: 10px;
+}
+
+.pass-title {
+  font-size: 28px;
+}
+
+@media only screen and (min-width: 375px) {
+
+  .pass-title {
+    font-size: 30px;
+  }
+}
+
+.expiry-container {
+  padding-right: 10px;
+}

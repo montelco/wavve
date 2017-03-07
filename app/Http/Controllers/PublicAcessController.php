@@ -6,6 +6,7 @@ use Carbon;
 use Wavvve\Pass;
 use Wavvve\iOS_Pass;
 use Wavvve\iOS_Device;
+use Wavvve\Redemption;
 use Illuminate\Http\Request;
 use Wavvve\iOS_Registration;
 use Illuminate\Http\Response;

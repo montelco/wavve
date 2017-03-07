@@ -14,7 +14,7 @@ class AddPassesUuidColumnToRedemptionsTable extends Migration
     public function up()
     {
         Schema::table('redemptions', function (Blueprint $table) {
-            $table->string('passes_uuid',7)->index();
+            $table->string('passes_uuid', 7)->index();
         });
     }
 

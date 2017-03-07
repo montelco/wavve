@@ -3,17 +3,16 @@
 namespace Wavvve;
 
 use Illuminate\Database\Eloquent\Model;
-use Wavvve\Redemption;
 
 class Pass extends Model
 {
     protected $table = 'passes';
     protected $guarded = 'id';
     protected $fillable = [
-        'header_foreground_image', 'header_background_image', 'title', 'expiry', 'strip_background_image', 'primary_field', 'secondary_field', 'coupon_full_background_image', 'barcode_value', 'cashier_helper', 'uuid', 'template_number', 'theme', 'published','one_time_redemption'
+        'header_foreground_image', 'header_background_image', 'title', 'expiry', 'strip_background_image', 'primary_field', 'secondary_field', 'coupon_full_background_image', 'barcode_value', 'cashier_helper', 'uuid', 'template_number', 'theme', 'published', 'one_time_redemption',
     ];
     protected $appends = [
-        'FriendlyTime','CantRedeem'
+        'FriendlyTime', 'CantRedeem',
     ];
 
     public function user()
@@ -33,8 +32,8 @@ class Pass extends Model
 
     public function getCantRedeemAttribute()
     {
-        if(isset($_COOKIE['redeemed'])) {
-            if(Redemption::where('redemption_id', $_COOKIE['redeemed'])->where('passes_uuid', $this->uuid)->exists()){
+        if (isset($_COOKIE['redeemed'])) {
+            if (Redemption::where('redemption_id', $_COOKIE['redeemed'])->where('passes_uuid', $this->uuid)->exists()) {
                 return true;
             } else {
                 return false;

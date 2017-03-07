@@ -8,7 +8,7 @@ class Redemption extends Model
 {
     protected $guarded = 'id';
     protected $fillable = [
-        'visitor_cookie_id','redemption_id','passes_uuid'
+        'visitor_cookie_id', 'redemption_id', 'passes_uuid',
     ];
 
     public function pass()

@@ -194,7 +194,7 @@ class PublicAcessController extends Controller
             return abort('500');
         } else {
             if ($customerPass->published <= $currentTime) {
-                switch ($customerPass['template_number']) {
+                switch ($customerPass->template_number) {
                     case 1:
                         return view('pub.pass_pub_template_one')->with('pass', $customerPass);
                         break;

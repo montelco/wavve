@@ -174,6 +174,8 @@
 					@if($pass->template_number == 3)
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/) center center no-repeat !important;
 			    background-size: 100%;
+			    	@elseif($pass->template_number == 2)
+		    	background: #1a2128;
 			    	@else
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/-/blur/45/) center center fixed no-repeat;
 			    background-size: cover;

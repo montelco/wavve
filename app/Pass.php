@@ -25,6 +25,11 @@ class Pass extends Model
         return $this->hasMany('Wavvve\Visitor', 'passes_uuid', 'uuid')->select(['passes_uuid', 'visitor_cookie', 'created_at', 'updated_at']);
     }
 
+    public function redemptions()
+    {
+        return $this->hasMany('Wavvve\Redemption', 'passes_uuid', 'uuid')->select(['passes_uuid', 'redemption_id', 'created_at', 'updated_at']);
+    }
+
     public function getFriendlyTimeAttribute()
     {
         return $this->updated_at->diffForHumans();

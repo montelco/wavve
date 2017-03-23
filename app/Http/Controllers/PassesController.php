@@ -10,7 +10,6 @@ use Wavvve\User;
 use Wavvve\Visitor;
 use Wavvve\iOS_Pass;
 use Wavvve\Redemption;
-use Wavvve\Beacon as BeaconDB;
 use Passbook\Pass\Field;
 use Passbook\Pass\Image;
 use Passbook\Pass\Beacon;
@@ -43,7 +42,8 @@ class PassesController extends Controller
                     'morrisData' => $this->displayAreaChart(),
                     'recent' => $this->displayRecentActivity(),
                     'totals' => $this->displayTotalsforPasses(), 
-                    'registrations' => $this->displayIosRegistrations()]);
+                    'registrations' => $this->displayIosRegistrations(),
+                    'redemptions' => $this->displayRedemptions()]);
     }
 
     public function index(Pass $pass)
@@ -189,6 +189,11 @@ class PassesController extends Controller
         return Pass::where('user_id', Auth::user()->id)->withCount(['visitors' => function ($query) {
             $query->where('created_at', '<=', Carbon\Carbon::now())->where('created_at', '>=', Carbon\Carbon::now()->subHours(24));
         }])->get()->sum('visitors_count');
+    }
+
+    public function displayRedemptions()
+    {
+        return Pass::whereHas('redemptions')->where('user_id','1')->count();
     }
 
     public function displayAreaChart()

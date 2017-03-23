@@ -140,7 +140,22 @@
                     @endif
                 </div>
             </div>
-        </div>
+    </div>
+    <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Offer Redemptions</h3>
+                </div>
+                <div class="panel-body">
+                    @if(isset($redemptions))
+                        <p class="huge-centered">{{ $redemptions }}</p>
+                    @else
+                        <p class="huge-centered">0</p>
+                    @endif
+                </div>
+            </div>
+    </div>
+
 </div>
 <!-- /.row -->
 <!-- Morris Charts JavaScript -->

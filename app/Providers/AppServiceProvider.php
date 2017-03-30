@@ -2,9 +2,16 @@
 
 namespace Wavvve\Providers;
 
+use Mail;
+
+use Wavvve\User;
 use Psr\Log\LoggerInterface;
+use Wavvve\Events\UserRegistered;
+use Wavvve\Mail\SendActivationToken;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\ServiceProvider;
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +22,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        User::created(function ($user) {
+            $token = $user->activationToken()->create([
+                'token' => str_random(127),
+            ]);
+
+            event(new UserRegistered($user));
+
+            
+        });
     }
 
     /**

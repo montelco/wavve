@@ -21,7 +21,7 @@ class SamplePass extends Seeder
             'barcode_value' => '',
             'cashier_helper' => 'Please enter pass through Square.',
             'published' => '1', 
-            'strip_background_image' => '$request->strip_background_image',
+            'strip_background_image' => '',
             'coupon_full_background_image' => 'https://ucarecdn.com/a9537dc6-a822-4d01-8f97-ae62133f96c7/-/crop/2178x2900/858,955/-/preview/',
             'expiry' => '',
             'uuid' => str_random(7),

@@ -12,12 +12,17 @@ class User extends Authenticatable
     use Billable;
 
     protected $fillable = [
-        'name', 'email', 'password', 'profile_pic', 'apple_auth', 'last_logged_in',
+        'name', 'email', 'password', 'profile_pic', 'apple_auth', 'last_logged_in', 'active'
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function byEmail($email)
+    {
+        return static::where('email', $email);
+    }
 
     public function beacons()
     {
@@ -38,5 +43,10 @@ class User extends Authenticatable
             'passes_uuid',
             'id'
         );
+    }
+
+    public function activationToken()
+    {
+        return $this->hasOne(ActivationToken::class);
     }
 }

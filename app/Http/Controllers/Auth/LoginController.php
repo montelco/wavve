@@ -3,6 +3,7 @@
 namespace Wavvve\Http\Controllers\Auth;
 
 use Carbon\Carbon;
+use Auth;
 use Illuminate\Http\Request;
 use Wavvve\Jobs\Users\UserTracking;
 use Wavvve\Http\Controllers\Controller;
@@ -49,10 +50,15 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if (! $user->subscribed) {
-            return redirect('/plan')->withError('Please pick a subscription plan to continue.');
+        if (! $user->active) {
+            Auth::logout();
+            return redirect('/login')->withError('Please activate your account to continue. <a href="' . route('auth.activate.resend') . '?email=' . $user->email . '">Resend Email</a>');
         } else {
-            $this->dispatch(new UserTracking($user, Carbon::now()));
+            if (! $user->subscribed) {
+                return redirect('/plan')->withError('Please pick a subscription plan to continue.');
+            } else {
+                $this->dispatch(new UserTracking($user, Carbon::now()));
+            }
         }
     }
 }

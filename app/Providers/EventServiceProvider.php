@@ -13,8 +13,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Wavvve\Events\SomeEvent' => [
-            'Wavvve\Listeners\EventListener',
+        'Wavvve\Events\UserRegistered' => [
+            'Wavvve\Listeners\SendActivationEmail',
+        ],
+        'Wavvve\Events\UserRequestedActivationEmail' => [
+            'Wavvve\Listeners\SendActivationEmail',
         ],
     ];
 

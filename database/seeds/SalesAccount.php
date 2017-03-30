@@ -18,6 +18,7 @@ class SalesAccount extends Seeder
             'subscribed' => '1',
             'name' => 'Churchill Coffee',
             'username' => 'churchill-coffee',
+            'active' => '1',
         ]);
     }
 }

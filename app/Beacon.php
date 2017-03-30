@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Beacon extends Model
 {
     protected $fillable = [
-        'user_id', 'uuid', 'hardware_address', 'lon', 'lat', 'nickname', 'software', 'hardware',
+        'user_id', 'uuid', 'pw_url', 'hardware_address', 'lon', 'lat', 'nickname', 'software', 'hardware',
     ];
 
     protected $appends = [

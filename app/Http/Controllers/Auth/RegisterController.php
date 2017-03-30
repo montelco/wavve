@@ -2,7 +2,9 @@
 
 namespace Wavvve\Http\Controllers\Auth;
 
+use Auth;
 use Wavvve\User;
+use Illuminate\Http\Request;
 use Wavvve\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -67,6 +69,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'apple_auth' => str_random(60),
+            'active' => false,
         ]);
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        Auth::logout();
+
+        return redirect('/login')->withInfo('Please check your email to activate your account.');
     }
 }

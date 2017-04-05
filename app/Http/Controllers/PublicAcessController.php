@@ -212,7 +212,7 @@ class PublicAcessController extends Controller
 
     public function pubAccessCFA()
     {
-        $customerPass = Pass::where('user_id', 1)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()['uuid'];
+        $customerPass = Pass::where('user_id', 8)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()['uuid'];
         if ($customerPass === null) {
             return abort('500');
         } else {

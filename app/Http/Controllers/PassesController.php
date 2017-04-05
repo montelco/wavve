@@ -168,6 +168,11 @@ class PassesController extends Controller
         return Pass::where('user_id', Auth::user()->id)->withCount('visitors')->get()->sortByDesc('visitors_count')->take(5);
     }
 
+    public function displayIosRegistrations()
+    {
+        return iOS_Registration::where('ios_passes_serial', Auth::user()->username)->count();
+    }
+
     public function displayTwentyFourHourActivity()
     {
         return Pass::where('user_id', Auth::user()->id)->withCount(['visitors' => function ($query) {
@@ -175,6 +180,11 @@ class PassesController extends Controller
         }])->get()->sum('visitors_count');
     }
 
+    public function displayRedemptions()
+    {
+        return Pass::whereHas('redemptions')->where('user_id','1')->count();
+    }
+ 
     public function displayAreaChart()
     {
         return Visitor::all()->where('passes.user_id', Auth::user()->id)->sortByDesc('created_at')->groupBy(function ($query) {
@@ -183,6 +193,7 @@ class PassesController extends Controller
             return ['views' => $total->count(), 'period' => Carbon\Carbon::parse($total['0']->created_at)->format('Y-m-d')];
         });
     }
+
 
     public function setPublish(Request $request, $id)
     {

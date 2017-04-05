@@ -114,21 +114,45 @@
             @endif
             </div>
         </div>
-    </div>
-    <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-users fa-fw"></i> 24 Hr. Visitor Preview</h3>
-                </div>
-                <div class="panel-body">
-                    @if(isset($visitors))
-                        <p class="huge-centered">{{ $visitors }}</p>
-                    @else
-                        <p class="huge-centered">0</p>
-                    @endif
-                </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-users fa-fw"></i> 24 Hr. Visitor Preview</h3>
+            </div>
+            <div class="panel-body">
+                @if(isset($visitors))
+                    <p class="huge-centered">{{ $visitors }}</p>
+                @else
+                    <p class="huge-centered">0</p>
+                @endif
             </div>
         </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-mobile fa-fw"></i> Apple Wallet Registrations</h3>
+            </div>
+            <div class="panel-body">
+                @if(isset($registrations))
+                    <p class="huge-centered">{{ $registrations }}</p>
+                @else
+                    <p class="huge-centered">0</p>
+                @endif
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Offer Redemptions</h3>
+            </div>
+            <div class="panel-body">
+                @if(isset($redemptions))
+                    <p class="huge-centered">{{ $redemptions }}</p>
+                @else
+                    <p class="huge-centered">0</p>
+                @endif
+            </div>
+        </div>
+    </div>
 </div>
 <!-- /.row -->
 <!-- Morris Charts JavaScript -->

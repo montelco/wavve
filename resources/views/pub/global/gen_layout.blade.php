@@ -67,7 +67,7 @@
 				margin-left: auto;
 				margin-right: auto;
 				margin-top: 4vh;
-				text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+				text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.45);
 				-webkit-border-radius: 5px;
 				-moz-border-radius: 5px;
 				border-radius: 5px;
@@ -85,7 +85,8 @@
 			}
 			p.field{
 				color: white;
-				font-size: 0.8em;
+				font-size: 1em;
+				font-weight: 400;
 			}
 		}
 		@media(max-width: 767px){
@@ -175,7 +176,7 @@
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/) center center no-repeat !important;
 			    background-size: 100%;
 			    	@elseif($pass->template_number == 2)
-		    	background: #1a2128;
+		    			background: #1a2128;
 			    	@else
 			    background: url({{$pass->coupon_full_background_image}}-/progressive/yes/-/scale_crop/1200x1600/center/-/blur/45/) center center fixed no-repeat;
 			    background-size: cover;
@@ -249,6 +250,7 @@
 				position: absolute;
 				right: 0.15em;
 				bottom: 0;
+				text-align: right;
 			}
 		}
 	</style>

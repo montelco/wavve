@@ -120,4 +120,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 });
 
+Route::get('/cfa-adb', ['uses' => 'PublicAcessController@pubAccessCFA']);
+
 Route::get('/{uuid}', ['uses' => 'PublicAcessController@pubAccess']);

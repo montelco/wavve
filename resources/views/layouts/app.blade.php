@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#415d6c">
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="512x512">
     <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#518089">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">

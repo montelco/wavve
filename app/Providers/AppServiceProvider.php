@@ -3,7 +3,6 @@
 namespace Wavvve\Providers;
 
 use Mail;
-
 use Wavvve\User;
 use Psr\Log\LoggerInterface;
 use Wavvve\Events\UserRegistered;
@@ -27,9 +26,17 @@ class AppServiceProvider extends ServiceProvider
                 'token' => str_random(127),
             ]);
 
-            event(new UserRegistered($user));
+            $samplePass = $user->passes()->create([
+                'title' => 'Test Pass (Delete Me)',
+                'template_number' => '1',
+                'primary_field' => 'Delete me after your first login.',
+                'secondary_field' => 'This is just a demo pass.',
+                'cashier_helper' => 'This is cashier helper text so they know what to do with this pass.',
+                'one_time_redemption' => true,
+                'uuid' => str_random(7),
+            ]);
 
-            
+            event(new UserRegistered($user));
         });
     }
 

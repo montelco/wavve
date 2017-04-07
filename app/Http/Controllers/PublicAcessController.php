@@ -220,6 +220,16 @@ class PublicAcessController extends Controller
         }
     }
 
+    public function pubAccessRowan()
+    {
+        $customerPass = Pass::where('user_id', 1)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()['uuid'];
+        if ($customerPass === null) {
+            return abort('500');
+        } else {
+            return redirect('/' . $customerPass);
+        }
+    }
+
     public function setFlowCookie()
     {
     }

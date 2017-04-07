@@ -18,6 +18,7 @@ class PublishPass implements ShouldQueue
     public $timeout = 60;
 
     public $pass;
+    public $id;
 
     /**
      * Create a new job instance.

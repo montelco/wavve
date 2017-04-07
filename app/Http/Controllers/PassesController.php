@@ -208,8 +208,8 @@ class PassesController extends Controller
     public function setPublish(Request $request, $id)
     {
         if (isset($request->from) && isset($request->until)) {
-            $this->dispatch((new PublishPass($id))->delay($request->from));
-            $this->dispatch((new UnpublishPass($id))->delay($request->until));
+            $this->dispatch((new PublishPass($id))->delay(Carbon\Carbon::now('America/New_York')->diffInMinutes(new Carbon\Carbon($request->from, 'America/New_York'))));
+            $this->dispatch((new UnpublishPass($id))->delay(Carbon\Carbon::now('America/New_York')->diffInMinutes(new Carbon\Carbon($request->until, 'America/New_York'))));
             return response(null, 204);
         } else {
             Pass::where('id', $id)->update(['published' => $request->published]);

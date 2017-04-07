@@ -2,6 +2,9 @@
 
 namespace Wavvve\Jobs\Passes;
 
+use Wavvve\User;
+use Wavvve\Pass;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -14,6 +17,7 @@ class UnpublishPass implements ShouldQueue
     public $timeout = 60;
 
     public $pass;
+    public $id;
 
     /**
      * Create a new job instance.

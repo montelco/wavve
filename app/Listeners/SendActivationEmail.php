@@ -4,8 +4,6 @@ namespace Wavvve\Listeners;
 
 use Mail;
 use Wavvve\Mail\SendActivationToken;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendActivationEmail
 {

@@ -22,8 +22,8 @@ class PublicAcessController extends Controller
      * This method is called by remote beacon devices to request their payload. This is used by any device which requires an active internet connection when additional features are added to it (eg: proximity, weather, etc).
      * @param  int    $user_id     Unique ID of the user object.
      * @param  string $hardware_id The UUID4 value of the broadcast from the device.
-     * @param  double $lat         Latitude location in decimal notation.
-     * @param  double $lon         Longitude location in decimal notation.
+     * @param  float $lat         Latitude location in decimal notation.
+     * @param  float $lon         Longitude location in decimal notation.
      * @return JSON Object         Payload is returned to the device in a JSON format.
      */
     public function fetchBeaconPayload($user_id, $hardware_id, $lat, $lon)
@@ -38,7 +38,6 @@ class PublicAcessController extends Controller
         } else {
             return response('Unauthorized', 401);
         }
-        
     }
 
     /**

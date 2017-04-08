@@ -28,7 +28,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/activate/token/{token}', 'Auth\ActivationController@activate')->name('auth.activate');
 Route::get('/activate/resend', 'Auth\ActivationController@resend')->name('auth.activate.resend');
 
-
 Route::get('/why-us', function () {
     return view('why');
 });

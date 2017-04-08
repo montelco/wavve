@@ -2,8 +2,8 @@
 
 namespace Wavvve\Http\Controllers\Auth;
 
-use Carbon\Carbon;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Wavvve\Jobs\Users\UserTracking;
 use Wavvve\Http\Controllers\Controller;
@@ -52,7 +52,8 @@ class LoginController extends Controller
     {
         if (! $user->active) {
             Auth::logout();
-            return redirect('/login')->withError('Please activate your account to continue. <a href="' . route('auth.activate.resend') . '?email=' . $user->email . '">Resend Email</a>');
+
+            return redirect('/login')->withError('Please activate your account to continue. <a href="'.route('auth.activate.resend').'?email='.$user->email.'">Resend Email</a>');
         } else {
             if (! $user->subscribed) {
                 return redirect('/plan')->withError('Please pick a subscription plan to continue.');

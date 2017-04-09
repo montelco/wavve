@@ -20,6 +20,14 @@
   bottom: 40px;
 }
 
+#bizname {
+  padding-top: 0.25em;
+  margin-left: 0.5em;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: white;
+}
+
 .social-bugs {
   padding-right: 10px;
 }

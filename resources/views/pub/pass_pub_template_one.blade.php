@@ -19,6 +19,7 @@
 @endsection
 @section('strip_pass_contents')
     <div id="public-pass">
+        <div class="row" id="bizname">{{$pass->user->name}}</div>
         <div class="row">
             <h2 class="pass-title"> {{$pass->title}} </h2>
         </div>

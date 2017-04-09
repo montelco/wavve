@@ -19,6 +19,7 @@
 @endsection
 @section('strip_pass_contents')
     <div id="public-pass">
+        <div class="row" id="bizname"> {{$pass->user->name}} </div>
         <h1 class="d2"> {{$pass->title}} </h1>
         @if(isset($pass->expiry) && $pass->expiry != '0000-00-00 00:00:00')
             <p class="expiry">

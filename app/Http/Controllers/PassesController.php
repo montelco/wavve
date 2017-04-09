@@ -94,7 +94,7 @@ class PassesController extends Controller
             'template_number' => $request->design_number,
             'primary_field' => $request->primary_field,
             'secondary_field' => $request->secondary_field,
-            'barcode_value' => $request->barcode_value,
+            'offer_code' => $request->barcode_value,
             'cashier_helper' => $request->cashier_helper,
             'strip_background_image' => $request->strip_background_image,
             'coupon_full_background_image' => $request->coupon_full_background_image,
@@ -208,8 +208,8 @@ class PassesController extends Controller
     public function setPublish(Request $request, $id)
     {
         if (isset($request->from) && isset($request->until)) {
-            $this->dispatch((new PublishPass($id))->delay(Carbon\Carbon::now('America/New_York')->diffInMinutes(new Carbon\Carbon($request->from, 'America/New_York'))));
-            $this->dispatch((new UnpublishPass($id))->delay(Carbon\Carbon::now('America/New_York')->diffInMinutes(new Carbon\Carbon($request->until, 'America/New_York'))));
+            $this->dispatch((new PublishPass($id))->delay(Carbon\Carbon::now('America/New_York')->diffInSeconds(new Carbon\Carbon($request->from, 'America/New_York'))));
+            $this->dispatch((new UnpublishPass($id))->delay(Carbon\Carbon::now('America/New_York')->diffInSeconds(new Carbon\Carbon($request->until, 'America/New_York'))));
             return response(null, 204);
         } else {
             Pass::where('id', $id)->update(['published' => $request->published]);

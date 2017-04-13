@@ -1,40 +1,150 @@
-.redeem-button button {
-  background-color: #8AC7A4;
-  color: #fff;
+.expiry {
+  text-align: right;
 }
 
-.redeem-button button:hover {
-  background-color: #5D8E71;
-  color: #fff;
+.expiry-modal {
+  color: #a94442;
 }
 
-.promo-code {
-  bottom: 75px;
-  left: 50%;
-  margin-left: -50%;
+.expiry-strip {
+  padding: 2%;
+}
+
+#mainLayout {
+  position: relative;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.modal-footer {
+  font-size: 90%;
+}
+
+.modal-heading {
+  font-size: 130%;
+  font-weight: 300;
+}
+
+.modal-warning {
+  background-color: #FCF8E3;
+  border: 1px solid #faebcc;
+  border-radius: 4px;
+  color: #8a6d3b;
+  padding: 5%;
+}
+
+.modal-wrapper {
+  max-height: 450px;
+  max-width: 350px;
+}
+
+.pass-bottom {
+  align-items: flex-start;
+  bottom: 1%;
+  display: flex;
+  justify-content: space-between;
   position: absolute;
   width: 100%;
 }
 
-.promo-code--stripe {
-  bottom: 40px;
+.pass-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 3% auto 0;
+  width: 95%;
 }
 
-.social-bugs {
-  padding-right: 10px;
+.pass-details-strip {
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.pass-text {
+  color: #fff;
+  font-size: 75%;
+  margin: 0;
+  padding: 3% 2%
 }
 
 .pass-title {
-  font-size: 28px;
+  color: #fff;
+  font-size: 175%;
+  font-weight: 200;
 }
 
-@media only screen and (min-width: 375px) {
+.pass-title-modal {
+  color: #26a69a;
+  font-size: 120%;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.pass-strip-image {
+  min-height: 30%;
+}
+
+.promo-code {
+  background-color: #222;
+  border: dashed 2px #bbb;
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 700;
+  opacity: .5;
+  padding: 2%;
+}
+
+.promo-code-modal {
+  border: 1px solid #222;
+}
+
+.redeem-button {
+  margin-top: 30%;
+}
+
+.social-bugs {
+  margin-right: 5%;
+}
+
+.watermark {
+   color: #fff;
+   font-size: 60%;
+   margin: 0;
+   text-align: right;
+ }
+
+.watermark-image-only {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+}
+
+@media only screen and (min-width: 360px) {
+
+  .pass-text {
+    font-size: 100%;
+  }
 
   .pass-title {
-    font-size: 30px;
+    font-size: 225%;
   }
 }
 
-.expiry-container {
-  padding-right: 10px;
+@media only screen and (min-width: 768px) {
+
+  .pass-text {
+    font-size: 100%;
+  }
+
+  .pass-title {
+    font-size: 220%;
+  }
+
+  .redeem-button {
+    margin-top: 20%;
+  }
 }

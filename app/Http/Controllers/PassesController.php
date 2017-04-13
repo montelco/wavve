@@ -4,7 +4,6 @@ namespace Wavvve\Http\Controllers;
 
 use Auth;
 use Carbon;
-use DateTime;
 use Wavvve\Pass;
 use Wavvve\User;
 use Wavvve\Visitor;
@@ -41,9 +40,9 @@ class PassesController extends Controller
             ->with(['visitors' => $this->displayTwentyFourHourActivity(),
                     'morrisData' => $this->displayAreaChart(),
                     'recent' => $this->displayRecentActivity(),
-                    'totals' => $this->displayTotalsforPasses(), 
+                    'totals' => $this->displayTotalsforPasses(),
                     'registrations' => $this->displayIosRegistrations(),
-                    'redemptions' => $this->displayRedemptions()]);
+                    'redemptions' => $this->displayRedemptions(), ]);
     }
 
     public function index(Pass $pass)
@@ -193,7 +192,7 @@ class PassesController extends Controller
 
     public function displayRedemptions()
     {
-        return Pass::whereHas('redemptions')->where('user_id','1')->count();
+        return Pass::whereHas('redemptions')->where('user_id', '1')->count();
     }
 
     public function displayAreaChart()
@@ -214,6 +213,7 @@ class PassesController extends Controller
         } else {
             Pass::where('id', $id)->update(['published' => $request->published]);
             $this->getWalletCompiledPass(Auth::user()->username);
+
             return response(null, 204);
             // return $this->dispatch(new ApplePushNotificationService(Auth::user()->username));
         }

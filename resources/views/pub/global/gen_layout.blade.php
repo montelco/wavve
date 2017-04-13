@@ -9,7 +9,7 @@
 <head>
 	<title>@yield('title')</title>
 	<meta name="description" content=@yield('meta_description')/>
-	
+
 	<link rel="manifest" href="manifest.json">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,18 +24,19 @@
     <link rel="stylesheet" href="{{ URL::to('/css/lato.css') }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ URL::to('/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ URL::to('/materialize/css/materialize.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::to('/css/public-pass.css') }}">
 </head>
 <body>
 	<script src="{{ URL::to('/js/jquery-latest.min.js') }}"></script>
 	<script src="{{ URL::to('/js/jquery-barcode.js') }}"></script>
+	<script src="{{ URL::to('/materialize/js/materialize.min.js') }}"></script>
 	<script>
     	function generateBarcode(){
-        var value = @yield('barcode_value')
+        {{--var value = @yield('barcode_value')--}}
         var btype = "datamatrix";
         var renderer = "svg";
-        
+
     var quietZone = false;
         var settings = {
           output:renderer,
@@ -48,20 +49,15 @@
           posY: "0",
           addQuietZone: true
         };
-          value = {code:value, rect: false};
-          $("#bcRender").html("").show().barcode(value, btype, settings);
+//          value = {code:value, rect: false};
+//         $("#bcRender").html("").show().barcode(value, btype, settings);
       }
-      
+
       $(function(){
         generateBarcode();
       });
 	</script>
 	<style>
-		p{
-			padding-left: 1vw;
-			padding-right: 1vw;
-		}
-
 		@media(min-width: 768px){
 			#mainLayout{
 				margin-left: auto;
@@ -106,44 +102,10 @@
 				color: white;
 				font-size: 1.1em;
 			}
-			.watermark{
-				font-size: 0.6em;
-				color: white;
-				text-align: right;
-			}
-			.social-bugs{
-				float: right;
-				position: absolute;
-				right: 0.15em;
-				bottom: 0;
-
-			}
-		}
-		h1,h2,h3{
-			color: @yield('header-colour') !important;
-			text-align: center;
-		}
-		p{
-			padding-top: 0.5em;
-			font-size: 1.1em;
-		}
-		.expiry{
-			color: @yield('accent-colour');
-		}
-		#bcRender{
-			margin-left: auto;
-			margin-right: auto;
-		}
-		#helper-text{
-			text-align: center;
-			margin-left: auto;
-			margin-right: auto;
-			color: white !important;
-			font-size: 0.8em !important;
 		}
 
 		@if($pass->template_number == 2)
-			.strip_bg{
+			.strip_bg {
 				@if(isset($pass->strip_background_image))
 				    background: url({{$pass->strip_background_image}}-/progressive/yes/) center center no-repeat;
 				    background-size: cover;
@@ -153,14 +115,8 @@
 			    @endif
 			}
 		@endif
-		.secondary, .expiry{
-			text-align: right;
-		}
 
-		.expiry{
-			padding-right: 1em;
-		}
-		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){ 
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
 		   #mainLayout{
 			    height: 100%;
 			    transition: all 0.5s ease;
@@ -185,7 +141,6 @@
 				    background-size: cover;
 			    @endif
 			    font-weight: 400;
-			    padding-bottom: 100px;
 			}
 		}
 		@media(max-width: 767px){
@@ -208,13 +163,9 @@
 			    @endif
 			    @endif
 			    font-weight: 400;
-			    padding-bottom: 100px;
 			}
 		}
 		@media(min-width: 768px){
-			.row{
-				position: relative;
-			}
 			#mainLayout{
 				position: relative;
 			    height: 100%;
@@ -238,18 +189,6 @@
 			    @endif
 			    font-weight: 400;
 			}
-			.watermark{
-				font-size: 0.6em;
-				color: white;
-				text-align: right;
-			}
-
-			.social-bugs{
-				float: right;
-				position: absolute;
-				right: 0.15em;
-				bottom: 0;
-			}
 		}
 	</style>
 	<div id="mainLayout">
@@ -259,7 +198,7 @@
 		use Wavvve\Visitor;
 		if(isset($_COOKIE['wid'])) {
 			return Visitor::create(['passes_uuid' => $pass->uuid, 'visitor_cookie' => $_COOKIE['wid']]);
-		} 
+		}
 	?>
 </body>
 </html>

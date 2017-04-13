@@ -14,7 +14,7 @@ class ActivationController extends Controller
     public function activate(ActivationToken $token)
     {
         $token->user()->update([
-            'active' => true
+            'active' => true,
         ]);
 
         $token->delete();

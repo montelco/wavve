@@ -3,7 +3,6 @@
 namespace Wavvve;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Beacon extends Model
 {
@@ -22,6 +21,6 @@ class Beacon extends Model
 
     public function getTerminalUuidAttribute()
     {
-        return strtoupper(rtrim(chunk_split(str_replace('-','',$this->uuid),2,' '),' '));
+        return strtoupper(rtrim(chunk_split(str_replace('-', '', $this->uuid), 2, ' '), ' '));
     }
 }

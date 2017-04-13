@@ -6,11 +6,8 @@ use Mail;
 use Wavvve\User;
 use Psr\Log\LoggerInterface;
 use Wavvve\Events\UserRegistered;
-use Wavvve\Mail\SendActivationToken;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\ServiceProvider;
-
-
 
 class AppServiceProvider extends ServiceProvider
 {

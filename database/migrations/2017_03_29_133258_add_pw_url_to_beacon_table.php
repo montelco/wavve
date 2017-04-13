@@ -27,6 +27,6 @@ class AddPwUrlToBeaconTable extends Migration
     {
         Schema::table('beacons', function (Blueprint $table) {
             $table->dropColumn('pw_url');
-        }); 
+        });
     }
 }

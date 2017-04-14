@@ -129,7 +129,7 @@
                         }
                     }).complete(function () {
                         $('.redeem-button').html('<button class="btn btn-lg" disabled>Already Redeemed</button>');
-                        Materialize.toast('Offer redeemed', 4000);
+                        Materialize.toast('Offer Redeemed', 4000);
                     });
                 }
             },

@@ -2,7 +2,6 @@
 
 namespace Wavvve\Providers;
 
-use Mail;
 use Wavvve\User;
 use Psr\Log\LoggerInterface;
 use Wavvve\Events\UserRegistered;

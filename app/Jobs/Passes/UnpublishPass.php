@@ -2,9 +2,7 @@
 
 namespace Wavvve\Jobs\Passes;
 
-use Wavvve\User;
 use Wavvve\Pass;
-use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;

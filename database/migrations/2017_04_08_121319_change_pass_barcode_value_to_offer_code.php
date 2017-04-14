@@ -13,7 +13,7 @@ class ChangePassBarcodeValueToOfferCode extends Migration
      */
     public function up()
     {
-        Schema::table('passes',  function (Blueprint $table) {
+        Schema::table('passes', function (Blueprint $table) {
             $table->dropColumn('barcode_value');
             $table->string('offer_code', 20)->nullable()->index();
         });

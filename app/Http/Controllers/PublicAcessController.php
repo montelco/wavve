@@ -229,6 +229,17 @@ class PublicAcessController extends Controller
             return redirect('/' . $customerPass);
         }
     }
+    
+    public function pubAccessRedirector($username)
+    {
+        $userID = User::where('username', $username)->firstOrFail()['id'];
+        $customerPass = Pass::where('user_id', $userID)->where('published', true)->orderBy('updated_at', 'desc')->firstOrFail()['uuid'];
+        if ($customerPass === null) {
+            return abort('500');
+        } else {
+            return redirect('/' . $customerPass);
+        }
+    }
 
     public function setFlowCookie()
     {

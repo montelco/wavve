@@ -4,6 +4,7 @@ namespace Wavvve\Http\Controllers;
 
 use Carbon;
 use Wavvve\Pass;
+use Wavvve\User;
 use Wavvve\iOS_Pass;
 use Wavvve\iOS_Device;
 use Illuminate\Http\Request;

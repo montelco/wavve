@@ -122,5 +122,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 Route::get('/cfa-adb', ['uses' => 'PublicAcessController@pubAccessCFA']);
 Route::get('/rowan-u', ['uses' => 'PublicAcessController@pubAccessRowan']);
+Route::get('/r/{username}', ['uses' => 'PublicAcessController@pubAccessRedirector']; 
 
 Route::get('/{uuid}', ['uses' => 'PublicAcessController@pubAccess']);
